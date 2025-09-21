@@ -1,15 +1,316 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr" data-theme="dim">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="./output.css" rel="stylesheet">
-    <title>Windows QCM</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>QCM – Cours 1</title>
+
+    <!-- Ton CSS compilé Tailwind + DaisyUI -->
+    <link href="./output.css" rel="stylesheet" />
+
+    <style>
+        /* Transition douce au changement de question */
+        .fade-enter {
+            opacity: 0;
+            transform: translateY(6px);
+        }
+
+        .fade-enter-active {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 180ms ease;
+        }
+
+        .fade-leave {
+            opacity: 1;
+        }
+
+        .fade-leave-active {
+            opacity: 0;
+            transform: translateY(-6px);
+            transition: all 160ms ease;
+        }
+    </style>
 </head>
 
-<body>
-    <button class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl">Responsive</button>
+<body class="min-h-screen bg-gray-900 text-gray-100">
+    <!-- Barre du haut -->
+    <div class="navbar bg-gray-800 shadow-md sticky top-0 z-10">
+        <div class="flex-1">
+            <a class="btn btn-ghost normal-case text-xl text-black-200">Cours 1</a>
+        </div>
+        <div class="flex-none gap-2">
+            <div class="badge badge-neutral" id="scoreBadge">Score: 0/0</div>
+        </div>
+    </div>
+
+    <!-- Contenu principal -->
+    <main class="container mx-auto px-4 py-6 max-w-3xl">
+        <div class="card bg-gray-800 shadow-lg">
+            <div class="card-body">
+                <div class="flex items-center justify-between gap-4">
+                    <h1 class="card-title text-gray-100">
+                        Question <span id="qIndex">1</span>/<span id="qTotal">0</span>
+                    </h1>
+                    <div class="text-sm opacity-70" id="timerBox" hidden>
+                        ⏱️ <span id="timer">00:00</span>
+                    </div>
+                </div>
+
+                <!-- progression -->
+                <progress id="progress" class="progress progress-neutral w-full" value="0" max="100"></progress>
+
+                <!-- zone question -->
+                <div id="questionWrap" class="mt-2"></div>
+
+                <!-- feedback -->
+                <div id="feedback" class="mt-2"></div>
+
+                <!-- actions -->
+                <div class="card-actions justify-between mt-4 items-center">
+                    <div class="flex space-x-2">
+                        <button id="prevBtn" class="btn btn-md btn-neutral" disabled>Précédent</button>
+                        <button id="nextBtn" class="btn btn-md btn-neutral" disabled>Suivant</button>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <button id="checkBtn" class="btn btn-neutral btn-md" disabled>Vérifier</button>
+                        <button id="submitBtn" class="btn btn-outline btn-md btn-neutral">Terminer</button>
+                        <button id="restartBtn" class="btn btn-accent btn-md btn-neutral" hidden>Recommencer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Résultats -->
+        <div id="resultCard" class="card bg-gray-800 shadow-lg mt-6 hidden">
+            <div class="card-body">
+                <h2 class="card-title text-gray-100">Résultats</h2>
+                <p id="resultText" class="text-lg"></p>
+                <div class="stats stats-vertical lg:stats-horizontal w-full mt-2">
+                    <div class="stat">
+                        <div class="stat-title text-gray-300">Score</div>
+                        <div class="stat-value text-primary" id="statScore">0%</div>
+                        <div class="stat-desc text-gray-400" id="statDetails">0/0 correct</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-title text-gray-300">Temps</div>
+                        <div class="stat-value text-secondary" id="statTime">00:00</div>
+                        <div class="stat-desc text-gray-400">Durée totale</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // ====== Chargement des questions ======
+        let QUESTIONS = [];
+
+        async function loadQuestions() {
+            const res = await fetch("./questions1.json", { cache: "no-store" });
+            if (!res.ok) throw new Error(`Impossible de charger questions.json (${res.status})`);
+            const data = await res.json();
+            if (!Array.isArray(data)) throw new Error("Le JSON doit être un tableau de questions.");
+            return data;
+        }
+
+        // ====== Etat ======
+        const state = { index: 0, answers: [], checked: [], startedAt: null, finishedAt: null };
+
+        // ====== Eléments ======
+        const qIndexEl = document.getElementById("qIndex");
+        const qTotalEl = document.getElementById("qTotal");
+        const progressEl = document.getElementById("progress");
+        const questionWrap = document.getElementById("questionWrap");
+        const feedbackEl = document.getElementById("feedback");
+        const prevBtn = document.getElementById("prevBtn");
+        const nextBtn = document.getElementById("nextBtn");
+        const checkBtn = document.getElementById("checkBtn");
+        const submitBtn = document.getElementById("submitBtn");
+        const restartBtn = document.getElementById("restartBtn");
+        const scoreBadge = document.getElementById("scoreBadge");
+        const resultCard = document.getElementById("resultCard");
+        const resultText = document.getElementById("resultText");
+        const statScore = document.getElementById("statScore");
+        const statDetails = document.getElementById("statDetails");
+        const statTime = document.getElementById("statTime");
+        const timerBox = document.getElementById("timerBox");
+        const timerEl = document.getElementById("timer");
+
+        // ====== Utils ======
+        const pad = (n) => n.toString().padStart(2, "0");
+        const fmtTime = (ms) => {
+            const s = Math.floor(ms / 1000);
+            const m = Math.floor(s / 60);
+            const r = s % 60;
+            return `${pad(m)}:${pad(r)}`;
+        };
+
+        function startTimer() {
+            state.startedAt = new Date();
+            timerBox.hidden = false;
+            const t = setInterval(() => {
+                if (state.finishedAt) { clearInterval(t); return; }
+                const elapsed = Date.now() - state.startedAt.getTime();
+                timerEl.textContent = fmtTime(elapsed);
+            }, 500);
+        }
+
+        function endTimer() {
+            state.finishedAt = new Date();
+            timerEl.textContent = fmtTime(state.finishedAt - state.startedAt);
+        }
+
+        function computeScore() {
+            let correct = 0;
+            QUESTIONS.forEach((q, i) => {
+                const answer = state.answers[i];
+                const opt = q.options.find((o) => o.id === answer);
+                if (opt?.correct) correct++;
+            });
+            return { correct, total: QUESTIONS.length };
+        }
+
+        function updateScoreBadge() {
+            const { correct, total } = computeScore();
+            scoreBadge.textContent = `Score: ${correct}/${total}`;
+        }
+
+        function updateProgress() {
+            const answered = state.answers.filter((a) => a !== null).length;
+            const percent = QUESTIONS.length ? Math.round((answered / QUESTIONS.length) * 100) : 0;
+            progressEl.value = percent;
+        }
+
+        function setButtons() {
+            prevBtn.disabled = state.index === 0;
+            const last = state.index === QUESTIONS.length - 1;
+            nextBtn.textContent = last ? "Dernière" : "Suivant";
+            nextBtn.disabled = state.answers[state.index] === null || last;
+            checkBtn.disabled = state.answers[state.index] === null || state.checked[state.index];
+        }
+
+        function renderQuestion() {
+            if (!QUESTIONS.length) return;
+            const q = QUESTIONS[state.index];
+            qIndexEl.textContent = state.index + 1;
+            const selected = state.answers[state.index];
+            const optionsHtml = q.options.map(opt => `
+              <label class="label rounded-xl cursor-pointer px-4 py-3 hover:bg-gray-700 border border-gray-600 bg-gray-800 gap-3">
+                <input
+                  type="radio"
+                  name="answer"
+                  class="radio radio-neutral accent-gray-600"
+                  value="${opt.id}"
+                  ${selected === opt.id ? "checked" : ""}
+                />
+                <span class="label-text">${opt.label}</span>
+              </label>
+            `).join("");
+
+            questionWrap.innerHTML = `
+          <div class="prose max-w-none text-gray-100">
+            <p class="text-lg">${q.text}</p>
+          </div>
+          <div class="form-control mt-3 space-y-2">${optionsHtml}</div>
+        `;
+            feedbackEl.innerHTML = "";
+            if (state.checked[state.index]) {
+                const chosen = q.options.find((o) => o.id === selected);
+                showFeedback(chosen?.correct, q.explanation);
+            }
+            questionWrap.querySelectorAll('input[name="answer"]').forEach(inp => {
+                inp.addEventListener("change", (e) => {
+                    state.answers[state.index] = e.target.value;
+                    setButtons();
+                    updateProgress();
+                });
+            });
+            setButtons();
+            updateScoreBadge();
+        }
+
+        function showFeedback(isCorrect, explanation) {
+            feedbackEl.innerHTML = `
+          <div class="alert ${isCorrect ? "alert-success" : "alert-error"}">
+            <span>${isCorrect ? "Bonne réponse ✅" : "Mauvaise réponse ❌"}</span>
+          </div>
+          ${explanation ? `<p class="mt-2 text-sm opacity-80">${explanation}</p>` : ""}
+        `;
+        }
+
+        // ====== Events ======
+        prevBtn.addEventListener("click", () => {
+            if (state.index > 0) { state.index--; renderQuestion(); }
+        });
+
+        nextBtn.addEventListener("click", () => {
+            if (state.index < QUESTIONS.length - 1 && state.answers[state.index] !== null) {
+                state.index++; renderQuestion();
+            }
+        });
+
+        checkBtn.addEventListener("click", () => {
+            const q = QUESTIONS[state.index];
+            const selected = state.answers[state.index];
+            if (selected === null) return;
+            const chosen = q.options.find((o) => o.id === selected);
+            state.checked[state.index] = true;
+            showFeedback(!!chosen?.correct, q.explanation);
+            updateScoreBadge();
+            setButtons();
+        });
+
+        submitBtn.addEventListener("click", () => {
+            endTimer();
+            const { correct, total } = computeScore();
+            const pct = Math.round((correct / total) * 100);
+            statScore.textContent = pct + "%";
+            statDetails.textContent = `${correct}/${total} correct`;
+            statTime.textContent = timerEl.textContent;
+            resultText.textContent = pct >= 80 ? "Excellent ! 🎉" : pct >= 50 ? "Pas mal, continuez ! 💪" : "À revoir 😉";
+            resultCard.classList.remove("hidden");
+            restartBtn.hidden = false;
+            submitBtn.disabled = true;
+            nextBtn.disabled = true;
+            prevBtn.disabled = true;
+            checkBtn.disabled = true;
+        });
+
+        restartBtn.addEventListener("click", () => {
+            state.index = 0;
+            state.answers = Array(QUESTIONS.length).fill(null);
+            state.checked = Array(QUESTIONS.length).fill(false);
+            state.finishedAt = null;
+            timerEl.textContent = "00:00";
+            resultCard.classList.add("hidden");
+            restartBtn.hidden = true;
+            submitBtn.disabled = false;
+            renderQuestion();
+            updateProgress();
+            startTimer();
+        });
+
+        // ====== Init ======
+        async function init() {
+            questionWrap.innerHTML = '<div class="skeleton h-24 w-full"></div>';
+            try {
+                QUESTIONS = await loadQuestions();
+                qTotalEl.textContent = QUESTIONS.length;
+                state.answers = Array(QUESTIONS.length).fill(null);
+                state.checked = Array(QUESTIONS.length).fill(false);
+                startTimer();
+                renderQuestion();
+                updateProgress();
+            } catch (err) {
+                questionWrap.innerHTML = `<div class="alert alert-error"><span>${err.message}</span></div>`;
+                prevBtn.disabled = true; nextBtn.disabled = true;
+                checkBtn.disabled = true; submitBtn.disabled = true;
+            }
+        }
+        init();
+    </script>
 </body>
 
 </html>
