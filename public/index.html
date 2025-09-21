@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>QCM – Cours 1</title>
+    <title>QCM - Cours 1</title>
 
     <!-- Ton CSS compilé Tailwind + DaisyUI -->
     <link href="./output.css" rel="stylesheet" />
@@ -75,7 +75,7 @@
                     </div>
                     <div class="flex items-center space-x-3">
                         <button id="checkBtn" class="btn btn-neutral btn-md" disabled>Vérifier</button>
-                        <button id="submitBtn" class="btn btn-outline btn-md btn-neutral">Terminer</button>
+                        <button id="submitBtn" class="btn btn-md btn-neutral">Terminer</button>
                         <button id="restartBtn" class="btn btn-accent btn-md btn-neutral" hidden>Recommencer</button>
                     </div>
                 </div>
@@ -189,6 +189,9 @@
             nextBtn.textContent = last ? "Dernière" : "Suivant";
             nextBtn.disabled = state.answers[state.index] === null || last;
             checkBtn.disabled = state.answers[state.index] === null || state.checked[state.index];
+            // Activer "Terminer" seulement si au moins une réponse a été fournie
+            const anyAnswered = state.answers.some(a => a !== null);
+            submitBtn.disabled = !anyAnswered;
         }
 
         function renderQuestion() {
@@ -286,7 +289,8 @@
             timerEl.textContent = "00:00";
             resultCard.classList.add("hidden");
             restartBtn.hidden = true;
-            submitBtn.disabled = false;
+            // recalculer l'état des boutons après réinitialisation
+            setButtons();
             renderQuestion();
             updateProgress();
             startTimer();
