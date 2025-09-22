@@ -1,0 +1,83 @@
+[
+    {
+        "id": "q1",
+        "text": "Dans VMMap, quelle catégorie correspond à un binaire PE mappé en mémoire (EXE/DLL) ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "Heap",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "VAD",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "Private Data",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "label": "Image",
+                "correct": true
+            }
+        ],
+        "explanation": "Les modules mappés apparaissent comme « Image » ; les heaps/stacks sont Private/Heap/Stack."
+    },
+    {
+        "id": "q2",
+        "text": "Quel cas d'usage correspond à TCPView ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "Connexions et sockets (PID/Ports)",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "label": "Cartographie mémoire virtuelle d'un processus",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "Inspection arbre, handles, DLLs, threads",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "label": "Tracer I/O/Registre/Réseau en timeline",
+                "correct": false
+            }
+        ],
+        "explanation": "La réponse correcte est : TCPView → Connexions et sockets (PID/ports)"
+    },
+    {
+        "id": "q2",
+        "text": "Quel cas d'usage correspond à TCPView ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "Connexions et sockets (PID/Ports)",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "label": "Cartographie mémoire virtuelle d'un processus",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "Inspection arbre, handles, DLLs, threads",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "label": "Tracer I/O/Registre/Réseau en timeline",
+                "correct": false
+            }
+        ],
+        "explanation": "La réponse correcte est : TCPView → Connexions et sockets (PID/ports)"
+    }
+]

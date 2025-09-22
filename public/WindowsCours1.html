@@ -6,11 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>QCM - Cours 1</title>
 
-    <!-- Ton CSS compilé Tailwind + DaisyUI -->
     <link href="./output.css" rel="stylesheet" />
 
     <style>
-        /* Transition douce au changement de question */
         .fade-enter {
             opacity: 0;
             transform: translateY(6px);
@@ -38,7 +36,7 @@
     <!-- Barre du haut -->
     <div class="navbar bg-gray-800 shadow-md sticky top-0 z-10">
         <div class="flex-1">
-            <a class="btn btn-ghost normal-case text-xl text-black-200">Cours 1</a>
+            <a href="../index.html" class="btn btn-ghost normal-case text-xl text-black-200">Menu</a>
         </div>
         <div class="flex-none gap-2">
             <div class="badge badge-neutral" id="scoreBadge">Score: 0/0</div>
@@ -74,8 +72,8 @@
                         <button id="nextBtn" class="btn btn-md btn-neutral" disabled>Suivant</button>
                     </div>
                     <div class="flex items-center space-x-3">
-                        <button id="checkBtn" class="btn btn-neutral btn-md" disabled>Vérifier</button>
-                        <button id="submitBtn" class="btn btn-md btn-neutral">Terminer</button>
+                        <!-- Bouton Vérifier supprimé -->
+                        <button id="submitBtn" class="btn btn-md btn-neutral" disabled>Terminer</button>
                         <button id="restartBtn" class="btn btn-accent btn-md btn-neutral" hidden>Recommencer</button>
                     </div>
                 </div>
@@ -126,7 +124,6 @@
         const feedbackEl = document.getElementById("feedback");
         const prevBtn = document.getElementById("prevBtn");
         const nextBtn = document.getElementById("nextBtn");
-        const checkBtn = document.getElementById("checkBtn");
         const submitBtn = document.getElementById("submitBtn");
         const restartBtn = document.getElementById("restartBtn");
         const scoreBadge = document.getElementById("scoreBadge");
@@ -178,20 +175,33 @@
         }
 
         function updateProgress() {
-            const answered = state.answers.filter((a) => a !== null).length;
+            const answered = state.answers.filter((a) => a !== null && a !== undefined).length;
             const percent = QUESTIONS.length ? Math.round((answered / QUESTIONS.length) * 100) : 0;
             progressEl.value = percent;
         }
 
         function setButtons() {
             prevBtn.disabled = state.index === 0;
+
             const last = state.index === QUESTIONS.length - 1;
             nextBtn.textContent = last ? "Dernière" : "Suivant";
-            nextBtn.disabled = state.answers[state.index] === null || last;
-            checkBtn.disabled = state.answers[state.index] === null || state.checked[state.index];
-            // Activer "Terminer" seulement si au moins une réponse a été fournie
-            const anyAnswered = state.answers.some(a => a !== null);
+
+            // "Suivant" activé uniquement si une réponse est donnée ET qu'on n'est pas sur la dernière question
+            const hasAnswer = state.answers[state.index] !== null && state.answers[state.index] !== undefined;
+            nextBtn.disabled = !hasAnswer || last;
+
+            // Activer "Terminer" si au moins une réponse a été fournie
+            const anyAnswered = state.answers.some(a => a !== null && a !== undefined);
             submitBtn.disabled = !anyAnswered;
+        }
+
+        function showFeedback(isCorrect, explanation) {
+            feedbackEl.innerHTML = `
+        <div class="alert ${isCorrect ? "alert-success" : "alert-error"}">
+          <span>${isCorrect ? "Bonne réponse ✅" : "Mauvaise réponse ❌"}</span>
+        </div>
+        ${explanation ? `<p class="mt-2 text-sm opacity-80">${explanation}</p>` : ""}
+      `;
         }
 
         function renderQuestion() {
@@ -199,48 +209,62 @@
             const q = QUESTIONS[state.index];
             qIndexEl.textContent = state.index + 1;
             const selected = state.answers[state.index];
+            const alreadyChecked = !!state.checked[state.index];
+
             const optionsHtml = q.options.map(opt => `
-              <label class="label rounded-xl cursor-pointer px-4 py-3 hover:bg-gray-700 border border-gray-600 bg-gray-800 gap-3">
-                <input
-                  type="radio"
-                  name="answer"
-                  class="radio radio-neutral accent-gray-600"
-                  value="${opt.id}"
-                  ${selected === opt.id ? "checked" : ""}
-                />
-                <span class="label-text">${opt.label}</span>
-              </label>
-            `).join("");
+        <label class="label rounded-xl cursor-pointer px-4 py-3 hover:bg-gray-700 border border-gray-600 bg-gray-800 gap-3">
+          <input
+            type="radio"
+            name="answer"
+            class="radio radio-neutral accent-gray-600"
+            value="${opt.id}"
+            ${selected === opt.id ? "checked" : ""}
+            ${alreadyChecked ? "disabled" : ""}
+          />
+          <span class="label-text">${opt.label}</span>
+        </label>
+      `).join("");
 
             questionWrap.innerHTML = `
-          <div class="prose max-w-none text-gray-100">
-            <p class="text-lg">${q.text}</p>
-          </div>
-          <div class="form-control mt-3 space-y-2">${optionsHtml}</div>
-        `;
+        <div class="prose max-w-none text-gray-100">
+          <p class="text-lg">${q.text}</p>
+        </div>
+        <div class="form-control mt-3 space-y-2">${optionsHtml}</div>
+      `;
+
             feedbackEl.innerHTML = "";
-            if (state.checked[state.index]) {
-                const chosen = q.options.find((o) => o.id === selected);
-                showFeedback(chosen?.correct, q.explanation);
-            }
-            questionWrap.querySelectorAll('input[name="answer"]').forEach(inp => {
-                inp.addEventListener("change", (e) => {
-                    state.answers[state.index] = e.target.value;
-                    setButtons();
-                    updateProgress();
+
+            // Vérification automatique + blocage dès la sélection
+            if (!alreadyChecked) {
+                questionWrap.querySelectorAll('input[name="answer"]').forEach(inp => {
+                    inp.addEventListener("change", (e) => {
+                        const value = e.target.value;
+                        state.answers[state.index] = value;
+                        state.checked[state.index] = true;
+
+                        const chosen = q.options.find((o) => o.id === value);
+                        showFeedback(!!chosen?.correct, q.explanation);
+
+                        // 🔒 Bloquer toutes les réponses après sélection
+                        questionWrap.querySelectorAll('input[name="answer"]').forEach(r => r.disabled = true);
+
+                        updateProgress();
+                        updateScoreBadge();
+                        setButtons();
+                    });
                 });
-            });
+            }
+
+            // Si on revient en arrière sur une question déjà répondue
+            if (alreadyChecked && selected != null) {
+                const chosen = q.options.find((o) => o.id === selected);
+                showFeedback(!!chosen?.correct, q.explanation);
+                // Assurer le blocage des radios (déjà désactivées dans le HTML, on renforce au cas où)
+                questionWrap.querySelectorAll('input[name="answer"]').forEach(r => r.disabled = true);
+            }
+
             setButtons();
             updateScoreBadge();
-        }
-
-        function showFeedback(isCorrect, explanation) {
-            feedbackEl.innerHTML = `
-          <div class="alert ${isCorrect ? "alert-success" : "alert-error"}">
-            <span>${isCorrect ? "Bonne réponse ✅" : "Mauvaise réponse ❌"}</span>
-          </div>
-          ${explanation ? `<p class="mt-2 text-sm opacity-80">${explanation}</p>` : ""}
-        `;
         }
 
         // ====== Events ======
@@ -249,21 +273,11 @@
         });
 
         nextBtn.addEventListener("click", () => {
-            if (state.index < QUESTIONS.length - 1 && state.answers[state.index] !== null) {
+            if (state.index < QUESTIONS.length - 1 && state.answers[state.index] != null) {
                 state.index++; renderQuestion();
             }
         });
 
-        checkBtn.addEventListener("click", () => {
-            const q = QUESTIONS[state.index];
-            const selected = state.answers[state.index];
-            if (selected === null) return;
-            const chosen = q.options.find((o) => o.id === selected);
-            state.checked[state.index] = true;
-            showFeedback(!!chosen?.correct, q.explanation);
-            updateScoreBadge();
-            setButtons();
-        });
 
         submitBtn.addEventListener("click", () => {
             endTimer();
@@ -275,10 +289,11 @@
             resultText.textContent = pct >= 80 ? "Excellent ! 🎉" : pct >= 50 ? "Pas mal, continuez ! 💪" : "À revoir 😉";
             resultCard.classList.remove("hidden");
             restartBtn.hidden = false;
+
+            // Verrouiller la navigation quand le quiz est terminé
             submitBtn.disabled = true;
             nextBtn.disabled = true;
             prevBtn.disabled = true;
-            checkBtn.disabled = true;
         });
 
         restartBtn.addEventListener("click", () => {
@@ -289,7 +304,7 @@
             timerEl.textContent = "00:00";
             resultCard.classList.add("hidden");
             restartBtn.hidden = true;
-            // recalculer l'état des boutons après réinitialisation
+
             setButtons();
             renderQuestion();
             updateProgress();
@@ -304,13 +319,16 @@
                 qTotalEl.textContent = QUESTIONS.length;
                 state.answers = Array(QUESTIONS.length).fill(null);
                 state.checked = Array(QUESTIONS.length).fill(false);
+
                 startTimer();
                 renderQuestion();
                 updateProgress();
+                setButtons();
             } catch (err) {
                 questionWrap.innerHTML = `<div class="alert alert-error"><span>${err.message}</span></div>`;
-                prevBtn.disabled = true; nextBtn.disabled = true;
-                checkBtn.disabled = true; submitBtn.disabled = true;
+                prevBtn.disabled = true;
+                nextBtn.disabled = true;
+                submitBtn.disabled = true;
             }
         }
         init();
