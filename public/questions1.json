@@ -51,16 +51,70 @@
                 "correct": false
             }
         ],
-        "explanation": "La réponse correcte est : TCPView → Connexions et sockets (PID/ports)"
+        "explanation": "La réponse correcte est : TCPView → Connexions et sockets (PID/ports)."
     },
     {
-        "id": "q2",
-        "text": "Quel cas d'usage correspond à TCPView ?",
+        "id": "q3",
+        "text": "Quel cas d'usage correspond à VMMAP ?",
         "options": [
             {
                 "id": "a",
                 "label": "Connexions et sockets (PID/Ports)",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "Cartographie mémoire virtuelle d'un processus",
                 "correct": true
+            },
+            {
+                "id": "c",
+                "label": "Inspection arbre, handles, DLLs, threads",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "label": "Tracer I/O/Registre/Réseau en timeline",
+                "correct": false
+            }
+        ],
+        "explanation": "La réponse correcte est : TCPView → Cartographie mémoire virtuelle d'un processus."
+    },
+    {
+        "id": "q4",
+        "text": "Quel cas d'usage correspond à Process Explorer ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "Connexions et sockets (PID/Ports)",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "Cartographie mémoire virtuelle d'un processus",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "Inspection arbre, handles, DLLs, threads",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "label": "Tracer I/O/Registre/Réseau en timeline",
+                "correct": false
+            }
+        ],
+        "explanation": "La réponse correcte est : TCPView → Inspection arbre, handles, DLLs, threads."
+    },
+    {
+        "id": "q5",
+        "text": "Quel cas d'usage correspond à Process Monitor (procmon) ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "Connexions et sockets (PID/Ports)",
+                "correct": false
             },
             {
                 "id": "b",
@@ -75,9 +129,1024 @@
             {
                 "id": "d",
                 "label": "Tracer I/O/Registre/Réseau en timeline",
+                "correct": true
+            }
+        ],
+        "explanation": "La réponse correcte est : TCPView → Tracer I/O/Registre/Réseau en timeline."
+    },
+    {
+        "id": "q6",
+        "text": "Pour isoler l’activité d’un binaire précis dans Process Monitor, quel jeu minimal de filtres est le plus pertinent ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "Aucun filtre (lecture manuelle)",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "Path contient C:\\Windows\\System32 uniquement",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "Process Name est + Operation contient RegOpenKey/CreateFile.",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "label": "Thread ID uniquement",
                 "correct": false
             }
         ],
-        "explanation": "La réponse correcte est : TCPView → Connexions et sockets (PID/ports)"
+        "explanation": "Filtrer par Process Name et par opérations clés (RegOpenKey, CreateFile) limite fortement le bruit. La réponse correcte est : Process Name est + Operation contient RegOpenKey/CreateFile"
+    },
+    {
+        "id": "q7",
+        "text": "Quelle paire de caractéristiques PE signale généralement la présence d’ASLR et DEP ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "DynamicBase et NXCompat",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "label": "RelocsStripped et AppContainer",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "TerminalServerAware et ASLR",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "label": "LargeAddressAware et ForceIntegrity",
+                "correct": false
+            }
+        ],
+        "explanation": "DynamicBase ⇒ ASLR ; NXCompat ⇒ DEP. Sigcheck peut les rapporter. La réponse correcte est : DynamicBase et NXCompat"
+    },
+    {
+        "id": "q8",
+        "text": "Quel emplacement est un point d’auto-démarrage pour l’utilisateur courant lors d'un lancement de session ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "HKU\\.DEFAULT\\Printers",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "HKLM\\HARDWARE",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "label": "HKCR\\*",
+                "correct": false
+            }
+        ],
+        "explanation": "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run lance au logon de l'utilisateur."
+    },
+    {
+        "id": "q9",
+        "text": "A quoi correspond \\GLOBAL??",
+        "options": [
+            {
+                "id": "a",
+                "label": "Lien symboliques globaux (dosdevices)",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "label": "Objets nommés (mutec, events, section, pipes.",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "Périphériques (disques, claviers) et chemins NT.",
+                "correct": false
+            }
+        ],
+        "explanation": "La réponse correcte est : \\GLOBAL?? → Liens symboliques globaux (dosdevices),"
+    },
+    {
+        "id": "q10",
+        "text": "A quoi correspond \\BasedNamedObjects ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "Lien symboliques globaux (dosdevices)",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "Objets nommés (mutec, events, section, pipes.",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "label": "Périphériques (disques, claviers) et chemins NT.",
+                "correct": false
+            }
+        ],
+        "explanation": "La réponse est : \\BaseNamedObjects → Objets nommés (mutex, events, sections, pipes),"
+    },
+    {
+        "id": "q11",
+        "text": "A quoi correspond \\Device",
+        "options": [
+            {
+                "id": "a",
+                "label": "Lien symboliques globaux (dosdevices)",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "Objets nommés (mutec, events, section, pipes.",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "Périphériques (disques, claviers) et chemins NT.",
+                "correct": true
+            }
+        ],
+        "explanation": "La réponse correcte est : \\GLOBAL?? → Liens symboliques globaux (dosdevices),"
+    },
+    {
+        "id": "q12",
+        "text": "Sur Windows 64 bits la segmentation est massivement utilisée.",
+        "options": [
+            {
+                "id": "a",
+                "label": "Vrai",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "Faux",
+                "correct": true
+            }
+        ],
+        "explanation": "Faux : segmentation quasi neutralisée en mode long, FS/GS restant utilisés."
+    },
+    {
+        "id": "q13",
+        "text": "csrss.exe est le sous-système Win32 en espace utilisateur (Client/Server Runtime Subsystem).",
+        "options": [
+            {
+                "id": "a",
+                "label": "Vrai",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "label": "Faux",
+                "correct": true
+            }
+        ],
+        "explanation": "Faux : segmentation quasi neutralisée en mode long, FS/GS restant utilisés."
+    },
+    {
+        "id": "q14",
+        "text": "Dans NTFS, la MFT (Master File Table) contient :",
+        "options": [
+            {
+                "id": "a",
+                "label": "Uniquement les données utilisateur",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "Un cache RAM temporaire",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "Exclusivement les logs USN",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "label": "Une entrée par fichier/dossier avec métadonnées",
+                "correct": true
+            }
+        ],
+        "explanation": "Une entrée par fichier/dossier avec métadonnées et pointeurs vers clusters ; cœur d’NTFS."
+    },
+    {
+        "id": "q15",
+        "text": "Dans WSLv1, les binaires Linux s’exécutent comme :",
+        "options": [
+            {
+                "id": "a",
+                "label": "Processus Win32 standards avec DLL d’émulation",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "VM complète via Hyper-V",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "PPL",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "label": "Pico processes dont les syscalls sont traduits par un provider",
+                "correct": true
+            }
+        ],
+        "explanation": "WSLv1 s’appuie sur des pico processes et un pico provider qui traduit les syscalls Linux. Ce n'est plus le cas sur les versions supérieurs."
+    },
+    {
+        "id": "q16",
+        "text": "Où trouve-t-on les hash NTLM (comptes locaux) dans le Registre ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "SECURITY",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "SAM",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "label": "HKCU",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "label": "HKCR",
+                "correct": true
+            }
+        ],
+        "explanation": "Les secrets/NTLM résident dans la hive SAM (protégée). La hive SECURITY contient les politiques et infos de sécurité. La réponse est SAM."
+    },
+    {
+        "id": "q17",
+        "text": "Quel ensemble de commandes WinDbg est utile pour inspecter les TEB/PEB d’un processus ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "!locks et !irql",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": ".process 0 -peb",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "!teb, !peb, dt sur les structures ntdll",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "label": "!threadtime",
+                "correct": false
+            }
+        ],
+        "explanation": "!teb et !peb (symboles configurés), dt pour visualiser des structures, et !list pour parcourir les listes de modules."
+    },
+    {
+        "id": "q18",
+        "text": "Quelle structure contient, pour le CPU courant, des pointeurs vers les structures du scheduler (threads en cours, files), accessible via KPCR ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "ETHREAD",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "KPRCB",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "label": "EPROCESS",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "label": "PEB",
+                "correct": false
+            }
+        ],
+        "explanation": "KPRCB (Kernel Processor Control Block) est référencé par KPCR et contient les infos de planification locales au CPU."
+    },
+    {
+        "id": "q19",
+        "text": "Dans les OS modernes, quels niveaux de privilége CPU sont principalement utilisés ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "Ring 1 et Ring 2",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "Tous",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "Ring 0 et Ring 1",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "label": "Ring 0 et Ring 3",
+                "correct": true
+            }
+        ],
+        "explanation": "On utilise principalement Ring 0 (kernel mode) et Ring 3 (user mode)."
+    },
+    {
+        "id": "q20",
+        "text": "Quel sous-système de ntoskrnl.exe gère les objets, la mémoire virtuelle et l’I/O à haut niveau ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "Win32k (GDI/User)",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "Windows Executive",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "label": "Le Kernel (bas niveau)",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "label": "HAL",
+                "correct": false
+            }
+        ],
+        "explanation": "L’Executive regroupe Object Manager, Memory Manager, I/O Manager, etc. La réponse est Windows Executive."
+    },
+    {
+        "id": "q21",
+        "text": "Combien de bits d’adresse sont effectivement utilisés par l’architecture x86-64 « classique » (canonique) ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "48",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "label": "8",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "1024",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "label": "12",
+                "correct": false
+            }
+        ],
+        "explanation": "48 bits adressables effectivement (≈ 256 To)."
+    },
+    {
+        "id": "q22",
+        "text": "Le KPCR (Kernel Processor Control Region) est accessible en kernel mode via GS en x86-64.",
+        "options": [
+            {
+                "id": "a",
+                "label": "Vrai",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "label": "Faux",
+                "correct": false
+            }
+        ],
+        "explanation": "Vrai : GS pointe vers des structures CPU-locales, dont KPCR/KPRCB."
+    },
+    {
+        "id": "q23",
+        "text": "A quoi correspond un événement ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "Synchronisation de Thread",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "label": "Exclusion mutuelle",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "Configuration persistante",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "label": "Mapping mémoire partagé entre processus",
+                "correct": false
+            }
+        ],
+        "explanation": "Événement → Synchronisation de threads"
+    },
+    {
+        "id": "q24",
+        "text": "A quoi correspond un Mutex ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "Synchronisation de Thread",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "Exclusion mutuelle",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "label": "Configuration persistante",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "label": "Mapping mémoire partagé entre processus",
+                "correct": false
+            }
+        ],
+        "explanation": "Mutex → Exclusion mutuelle"
+    },
+    {
+        "id": "q25",
+        "text": "A quoi correspond une Clé Registre ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "Synchronisation de Thread",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "Exclusion mutuelle",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "Configuration persistante",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "label": "Mapping mémoire partagé entre processus",
+                "correct": false
+            }
+        ],
+        "explanation": "Clé Registre → Configuration persistante"
+    },
+    {
+        "id": "q26",
+        "text": "A quoi correspond une Section ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "Synchronisation de Thread",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "Exclusion mutuelle",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "Configuration persistante",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "label": "Mapping mémoire partagé entre processus",
+                "correct": true
+            }
+        ],
+        "explanation": "Section → Mapping mémoire partagé entre processus"
+    },
+    {
+        "id": "q27",
+        "text": "Choisissez l’énoncé le plus exact concernant le stockage d’une tâche planifiée :",
+        "options": [
+            {
+                "id": "a",
+                "label": "Fichiers XML et métadonnées système, avec références Registre",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "label": "Uniquement dans la MFT en Alternate Data Stream",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "Uniquement dans HKLM\\SYSTEM\\CurrentControlSet\\Services",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "label": "Exclusivement dans HKCU\\Run",
+                "correct": false
+            }
+        ],
+        "explanation": "Les tâches sont stockées comme fichiers/XML dans un répertoire système, avec des références dans le Registre."
+    },
+    {
+        "id": "q28",
+        "text": "Quelle propriété peut empêcher l’ouverture d’un handle VM_READ/WRITE sur LSASS par un processus admin ordinaire ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "ACL en Everyone: Full Control",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "Le mode PPL",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "label": "Le mode développeur",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "label": "AppLocker en mode Audit",
+                "correct": false
+            }
+        ],
+        "explanation": "La protection PPL (Protected Process Light) limite fortement l’accès (nécessite driver signé/droits spéciaux)."
+    },
+    {
+        "id": "q29",
+        "text": "L’USN Journal permet de tracer les changements de fichiers sur un volume NTFS.",
+        "options": [
+            {
+                "id": "a",
+                "label": "Vrai",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "label": "Faux",
+                "correct": false
+            }
+        ],
+        "explanation": "Vrai : utile en détection et forensic."
+    },
+    {
+        "id": "q30",
+        "text": "En x86-64, les adresses valides dites « canoniques » requièrent :",
+        "options": [
+            {
+                "id": "a",
+                "label": "Que les bits 48 à 63 copient le bit 47",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "label": "Qu’elle soit toujours < 0x00007FFFFFFFFFFF",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "Qu’aucun bit au-delà de 47 ne soit à 1",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "label": "Que l’adresse soit multiple de la taille de page",
+                "correct": false
+            }
+        ],
+        "explanation": "Les bits 48→63 doivent répliquer le bit 47 (extension de signe)."
+    },
+    {
+        "id": "q31",
+        "text": "Le PEB (Process Environment Block) est principalement :",
+        "options": [
+            {
+                "id": "a",
+                "label": "Une structure user-mode présente par thread",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "Une structure user-mode présente par processus",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "label": "Un objet noyau de synchronisation de processus",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "label": "Une structure noyau",
+                "correct": false
+            }
+        ],
+        "explanation": "PEB : structure user-mode par processus (modules, paramètres, infos de débogage). TEB : par thread. La réponse correcte est : Une structure user-mode présente par processus"
+    },
+    {
+        "id": "q32",
+        "text": "Dans WinObj, quel répertoire contient typiquement mutex/events/sections nommés partagés ? (chemin NT)",
+        "options": [
+            {
+                "id": "a",
+                "label": "\\ObjectTypes",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "\\BaseNamedObjects",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "label": "\\Device\\NamedPipe",
+                "correct": false
+            }
+        ],
+        "explanation": "La réponse correcte est : \\BaseNamedObjects"
+    },
+    {
+        "id": "q33",
+        "text": "Associez la bonne description : quelle protection empêche l’exécution de code dans des zones contenant des données (stack/heap) ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "SMEP",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "DEP",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "label": "ASLR",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "label": "CFG",
+                "correct": false
+            }
+        ],
+        "explanation": "DEP (NX) empêche l’exécution dans des pages marquées données ; ASLR randomise les bases."
+    },
+    {
+        "id": "q34",
+        "text": "A quoi correspond .reloc ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "Table de relocation",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "label": "Indique ASLR",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "Compatibilité DEP (NX)",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "label": "Reesources (icônes, version, menus)",
+                "correct": false
+            }
+        ],
+        "explanation": ".reloc → Table de relocalisation"
+    },
+    {
+        "id": "q34",
+        "text": "A quoi correspond DynamicBase ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "Table de relocation",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "Indique ASLR",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "label": "Compatibilité DEP (NX)",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "label": "Reesources (icônes, version, menus)",
+                "correct": false
+            }
+        ],
+        "explanation": "DynamicBase → Indique ASLR"
+    },
+    {
+        "id": "q35",
+        "text": "A quoi correspond NXCompat ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "Table de relocation",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "Indique ASLR",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "Compatibilité DEP (NX)",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "label": "Reesources (icônes, version, menus)",
+                "correct": false
+            }
+        ],
+        "explanation": "NXCompat → Compatibilité DEP (NX)"
+    },
+    {
+        "id": "q36",
+        "text": "A quoi correspond .rsrc ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "Table de relocation",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "Indique ASLR",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "Compatibilité DEP (NX)",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "label": "Ressources (icônes, version, menus)",
+                "correct": true
+            }
+        ],
+        "explanation": ".rsrc → Ressources (icônes, version, menus)"
+    },
+    {
+        "id": "q37",
+        "text": "A quoi correspond le Configuration Manager ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "Gestion du registre Windows",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "label": "Mémoire virtuelle, paging, protections",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "Communication avec pilotes via IRP",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "label": "Gestion des handles/références d'objets noyau",
+                "correct": false
+            }
+        ],
+        "explanation": "Configuration Manager → Gestion du Registre Windows"
+    },
+    {
+        "id": "q38",
+        "text": "A quoi correspond le Memory Manager ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "Gestion du registre Windows",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "Mémoire virtuelle, paging, protections",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "label": "Communication avec pilotes via IRP",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "label": "Gestion des handles/références d'objets noyau",
+                "correct": false
+            }
+        ],
+        "explanation": "Memory Manager → Mémoire virtuelle, paging, protections"
+    },
+    {
+        "id": "q39",
+        "text": "A quoi correspond le I/O Manager ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "Gestion du registre Windows",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "Mémoire virtuelle, paging, protections",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "Communication avec pilotes via IRP",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "label": "Gestion des handles/références d'objets noyau",
+                "correct": false
+            }
+        ],
+        "explanation": "I/O Manager → Communication avec pilotes via IRP"
+    },
+    {
+        "id": "q39",
+        "text": "A quoi correspond l'Object Manager ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "Gestion du registre Windows",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "Mémoire virtuelle, paging, protections",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "Communication avec pilotes via IRP",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "label": "Resources (icônes, version, menus)",
+                "correct": true
+            }
+        ],
+        "explanation": "Object Manager → Gestion des handles/références d’objets noyau"
+    },
+    {
+        "id": "q40",
+        "text": "Parmi ces processus, lequel est la responsable du stockage des secrets cryptographique et des mécanismes d'authentification ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "csrss.exe",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "smss.exe",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "lsass.exe",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "label": "wininit.exe",
+                "correct": false
+            }
+        ],
+        "explanation": "lsass.exe héberge LSA (authentification, politiques de sécurité)."
+    },
+    {
+        "id": "q41",
+        "text": "Quelle est l'API Win32 classique qui crée un processus ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "CreateProcess()",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "label": "CreateMutexW()",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "CreateEventW()",
+                "correct": false
+            }
+        ],
+        "explanation": "CreateProcess() est l’API Win32 standard (qui s’appuie sur NT API plus basses)."
+    },
+    {
+        "id": "q42",
+        "text": "La HAL (Hardware Abstraction Layer) a pour rôle principal :",
+        "options": [
+            {
+                "id": "a",
+                "label": "Traduire les syscalls Linux",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "Fournir l’interface graphique",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "Abstraire le matériel (IRQs, timers, bus) pour le noyau",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "label": "Planifier les threads utilisateur",
+                "correct": false
+            }
+        ],
+        "explanation": "Fournir une interface standard au noyau pour accéder au matériel et masquer les différences de plateformes. La réponse correcte est : Abstraire le matériel (IRQs, timers, bus) pour le noyau"
+    },
+    {
+        "id": "q43",
+        "text": "Quel mécanisme de sécurité exploite Hyper-V pour isoler des mécanismes sensibles ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "VBS",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "label": "Windows Defender",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "BitLocker",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "label": "UAC",
+                "correct": false
+            }
+        ],
+        "explanation": "VBS (Virtualization-Based Security) crée un contenant mémoire isolé avec Hyper-V."
     }
 ]

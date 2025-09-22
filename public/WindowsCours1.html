@@ -72,7 +72,6 @@
                         <button id="nextBtn" class="btn btn-md btn-neutral" disabled>Suivant</button>
                     </div>
                     <div class="flex items-center space-x-3">
-                        <!-- Bouton Vérifier supprimé -->
                         <button id="submitBtn" class="btn btn-md btn-neutral" disabled>Terminer</button>
                         <button id="restartBtn" class="btn btn-accent btn-md btn-neutral" hidden>Recommencer</button>
                     </div>
@@ -102,21 +101,39 @@
     </main>
 
     <script>
-        // ====== Chargement des questions ======
-        let QUESTIONS = [];
+        // ===============================
+        // ====== Config & Helpers ======
+        // ===============================
 
-        async function loadQuestions() {
-            const res = await fetch("./questions1.json", { cache: "no-store" });
-            if (!res.ok) throw new Error(`Impossible de charger questions.json (${res.status})`);
-            const data = await res.json();
-            if (!Array.isArray(data)) throw new Error("Le JSON doit être un tableau de questions.");
-            return data;
+        const QUIZ_SIZE = null; // null => utilise toutes les questions
+
+        function shuffle(arr) {
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+            return arr;
         }
 
-        // ====== Etat ======
-        const state = { index: 0, answers: [], checked: [], startedAt: null, finishedAt: null };
+        const pad = (n) => n.toString().padStart(2, "0");
+        const fmtTime = (ms) => {
+            const s = Math.floor(ms / 1000);
+            const m = Math.floor(s / 60);
+            const r = s % 60;
+            return `${pad(m)}:${pad(r)}`;
+        };
 
-        // ====== Eléments ======
+        // =========================
+        // ====== Données/Etat =====
+        // =========================
+        let ALL_QUESTIONS = [];
+        let QUESTIONS = [];
+        const state = { index: 0, answers: [], checked: [], startedAt: null, finishedAt: null };
+        let timerId = null;
+
+        // ===========================
+        // ====== Sélecteurs DOM =====
+        // ===========================
         const qIndexEl = document.getElementById("qIndex");
         const qTotalEl = document.getElementById("qTotal");
         const progressEl = document.getElementById("progress");
@@ -135,20 +152,29 @@
         const timerBox = document.getElementById("timerBox");
         const timerEl = document.getElementById("timer");
 
-        // ====== Utils ======
-        const pad = (n) => n.toString().padStart(2, "0");
-        const fmtTime = (ms) => {
-            const s = Math.floor(ms / 1000);
-            const m = Math.floor(s / 60);
-            const r = s % 60;
-            return `${pad(m)}:${pad(r)}`;
-        };
+        // =============================
+        // ====== Chargement JSON ======
+        // =============================
+        async function loadQuestions() {
+            const res = await fetch("./questions1.json", { cache: "no-store" });
+            if (!res.ok) throw new Error(`Impossible de charger questions1.json (${res.status})`);
+            const data = await res.json();
+            if (!Array.isArray(data)) throw new Error("Le JSON doit être un tableau de questions.");
+            return data;
+        }
 
+        // =========================
+        // ====== Minuteur =========
+        // =========================
         function startTimer() {
+            // évite les doublons d'intervalles si relancé
+            if (timerId) { clearInterval(timerId); timerId = null; }
             state.startedAt = new Date();
+            state.finishedAt = null;
             timerBox.hidden = false;
-            const t = setInterval(() => {
-                if (state.finishedAt) { clearInterval(t); return; }
+            timerEl.textContent = "00:00";
+            timerId = setInterval(() => {
+                if (state.finishedAt) { clearInterval(timerId); timerId = null; return; }
                 const elapsed = Date.now() - state.startedAt.getTime();
                 timerEl.textContent = fmtTime(elapsed);
             }, 500);
@@ -156,9 +182,13 @@
 
         function endTimer() {
             state.finishedAt = new Date();
+            if (timerId) { clearInterval(timerId); timerId = null; }
             timerEl.textContent = fmtTime(state.finishedAt - state.startedAt);
         }
 
+        // =========================
+        // ====== Score & UI =======
+        // =========================
         function computeScore() {
             let correct = 0;
             QUESTIONS.forEach((q, i) => {
@@ -186,11 +216,9 @@
             const last = state.index === QUESTIONS.length - 1;
             nextBtn.textContent = last ? "Dernière" : "Suivant";
 
-            // "Suivant" activé uniquement si une réponse est donnée ET qu'on n'est pas sur la dernière question
             const hasAnswer = state.answers[state.index] !== null && state.answers[state.index] !== undefined;
             nextBtn.disabled = !hasAnswer || last;
 
-            // Activer "Terminer" si au moins une réponse a été fournie
             const anyAnswered = state.answers.some(a => a !== null && a !== undefined);
             submitBtn.disabled = !anyAnswered;
         }
@@ -208,6 +236,7 @@
             if (!QUESTIONS.length) return;
             const q = QUESTIONS[state.index];
             qIndexEl.textContent = state.index + 1;
+
             const selected = state.answers[state.index];
             const alreadyChecked = !!state.checked[state.index];
 
@@ -234,7 +263,7 @@
 
             feedbackEl.innerHTML = "";
 
-            // Vérification automatique + blocage dès la sélection
+            // Vérif auto + blocage dès sélection
             if (!alreadyChecked) {
                 questionWrap.querySelectorAll('input[name="answer"]').forEach(inp => {
                     inp.addEventListener("change", (e) => {
@@ -245,7 +274,7 @@
                         const chosen = q.options.find((o) => o.id === value);
                         showFeedback(!!chosen?.correct, q.explanation);
 
-                        // 🔒 Bloquer toutes les réponses après sélection
+                        // Bloquer toutes les réponses après sélection
                         questionWrap.querySelectorAll('input[name="answer"]').forEach(r => r.disabled = true);
 
                         updateProgress();
@@ -259,7 +288,6 @@
             if (alreadyChecked && selected != null) {
                 const chosen = q.options.find((o) => o.id === selected);
                 showFeedback(!!chosen?.correct, q.explanation);
-                // Assurer le blocage des radios (déjà désactivées dans le HTML, on renforce au cas où)
                 questionWrap.querySelectorAll('input[name="answer"]').forEach(r => r.disabled = true);
             }
 
@@ -267,7 +295,37 @@
             updateScoreBadge();
         }
 
-        // ====== Events ======
+        // ===================================
+        // ====== Tirage & Réinitialisation ===
+        // ===================================
+        function resetQuiz() {
+            // Mélange complet + échantillonnage sans remise
+            const pool = shuffle([...ALL_QUESTIONS]);
+            const size = Math.min(QUIZ_SIZE ?? pool.length, pool.length);
+            QUESTIONS = pool.slice(0, size);
+
+            // Réinit état + UI
+            qTotalEl.textContent = QUESTIONS.length;
+            state.index = 0;
+            state.answers = Array(QUESTIONS.length).fill(null);
+            state.checked = Array(QUESTIONS.length).fill(false);
+            state.startedAt = null;
+            state.finishedAt = null;
+
+            resultCard.classList.add("hidden");
+            restartBtn.hidden = true;
+            timerEl.textContent = "00:00";
+
+            startTimer();
+            renderQuestion();
+            updateProgress();
+            updateScoreBadge();
+            setButtons();
+        }
+
+        // ======================
+        // ====== Events ========
+        // ======================
         prevBtn.addEventListener("click", () => {
             if (state.index > 0) { state.index--; renderQuestion(); }
         });
@@ -277,7 +335,6 @@
                 state.index++; renderQuestion();
             }
         });
-
 
         submitBtn.addEventListener("click", () => {
             endTimer();
@@ -297,33 +354,20 @@
         });
 
         restartBtn.addEventListener("click", () => {
-            state.index = 0;
-            state.answers = Array(QUESTIONS.length).fill(null);
-            state.checked = Array(QUESTIONS.length).fill(false);
-            state.finishedAt = null;
-            timerEl.textContent = "00:00";
-            resultCard.classList.add("hidden");
-            restartBtn.hidden = true;
-
-            setButtons();
-            renderQuestion();
-            updateProgress();
-            startTimer();
+            resetQuiz(); // nouveau tirage aléatoire à chaque relance
         });
 
-        // ====== Init ======
+        // ======================
+        // ====== Init ==========
+        // ======================
         async function init() {
             questionWrap.innerHTML = '<div class="skeleton h-24 w-full"></div>';
             try {
-                QUESTIONS = await loadQuestions();
-                qTotalEl.textContent = QUESTIONS.length;
-                state.answers = Array(QUESTIONS.length).fill(null);
-                state.checked = Array(QUESTIONS.length).fill(false);
+                ALL_QUESTIONS = await loadQuestions();
+                // (Optionnel) dédupliquer par texte si votre JSON contient des doublons exacts :
+                // ALL_QUESTIONS = Array.from(new Map(ALL_QUESTIONS.map(q => [q.text, q])).values());
 
-                startTimer();
-                renderQuestion();
-                updateProgress();
-                setButtons();
+                resetQuiz(); // mélange + initialise l'état
             } catch (err) {
                 questionWrap.innerHTML = `<div class="alert alert-error"><span>${err.message}</span></div>`;
                 prevBtn.disabled = true;
