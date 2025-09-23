@@ -226,7 +226,7 @@
         function showFeedback(isCorrect, explanation) {
             feedbackEl.innerHTML = `
         <div class="alert ${isCorrect ? "alert-success" : "alert-error"}">
-          <span>${isCorrect ? "Bonne réponse ✅" : "Mauvaise réponse ❌"}</span>
+          <span>${isCorrect ? "Bonne réponse" : "Mauvaise réponse"}</span>
         </div>
         ${explanation ? `<p class="mt-2 text-sm opacity-80">${explanation}</p>` : ""}
       `;
@@ -343,7 +343,7 @@
             statScore.textContent = pct + "%";
             statDetails.textContent = `${correct}/${total} correct`;
             statTime.textContent = timerEl.textContent;
-            resultText.textContent = pct >= 80 ? "Excellent ! 🎉" : pct >= 50 ? "Pas mal, continuez ! 💪" : "À revoir 😉";
+            resultText.textContent = pct >= 80 ? "Excellent !" : pct >= 50 ? "Pas mal, continuez !" : "À revoir";
             resultCard.classList.remove("hidden");
             restartBtn.hidden = false;
 
@@ -364,7 +364,6 @@
             questionWrap.innerHTML = '<div class="skeleton h-24 w-full"></div>';
             try {
                 ALL_QUESTIONS = await loadQuestions();
-                // (Optionnel) dédupliquer par texte si votre JSON contient des doublons exacts :
                 // ALL_QUESTIONS = Array.from(new Map(ALL_QUESTIONS.map(q => [q.text, q])).values());
 
                 resetQuiz(); // mélange + initialise l'état

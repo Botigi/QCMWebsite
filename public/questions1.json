@@ -226,7 +226,7 @@
             },
             {
                 "id": "b",
-                "label": "Objets nommés (mutec, events, section, pipes.",
+                "label": "Objets nommés (mutex, events, section, pipes.",
                 "correct": false
             },
             {
@@ -858,7 +858,7 @@
         "explanation": ".reloc → Table de relocalisation"
     },
     {
-        "id": "q34",
+        "id": "q50",
         "text": "A quoi correspond DynamicBase ?",
         "options": [
             {
@@ -1020,7 +1020,7 @@
         "explanation": "I/O Manager → Communication avec pilotes via IRP"
     },
     {
-        "id": "q39",
+        "id": "q40",
         "text": "A quoi correspond l'Object Manager ?",
         "options": [
             {
@@ -1047,7 +1047,7 @@
         "explanation": "Object Manager → Gestion des handles/références d’objets noyau"
     },
     {
-        "id": "q40",
+        "id": "q41",
         "text": "Parmi ces processus, lequel est la responsable du stockage des secrets cryptographique et des mécanismes d'authentification ?",
         "options": [
             {
@@ -1074,7 +1074,7 @@
         "explanation": "lsass.exe héberge LSA (authentification, politiques de sécurité)."
     },
     {
-        "id": "q41",
+        "id": "q42",
         "text": "Quelle est l'API Win32 classique qui crée un processus ?",
         "options": [
             {
@@ -1096,7 +1096,7 @@
         "explanation": "CreateProcess() est l’API Win32 standard (qui s’appuie sur NT API plus basses)."
     },
     {
-        "id": "q42",
+        "id": "q43",
         "text": "La HAL (Hardware Abstraction Layer) a pour rôle principal :",
         "options": [
             {
@@ -1123,7 +1123,7 @@
         "explanation": "Fournir une interface standard au noyau pour accéder au matériel et masquer les différences de plateformes. La réponse correcte est : Abstraire le matériel (IRQs, timers, bus) pour le noyau"
     },
     {
-        "id": "q43",
+        "id": "q44",
         "text": "Quel mécanisme de sécurité exploite Hyper-V pour isoler des mécanismes sensibles ?",
         "options": [
             {
@@ -1148,5 +1148,130 @@
             }
         ],
         "explanation": "VBS (Virtualization-Based Security) crée un contenant mémoire isolé avec Hyper-V."
+    },
+    {
+        "id": "q45",
+        "text": "Dans un binaire PE, quelle section contient typiquement le code exécutable ?",
+        "options": [
+            {
+                "id": "a",
+                "label": ".data",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": ".reloc",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": ".text",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "label": ".rdata",
+                "correct": false
+            }
+        ],
+        "explanation": "La section .text contient le code ; .rdata les données RO et import/export ; .data les données initialisées ; .reloc les relocations."
+    },
+    {
+        "id": "q46",
+        "text": "Un crash en user mode fait planter tout le système (BSOD).",
+        "options": [
+            {
+                "id": "a",
+                "label": "Vrai",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "Faux",
+                "correct": true
+            }
+        ],
+        "explanation": "Faux : un crash en user mode impacte en général seulement le processus fautif."
+    },
+    {
+        "id": "q47",
+        "text": "Les « trustlets » s’exécutent :",
+        "options": [
+            {
+                "id": "a",
+                "label": "Dans Ring 0 classique",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "Dans l’Isolated User Mode, protégés par l’hyperviseur",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "label": "Dans Ring 3 classique",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "label": "Directement sur l'hyperviseur",
+                "correct": false
+            }
+        ],
+        "explanation": "Les trustlets tournent dans l’Isolated User Mode (IUM) sous l’égide de VBS, protégés du noyau standard."
+    },
+    {
+        "id": "q48",
+        "text": "Lequel de ces modes d’exécution x86 correspond au 64 bits avec pagination obligatoire ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "Real mode",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "Protected mode",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "Long mode",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "label": "Virtual 8086",
+                "correct": false
+            }
+        ],
+        "explanation": "Le mode long (x86-64) introduit l’adressage 64 bits et rend la pagination obligatoire."
+    },
+    {
+        "id": "q49",
+        "text": "Associez la structure à la granularité correcte dans Windows :",
+        "options": [
+            {
+                "id": "a",
+                "label": "Les deux = processus",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "EPROCESS = processus ; ETHREAD = thread",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "label": "EPROCESS = thread ; ETHREAD = processus",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "label": "Les deux = thread",
+                "correct": false
+            }
+        ],
+        "explanation": "EPROCESS représente un processus en noyau ; ETHREAD représente un thread."
     }
 ]
