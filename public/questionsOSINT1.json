@@ -1,0 +1,272 @@
+[
+    {
+        "id": "q1",
+        "text": "Quel est l'objectif principal d'une analyse des processus métiers dans le cadre de la cybersécurité ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "Optimiser le temps de travail des employés",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "Identifier les dépendances et les vulnérabilités critiques",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "label": "Réduire la masse salariale",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "label": "Choisir un nouvel outil de communication",
+                "correct": false
+            }
+        ],
+        "explanation": "Identifier les dépendances et les vulnérabilités critiques"
+    },
+    {
+        "id": "q2",
+        "text": "Quel est la définition de la phase Armement dans la Kill Chain ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "Identifier les cibles sur LinkedIn et collecter des adresses e-mail",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "Evoyer un message piégé pour transmettre la charge utile",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "Installer une backdoor sur un serveur compromis",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "label": "Préparer ou acquérir une charge utile (malware + exploit) prête à être livrée à la victime",
+                "correct": true
+            }
+        ],
+        "explanation": "Préparer ou acquérir une charge utile (malware + exploit) prête à être livrée à la victime"
+    },
+    {
+        "id": "q3",
+        "text": "Dans la Cyber Kill Chain, à quelle phase correspond un e-mail de spear phishing avec une pièce jointe piégée ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "Reconnaissance",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "Installation",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "Exploitation",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "label": "Livraison",
+                "correct": true
+            }
+        ],
+        "explanation": "Livraison"
+    },
+    {
+        "id": "q4",
+        "text": "Parmi les ressources suivantes, laquelle ne fait pas partie des ressources clés d’un processus métier ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "Ressources humaines",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "Systèmes d’information",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "Locaux",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "label": "Lois internationales",
+                "correct": true
+            }
+        ],
+        "explanation": "Les lois internationales sont des contraintes externes ou réglementaires, pas une ressource opérationnelle clé d’un processus métier."
+    },
+    {
+        "id": "q5",
+        "text": "Quelle mesure de sécurité technique correspond à la persistance dans la Kill Chain ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "Envoi d’un mail frauduleux",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "Scan de vulnérabilités",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "Création d’un compte administrateur caché",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "label": "Exfiltration d’une base de données",
+                "correct": false
+            }
+        ],
+        "explanation": "La persistance vise à maintenir l’accès sur la cible (ex. créer un compte administrateur caché, installer une backdoor) afin de pouvoir revenir ultérieurement."
+    },
+    {
+        "id": "q6",
+        "text": "Quelle est l’étape de la Kill Chain où l’attaquant cherche à conserver un accès durable au système compromis ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "Reconnaissance",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "Actions sur les objectifs",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "Installation",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "label": "Exploitation",
+                "correct": false
+            }
+        ],
+        "explanation": "L’étape d’Installation consiste à déployer des outils malveillants (comme une backdoor) pour maintenir un accès persistant au système compromis."
+    },
+    {
+        "id": "q7",
+        "text": "Quelle est l’utilité principale de l’OSINT pour une entreprise ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "Identifier et corriger les vulnérabilités logicielles",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "Vérifier l’exposition de ses informations et anticiper les risques de social engineering",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "label": "Mettre en place des sauvegardes automatisées",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "label": "Surveiller uniquement les flux réseaux internes",
+                "correct": false
+            }
+        ],
+        "explanation": "L’OSINT permet à une entreprise de surveiller l’exposition de ses données publiques et de réduire les risques liés à l’ingénierie sociale ou à la fuite d’informations."
+    },
+    {
+        "id": "q8",
+        "text": "Quelle est la différence entre information blanche et information grise dans l’OSINT ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "La blanche est accessible facilement, la grise est plus difficile à trouver bien que légale",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "label": "La blanche est protégée par la loi, la grise est illégale",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "La blanche est gratuite, la grise est payante",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "label": "Aucune différence",
+                "correct": false
+            }
+        ],
+        "explanation": "L’information blanche est publique et facilement accessible, tandis que l’information grise est légale mais plus difficile d’accès (rapports internes, publications spécialisées, etc.)."
+    },
+    {
+        "id": "q9",
+        "text": "Quelle est la bonne définition de l’OSINT ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "Intelligence issue de signaux électromagnétiques",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "Exploitation d’informations classifiées",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "Collecte d’informations à partir de sources ouvertes",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "label": "Analyse d’images satellites",
+                "correct": false
+            }
+        ],
+        "explanation": "L’OSINT (Open Source Intelligence) désigne la collecte et l’analyse d’informations issues de sources ouvertes et accessibles publiquement."
+    },
+    {
+        "id": "q10",
+        "text": "Parmi les méthodes suivantes, laquelle relève de la reconnaissance passive ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "Scan de ports avec Nmap",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "Exploitation d’une faille web",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "Recherche d’informations sur LinkedIn",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "label": "Déploiement d’un web shell",
+                "correct": false
+            }
+        ],
+        "explanation": "La reconnaissance passive consiste à collecter des informations sans interagir directement avec la cible, par exemple via des recherches sur LinkedIn ou d’autres sources publiques."
+    }
+]
