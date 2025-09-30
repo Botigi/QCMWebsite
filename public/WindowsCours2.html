@@ -156,7 +156,7 @@
         // ====== Chargement JSON ======
         // =============================
         async function loadQuestions() {
-            const res = await fetch("./questionsWindows1.json", { cache: "no-store" });
+            const res = await fetch("./questionsWindows2.json", { cache: "no-store" });
             if (!res.ok) throw new Error(`Impossible de charger questions1.json (${res.status})`);
             const data = await res.json();
             if (!Array.isArray(data)) throw new Error("Le JSON doit être un tableau de questions.");

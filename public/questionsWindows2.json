@@ -1,0 +1,385 @@
+[
+    {
+        "id": "q6",
+        "text": "Lequel des éléments suivants ne fait généralement pas partie d’un Access Token ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "SID utilisateur et SIDs de groupes",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "Liste des privilèges",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "L’ACL de chaque fichier NTFS du système",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "label": "Default DACL et Owner/Primary Group",
+                "correct": false
+            }
+        ],
+        "explanation": "Un token contient SID utilisateur, groupes, privilèges, Owner, Default DACL. Les ACLs des fichiers sont stockées avec les objets, pas dans le token."
+    },
+    {
+        "id": "q7",
+        "text": "Quel énoncé décrit correctement Credential Guard ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "Isolation via virtualisation protégeant LSASS contre dumps mémoire",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "label": "Remplacement complet de NTLM par Kerberos",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "Système de chiffrement NTFS",
+                "correct": false
+            }
+        ],
+        "explanation": "Credential Guard isole les secrets LSASS dans un environnement protégé par virtualisation (VBS)."
+    },
+    {
+        "id": "q8",
+        "text": "À quoi sert le secret DPAPI_SYSTEM ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "À stocker les tickets Kerberos TGT",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "À chiffrer EFS pour chaque utilisateur",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "À chiffrer/déchiffrer des données protégées par DPAPI au niveau machine",
+                "correct": true
+            }
+        ],
+        "explanation": "DPAPI_SYSTEM sert à protéger les clés maîtres machine et les secrets système DPAPI."
+    },
+    {
+        "id": "q9",
+        "text": "Pourquoi a-t-on besoin des ruches SAM et SYSTEM pour extraire correctement les hashs NTLM hors ligne ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "Parce que SECURITY remplace SAM sur Windows 10",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "Parce que SYSTEM contient les mots de passe en clair",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "Parce que SAM contient les hashs chiffrés et SYSTEM la Boot Key",
+                "correct": true
+            }
+        ],
+        "explanation": "Les hashs NTLM sont stockés chiffrés dans la SAM. La clé de chiffrement (Boot Key) est dans SYSTEM."
+    },
+    {
+        "id": "q10",
+        "text": "Quel énoncé décrit correctement le MIC (Mandatory Integrity Control) ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "Il remplace complètement la DACL",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "Il utilise un label d’intégrité SID S-1-16-xxxx pour limiter certaines écritures",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "label": "Il ne s’applique qu’aux comptes de domaine",
+                "correct": false
+            }
+        ],
+        "explanation": "MIC applique un contrôle obligatoire avec des labels d’intégrité (No Write Up). Il complète la DACL."
+    },
+    {
+        "id": "q11",
+        "text": "Quel est le rôle de MSV1_0.dll dans Windows ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "Implémenter NTLM dans LSASS",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "label": "Gérer les tickets Kerberos",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "Remplacer la SAM locale",
+                "correct": false
+            }
+        ],
+        "explanation": "MSV1_0.dll implémente NTLM comme Authentication Package dans LSASS."
+    },
+    {
+        "id": "q12",
+        "text": "Pourquoi les attaques NTLM relay sont-elles possibles ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "Parce que NTLM envoie toujours le hash en clair",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "Parce que Kerberos force une délégation",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "Parce que le challenge/response n’est pas lié au serveur cible (sans EPA/SMB signing)",
+                "correct": true
+            }
+        ],
+        "explanation": "NTLM relay exploite le fait que la réponse n’est pas liée au serveur cible, sauf si EPA/CB/SMB signing est activé."
+    },
+    {
+        "id": "q13",
+        "text": "Lequel décrit correctement NTLMv2 ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "SHA-256 avec sel et 10000 itérations",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "DES avec trois clés dérivées du NT hash",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "HMAC-MD5(NT hash, challenge + blob)",
+                "correct": true
+            }
+        ],
+        "explanation": "NTLMv2 utilise HMAC-MD5 avec NT hash comme clé, sur le challenge et un blob contenant timestamp et infos client."
+    },
+    {
+        "id": "q14",
+        "text": "À quoi correspond le préfixe S-1-5-21 dans un SID ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "Au SID Everyone",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "Aux Mandatory Labels S-1-16-xxxx",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "Aux groupes BUILTIN S-1-5-32",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "label": "Aux SIDs de domaine ou machine locale",
+                "correct": true
+            }
+        ],
+        "explanation": "S-1-5-21 désigne un domaine ou machine locale, suivi de l’ID et du RID (ex: Administrator RID 500)."
+    },
+    {
+        "id": "q16",
+        "text": "Associez correctement les rôles des ruches SAM, SECURITY, SYSTEM.",
+        "options": [
+            {
+                "id": "a",
+                "label": "SAM → comptes/hashs ; SECURITY → secrets LSA ; SYSTEM → Boot Key et config services",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "label": "SAM → politiques de sécurité ; SECURITY → pilotes ; SYSTEM → base AD",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "SAM → services ; SECURITY → comptes locaux ; SYSTEM → secrets LSA",
+                "correct": false
+            }
+        ],
+        "explanation": "La SAM contient les comptes et hashs, SECURITY contient les secrets LSA, SYSTEM la Boot Key et la config des services."
+    },
+    {
+        "id": "q20",
+        "text": "La DACL définit qui a accès à un objet ; la SACL définit quels accès sont audités et contient aussi le Mandatory Integrity Label.",
+        "options": [
+            {
+                "id": "a",
+                "label": "Vrai",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "label": "Faux",
+                "correct": false
+            }
+        ],
+        "explanation": "DACL = permissions, SACL = audit + Mandatory Integrity Label. Affirmation correcte."
+    },
+    {
+        "id": "q21",
+        "text": "Le processus LSASS héberge la LSA et conserve en mémoire des informations d’authentification sensibles.",
+        "options": [
+            {
+                "id": "a",
+                "label": "Vrai",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "label": "Faux",
+                "correct": false
+            }
+        ],
+        "explanation": "LSASS stocke en mémoire NTLM hashs, tickets Kerberos, secrets LSA, cible critique."
+    },
+    {
+        "id": "q22",
+        "text": "LSA est la composante logique qui applique la politique de sécurité et crée les tokens ; LSASS est le processus qui l’héberge.",
+        "options": [
+            {
+                "id": "a",
+                "label": "Vrai",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "label": "Faux",
+                "correct": false
+            }
+        ],
+        "explanation": "LSA = composant logique, LSASS = processus lsass.exe qui l’héberge. Affirmation correcte."
+    },
+    {
+        "id": "q23",
+        "text": "NTLMv1 repose sur DES et un challenge de 8 octets ; il est faible et doit être désactivé.",
+        "options": [
+            {
+                "id": "a",
+                "label": "Vrai",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "label": "Faux",
+                "correct": false
+            }
+        ],
+        "explanation": "NTLMv1 = DES + challenge 8 octets, faible sécurité. Recommandé de désactiver."
+    },
+    {
+        "id": "q24",
+        "text": "Kerberos repose sur des tickets délivrés par le DC, alors que NTLM utilise un challenge-response basé sur le NT hash.",
+        "options": [
+            {
+                "id": "a",
+                "label": "Vrai",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "label": "Faux",
+                "correct": false
+            }
+        ],
+        "explanation": "Kerberos → tickets du DC ; NTLM → challenge-response NT hash. Affirmation correcte."
+    },
+    {
+        "id": "q25",
+        "text": "Le pass-the-hash consiste à réutiliser directement le NT hash comme secret d’authentification, sans connaître le mot de passe en clair.",
+        "options": [
+            {
+                "id": "a",
+                "label": "Vrai",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "label": "Faux",
+                "correct": false
+            }
+        ],
+        "explanation": "Pass-the-hash = injection directe du NT hash sans besoin du mot de passe clair."
+    },
+    {
+        "id": "q26",
+        "text": "Un SID identifie de façon unique un principal et reste stable même si le nom de l’objet change.",
+        "options": [
+            {
+                "id": "a",
+                "label": "Vrai",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "label": "Faux",
+                "correct": false
+            }
+        ],
+        "explanation": "Les permissions sont basées sur SIDs et non sur les noms, car le SID reste constant."
+    },
+    {
+        "id": "q27",
+        "text": "Le compte SYSTEM (S-1-5-18) dispose d’un niveau d’accès supérieur ou égal aux administrateurs et peut accéder à des parties du registre inaccessibles aux admins.",
+        "options": [
+            {
+                "id": "a",
+                "label": "Vrai",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "label": "Faux",
+                "correct": false
+            }
+        ],
+        "explanation": "SYSTEM (LocalSystem) a des privilèges supérieurs aux administrateurs normaux, ex. accès HKLM\\SAM, SECURITY."
+    },
+    {
+        "id": "q28",
+        "text": "Sous UAC, un administrateur dispose par défaut d’un token limité et peut obtenir un token élevé après consentement.",
+        "options": [
+            {
+                "id": "a",
+                "label": "Vrai",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "label": "Faux",
+                "correct": false
+            }
+        ],
+        "explanation": "Mécanisme du split token : token filtré par défaut, élévation après consentement UAC."
+    }
+]

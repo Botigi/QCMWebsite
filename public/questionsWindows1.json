@@ -313,7 +313,7 @@
                 "correct": true
             }
         ],
-        "explanation": "Faux : segmentation quasi neutralisée en mode long, FS/GS restant utilisés."
+        "explanation": "Vrai : il participe aux fonctions du sous-système Win32 (graphique/historique avec win32k)."
     },
     {
         "id": "q14",
