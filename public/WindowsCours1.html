@@ -29,6 +29,22 @@
             transform: translateY(-6px);
             transition: all 160ms ease;
         }
+
+        /* Small responsive tweaks when utility classes are not enough */
+        @media (max-width: 640px) {
+
+            /* Make action buttons stack and full-width on very small screens */
+            .card-actions.responsive-stack {
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+                align-items: stretch;
+            }
+
+            .card-actions.responsive-stack .btn {
+                width: 100%;
+            }
+        }
     </style>
 </head>
 
@@ -44,10 +60,10 @@
     </div>
 
     <!-- Contenu principal -->
-    <main class="container mx-auto px-4 py-6 max-w-3xl">
+    <main class="container mx-auto px-4 py-6 max-w-full sm:max-w-3xl">
         <div class="card bg-gray-800 shadow-lg">
             <div class="card-body">
-                <div class="flex items-center justify-between gap-4">
+                <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                     <h1 class="card-title text-gray-100">
                         Question <span id="qIndex">1</span>/<span id="qTotal">0</span>
                     </h1>
@@ -66,14 +82,17 @@
                 <div id="feedback" class="mt-2"></div>
 
                 <!-- actions -->
-                <div class="card-actions justify-between mt-4 items-center">
-                    <div class="flex space-x-2">
-                        <button id="prevBtn" class="btn btn-md btn-neutral" disabled>Précédent</button>
-                        <button id="nextBtn" class="btn btn-md btn-neutral" disabled>Suivant</button>
+                <div class="card-actions justify-between mt-4 items-center responsive-stack">
+                    <div class="flex flex-col sm:flex-row sm:space-x-2 space-y-2 sm:space-y-0 w-full sm:w-auto">
+                        <button id="prevBtn" class="btn btn-md btn-neutral w-full sm:w-auto" disabled>Précédent</button>
+                        <button id="nextBtn" class="btn btn-md btn-neutral w-full sm:w-auto" disabled>Suivant</button>
                     </div>
-                    <div class="flex items-center space-x-3">
-                        <button id="submitBtn" class="btn btn-md btn-neutral" disabled>Terminer</button>
-                        <button id="restartBtn" class="btn btn-accent btn-md btn-neutral" hidden>Recommencer</button>
+                    <div
+                        class="flex flex-col sm:flex-row sm:items-center sm:space-x-3 space-y-2 sm:space-y-0 w-full sm:w-auto">
+                        <button id="submitBtn" class="btn btn-md btn-neutral w-full sm:w-auto"
+                            disabled>Terminer</button>
+                        <button id="restartBtn" class="btn btn-accent btn-md btn-neutral w-full sm:w-auto"
+                            hidden>Recommencer</button>
                     </div>
                 </div>
             </div>
@@ -128,7 +147,7 @@
         // =========================
         let ALL_QUESTIONS = [];
         let QUESTIONS = [];
-        const state = { index: 0, answers: [], checked: [], startedAt: null, finishedAt: null };
+        const state = { index: 0, answers: [], checked: [], explanations: [], correctness: [], startedAt: null, finishedAt: null };
         let timerId = null;
 
         // ===========================
@@ -225,11 +244,11 @@
 
         function showFeedback(isCorrect, explanation) {
             feedbackEl.innerHTML = `
-        <div class="alert ${isCorrect ? "alert-success" : "alert-error"}">
-          <span>${isCorrect ? "Bonne réponse" : "Mauvaise réponse"}</span>
-        </div>
-        ${explanation ? `<p class="mt-2 text-sm opacity-80">${explanation}</p>` : ""}
-      `;
+                <div class="alert ${isCorrect ? "alert-success" : "alert-error"} flex flex-col gap-2">
+                    <div class="font-medium">${isCorrect ? "Bonne réponse" : "Mauvaise réponse"}</div>
+                    ${explanation ? `<div class="text-sm opacity-90 break-words">${explanation}</div>` : ""}
+                </div>
+            `;
         }
 
         function renderQuestion() {
@@ -241,27 +260,32 @@
             const alreadyChecked = !!state.checked[state.index];
 
             const optionsHtml = q.options.map(opt => `
-        <label class="label rounded-xl cursor-pointer px-4 py-3 hover:bg-gray-700 border border-gray-600 bg-gray-800 gap-3">
-          <input
-            type="radio"
-            name="answer"
-            class="radio radio-neutral accent-gray-600"
-            value="${opt.id}"
-            ${selected === opt.id ? "checked" : ""}
-            ${alreadyChecked ? "disabled" : ""}
-          />
-          <span class="label-text">${opt.label}</span>
-        </label>
-      `).join("");
+                <label class="flex items-center rounded-lg cursor-pointer px-4 py-3 hover:bg-gray-700 border border-gray-600 bg-gray-800 gap-3 w-full">
+                    <input
+                        type="radio"
+                        name="answer"
+                        class="radio radio-neutral accent-gray-600 flex-shrink-0"
+                        value="${opt.id}"
+                        ${selected === opt.id ? "checked" : ""}
+                        ${alreadyChecked ? "disabled" : ""}
+                    />
+                    <span class="label-text break-words">${opt.label}</span>
+                </label>
+            `).join("");
 
             questionWrap.innerHTML = `
-        <div class="prose max-w-none text-gray-100">
-          <p class="text-lg">${q.text}</p>
-        </div>
-        <div class="form-control mt-3 space-y-2">${optionsHtml}</div>
-      `;
+                <div class="prose max-w-none text-gray-100">
+                    <p class="text-lg">${q.text}</p>
+                </div>
+                <div class="form-control mt-3 grid grid-cols-1 md:grid-cols-2 gap-2">${optionsHtml}</div>
+            `;
 
-            feedbackEl.innerHTML = "";
+            if (state.explanations[state.index] != null) {
+                const wasCorrect = !!state.correctness[state.index];
+                showFeedback(wasCorrect, state.explanations[state.index]);
+            } else {
+                feedbackEl.innerHTML = "";
+            }
 
             // Vérif auto + blocage dès sélection
             if (!alreadyChecked) {
@@ -271,8 +295,13 @@
                         state.answers[state.index] = value;
                         state.checked[state.index] = true;
 
-                        const chosen = q.options.find((o) => o.id === value);
-                        showFeedback(!!chosen?.correct, q.explanation);
+                        // Persist explanation and correctness
+                        const chosen = q.options.find((o) => String(o.id) === String(value));
+                        const isCorrect = !!chosen?.correct;
+                        state.correctness[state.index] = isCorrect;
+                        state.explanations[state.index] = q.explanation || "";
+
+                        showFeedback(isCorrect, q.explanation);
 
                         // Bloquer toutes les réponses après sélection
                         questionWrap.querySelectorAll('input[name="answer"]').forEach(r => r.disabled = true);
@@ -286,8 +315,9 @@
 
             // Si on revient en arrière sur une question déjà répondue
             if (alreadyChecked && selected != null) {
-                const chosen = q.options.find((o) => o.id === selected);
-                showFeedback(!!chosen?.correct, q.explanation);
+                const wasCorrect = state.correctness[state.index] !== undefined ? !!state.correctness[state.index] : !!(q.options.find(o => String(o.id) === String(selected))?.correct);
+                const explanation = state.explanations[state.index] ?? q.explanation;
+                showFeedback(wasCorrect, explanation);
                 questionWrap.querySelectorAll('input[name="answer"]').forEach(r => r.disabled = true);
             }
 
@@ -309,6 +339,8 @@
             state.index = 0;
             state.answers = Array(QUESTIONS.length).fill(null);
             state.checked = Array(QUESTIONS.length).fill(false);
+            state.explanations = Array(QUESTIONS.length).fill(null);
+            state.correctness = Array(QUESTIONS.length).fill(false);
             state.startedAt = null;
             state.finishedAt = null;
 

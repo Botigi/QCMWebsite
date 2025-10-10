@@ -1,0 +1,3377 @@
+[
+  {
+    "id": "q1",
+    "text": "Dans le contexte de l'héritage en Java, qu'est-ce qu'une superclasse ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Une classe qui hérite d'une autre classe.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "La classe dont une autre classe hérite.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Une classe qui ne peut pas être instanciée.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Une classe qui contient uniquement des méthodes statiques.",
+        "correct": false
+      }
+    ],
+    "explanation": "La classe dont une autre classe hérite."
+  },
+  {
+    "id": "q2",
+    "text": "Quel mot-clé est utilisé en Java pour indiquer qu'une classe hérite d'une autre ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "implements",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "inherits",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "label": "extends",
+        "correct": true
+      },
+      {
+        "id": "d",
+        "label": "super",
+        "correct": false
+      }
+    ],
+    "explanation": "extends"
+  },
+  {
+    "id": "q3",
+    "text": "Une sous-classe peut-elle accéder aux membres privés (private) de sa superclasse ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Oui, toujours.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Non, jamais directement.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Seulement si elles sont dans le même package.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Seulement si la sous-classe est déclarée 'final'.",
+        "correct": false
+      }
+    ],
+    "explanation": "Non, jamais directement."
+  },
+  {
+    "id": "q4",
+    "text": "À quoi sert le mot-clé `super` dans le constructeur d'une sous-classe ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "À créer une instance de la superclasse.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "À appeler une méthode de la superclasse.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "label": "À appeler le constructeur de la superclasse.",
+        "correct": true
+      },
+      {
+        "id": "d",
+        "label": "À accéder à un attribut statique de la superclasse.",
+        "correct": false
+      }
+    ],
+    "explanation": "À appeler le constructeur de la superclasse."
+  },
+  {
+    "id": "q5",
+    "text": "Quelle est la règle concernant l'appel `super(...)` dans un constructeur ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Il peut être appelé n'importe où dans le constructeur.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Il doit être la toute première instruction du constructeur.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Il doit être la dernière instruction du constructeur.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Il est optionnel et n'est jamais nécessaire.",
+        "correct": false
+      }
+    ],
+    "explanation": "Il doit être la toute première instruction du constructeur."
+  },
+  {
+    "id": "q6",
+    "text": "Si une superclasse n'a pas de constructeur sans argument, que doit faire la sous-classe ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "La sous-classe ne peut pas avoir de constructeur.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "La sous-classe doit appeler explicitement un des constructeurs de la superclasse avec `super(...)`.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Java appellera implicitement un constructeur par défaut.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "La superclasse doit être déclarée abstraite.",
+        "correct": false
+      }
+    ],
+    "explanation": "La sous-classe doit appeler explicitement un des constructeurs de la superclasse avec `super(...)`."
+  },
+  {
+    "id": "q7",
+    "text": "Considérez le code : `Animal a = new Chat();`. Quel est le type de la variable et quel est le type de l'objet ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Type de la variable : Chat, Type de l'objet : Animal.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Type de la variable : Animal, Type de l'objet : Chat.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Type de la variable : Animal, Type de l'objet : Animal.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Type de la variable : Chat, Type de l'objet : Chat.",
+        "correct": false
+      }
+    ],
+    "explanation": "Type de la variable : Animal, Type de l'objet : Chat."
+  },
+  {
+    "id": "q8",
+    "text": "Avec la déclaration `Animal a = new Chat();`, pourquoi l'appel `a.miaou()` génère-t-il une erreur de compilation ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Parce que la méthode `miaou()` est privée dans la classe Chat.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Parce que le type de la variable `a` est `Animal`, et cette classe n'a pas de méthode `miaou()`.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Parce que l'objet créé est en réalité un Animal, pas un Chat.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Parce qu'il faut caster `a` en `Object` d'abord.",
+        "correct": false
+      }
+    ],
+    "explanation": "Parce que le type de la variable `a` est `Animal`, et cette classe n'a pas de méthode `miaou()`."
+  },
+  {
+    "id": "q9",
+    "text": "Qu'est-ce qu'une classe abstraite (`abstract class`) ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Une classe qui ne peut avoir que des méthodes abstraites.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Une classe qui ne peut pas être instanciée directement.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Une classe qui ne peut pas hériter d'une autre classe.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Une classe finale qui ne peut pas être étendue.",
+        "correct": false
+      }
+    ],
+    "explanation": "Une classe qui ne peut pas être instanciée directement."
+  },
+  {
+    "id": "q10",
+    "text": "Quelle est la conséquence de déclarer une classe `Animal` comme abstraite ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Le code `Animal a = new Chat();` devient invalide.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Le code `new Animal()` générera une erreur de compilation.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Toutes les sous-classes de `Animal` doivent aussi être abstraites.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "`Animal` ne peut plus avoir de constructeur.",
+        "correct": false
+      }
+    ],
+    "explanation": "Le code `new Animal()` générera une erreur de compilation."
+  },
+  {
+    "id": "q11",
+    "text": "Qu'est-ce qu'une méthode abstraite ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Une méthode avec une implémentation vide.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Une méthode déclarée dans une classe abstraite, sans implémentation, qui doit être implémentée par les sous-classes.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Une méthode privée qui ne peut pas être appelée de l'extérieur.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Une méthode finale qui ne peut pas être redéfinie.",
+        "correct": false
+      }
+    ],
+    "explanation": "Une méthode déclarée dans une classe abstraite, sans implémentation, qui doit être implémentée par les sous-classes."
+  },
+  {
+    "id": "q12",
+    "text": "Si une classe hérite d'une classe abstraite avec des méthodes abstraites, que doit-elle faire ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Elle peut ignorer les méthodes abstraites.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Elle doit implémenter toutes les méthodes abstraites ou être elle-même déclarée abstraite.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Elle doit appeler les méthodes abstraites via `super`.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Elle ne peut pas ajouter de nouvelles méthodes.",
+        "correct": false
+      }
+    ],
+    "explanation": "Elle doit implémenter toutes les méthodes abstraites ou être elle-même déclarée abstraite."
+  },
+  {
+    "id": "q13",
+    "text": "Quelle est la classe dont toutes les autres classes héritent implicitement en Java ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Main",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Object",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Class",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "System",
+        "correct": false
+      }
+    ],
+    "explanation": "Object"
+  },
+  {
+    "id": "q14",
+    "text": "Que signifie le modificateur de visibilité `protected` ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "L'élément est accessible uniquement dans la même classe.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "L'élément est accessible depuis n'importe où.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "label": "L'élément est accessible dans la même classe, les sous-classes et le même package.",
+        "correct": true
+      },
+      {
+        "id": "d",
+        "label": "L'élément est accessible uniquement par les sous-classes.",
+        "correct": false
+      }
+    ],
+    "explanation": "L'élément est accessible dans la même classe, les sous-classes et le même package."
+  },
+  {
+    "id": "q15",
+    "text": "Qu'est-ce qu'une interface en Java ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Une classe qui ne peut contenir que des attributs.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Un contrat qui définit un ensemble de méthodes qu'une classe doit implémenter.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Une superclasse de base pour toutes les autres classes.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Une classe qui ne peut pas être instanciée.",
+        "correct": false
+      }
+    ],
+    "explanation": "Un contrat qui définit un ensemble de méthodes qu'une classe doit implémenter."
+  },
+  {
+    "id": "q16",
+    "text": "Quel mot-clé est utilisé pour qu'une classe applique un contrat défini par une interface ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "extends",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "implements",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "uses",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "inherits",
+        "correct": false
+      }
+    ],
+    "explanation": "implements"
+  },
+  {
+    "id": "q17",
+    "text": "Combien de classes une classe peut-elle étendre (`extend`) et combien d'interfaces peut-elle implémenter (`implement`) ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Étendre plusieurs classes, implémenter une seule interface.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Étendre une seule classe, implémenter plusieurs interfaces.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Étendre une seule classe, implémenter une seule interface.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Étendre plusieurs classes, implémenter plusieurs interfaces.",
+        "correct": false
+      }
+    ],
+    "explanation": "Étendre une seule classe, implémenter plusieurs interfaces."
+  },
+  {
+    "id": "q18",
+    "text": "À quoi sert l'annotation `@Override` ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Elle est obligatoire pour redéfinir une méthode.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Elle indique au compilateur l'intention de redéfinir une méthode, ce qui permet de vérifier la signature de la méthode.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Elle empêche la redéfinition de la méthode.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Elle rend la méthode plus performante.",
+        "correct": false
+      }
+    ],
+    "explanation": "Elle indique au compilateur l'intention de redéfinir une méthode, ce qui permet de vérifier la signature de la méthode."
+  },
+  {
+    "id": "q19",
+    "text": "Quelle est la principale différence entre une classe abstraite et une interface (avant Java 8) ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Une classe abstraite peut avoir un constructeur, une interface non.",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "label": "Une interface ne peut avoir que des méthodes publiques, une classe abstraite peut avoir des méthodes privées.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "label": "Une classe abstraite ne peut pas avoir de méthodes statiques.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Il n'y a pas de différence majeure.",
+        "correct": false
+      }
+    ],
+    "explanation": "Une classe abstraite peut avoir un constructeur, une interface non."
+  },
+  {
+    "id": "q20",
+    "text": "Quand devriez-vous préférer utiliser une classe abstraite plutôt qu'une interface ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Quand vous voulez définir un contrat pour des classes non liées.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Quand vous voulez partager du code (implémentation commune) entre plusieurs sous-classes étroitement liées.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Quand vous voulez permettre l'héritage multiple de comportement.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Toujours préférer les interfaces.",
+        "correct": false
+      }
+    ],
+    "explanation": "Quand vous voulez partager du code (implémentation commune) entre plusieurs sous-classes étroitement liées."
+  },
+  {
+    "id": "q21",
+    "text": "À quoi sert l'opérateur `instanceof` ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "À créer une nouvelle instance d'une classe.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "À tester si un objet est une instance d'une classe, d'une sous-classe ou d'une interface particulière.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "À comparer deux instances pour voir si elles sont identiques.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "À caster un objet vers un autre type.",
+        "correct": false
+      }
+    ],
+    "explanation": "À tester si un objet est une instance d'une classe, d'une sous-classe ou d'une interface particulière."
+  },
+  {
+    "id": "q22",
+    "text": "L'utilisation de `instanceof` est parfois considérée comme une mauvaise pratique. Pourquoi ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Parce qu'il est très lent.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Parce qu'il peut souvent être remplacé par un meilleur design polymorphique (méthodes redéfinies).",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Parce qu'il ne fonctionne pas avec les interfaces.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Parce qu'il lance des exceptions.",
+        "correct": false
+      }
+    ],
+    "explanation": "Parce qu'il peut souvent être remplacé par un meilleur design polymorphique (méthodes redéfinies)."
+  },
+  {
+    "id": "q23",
+    "text": "Qu'est-ce qu'une 'sealed class' (classe scellée) ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Une classe qui ne peut pas être instanciée.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Une classe qui restreint les autres classes qui peuvent l'étendre ou l'implémenter.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Une classe dont toutes les méthodes sont finales.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Une classe privée visible uniquement dans son propre fichier.",
+        "correct": false
+      }
+    ],
+    "explanation": "Une classe qui restreint les autres classes qui peuvent l'étendre ou l'implémenter."
+  },
+  {
+    "id": "q24",
+    "text": "Quel mot-clé est utilisé avec `sealed` pour spécifier les sous-classes autorisées ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "allows",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "permits",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "extends",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "includes",
+        "correct": false
+      }
+    ],
+    "explanation": "permits"
+  },
+  {
+    "id": "q25",
+    "text": "Une sous-classe d'une classe scellée doit être déclarée avec l'un de ces trois modificateurs. Lequel n'en fait pas partie ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "final",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "sealed",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "label": "non-sealed",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "public",
+        "correct": true
+      }
+    ],
+    "explanation": "public"
+  },
+  {
+    "id": "q26",
+    "text": "Que signifie déclarer une sous-classe `non-sealed` ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Elle ne peut plus être étendue.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Elle supprime la restriction d'héritage, n'importe quelle classe peut l'étendre.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Elle devient une interface.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Elle ne peut être utilisée que dans le même package.",
+        "correct": false
+      }
+    ],
+    "explanation": "Elle supprime la restriction d'héritage, n'importe quelle classe peut l'étendre."
+  },
+  {
+    "id": "q27",
+    "text": "Qu'est-ce qu'une énumération (`enum`) en Java ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Une liste de nombres entiers.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Un type de données qui représente un ensemble fixe de constantes nommées.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Un raccourci pour créer une classe `final`.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Une collection de variables statiques.",
+        "correct": false
+      }
+    ],
+    "explanation": "Un type de données qui représente un ensemble fixe de constantes nommées."
+  },
+  {
+    "id": "q28",
+    "text": "Une énumération peut-elle implémenter une interface ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Non, les énumérations ne peuvent pas participer à l'héritage.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Oui, une énumération peut implémenter une ou plusieurs interfaces.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Seulement si l'interface ne contient aucune méthode.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Seulement si l'énumération n'a pas de champs.",
+        "correct": false
+      }
+    ],
+    "explanation": "Oui, une énumération peut implémenter une ou plusieurs interfaces."
+  },
+  {
+    "id": "q29",
+    "text": "Dans une instruction `switch`, que se passe-t-il si vous oubliez un `break` ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Le programme s'arrête avec une erreur.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "L'exécution 'tombe' au cas suivant et l'exécute.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Le compilateur signale une erreur.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Le `switch` se termine immédiatement.",
+        "correct": false
+      }
+    ],
+    "explanation": "L'exécution 'tombe' au cas suivant et l'exécute."
+  },
+  {
+    "id": "q30",
+    "text": "Qu'est-ce que la généricité en Java ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "La capacité de générer du code automatiquement.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Un concept permettant de définir des classes et des méthodes avec des types paramétrables.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Une façon de rendre le code plus spécifique à un type de données.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Un synonyme de polymorphisme.",
+        "correct": false
+      }
+    ],
+    "explanation": "Un concept permettant de définir des classes et des méthodes avec des types paramétrables."
+  },
+  {
+    "id": "q31",
+    "text": "Comment déclare-t-on une classe générique `Cellule` avec un paramètre de type `T` ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "class Cellule(T) { ... }",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "class Cellule<T> { ... }",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "class<T> Cellule { ... }",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "class Cellule { <T> ... }",
+        "correct": false
+      }
+    ],
+    "explanation": "class Cellule<T> { ... }"
+  },
+  {
+    "id": "q32",
+    "text": "Pourquoi `Cellule<int>` est-il incorrect en Java ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Parce que `int` n'est pas un mot-clé valide.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Parce que les types génériques doivent être des types de référence (classes), pas des types primitifs.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Parce que le nom `Cellule` est réservé.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Parce qu'il faut écrire `Cellule<Int>`.",
+        "correct": false
+      }
+    ],
+    "explanation": "Parce que les types génériques doivent être des types de référence (classes), pas des types primitifs."
+  },
+  {
+    "id": "q33",
+    "text": "Quelle classe wrapper doit-on utiliser pour le type primitif `int` avec la généricité ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Int",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Integer",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "INT",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Number",
+        "correct": false
+      }
+    ],
+    "explanation": "Integer"
+  },
+  {
+    "id": "q34",
+    "text": "Que signifie la déclaration `class Cellule<T extends Number>` ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "La classe `Cellule` hérite de la classe `Number`.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Le paramètre de type `T` peut être n'importe quelle classe qui étend ou est la classe `Number`.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "La classe `Cellule` ne peut contenir qu'un seul nombre.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "On crée une nouvelle classe nommée `T` qui étend `Number`.",
+        "correct": false
+      }
+    ],
+    "explanation": "Le paramètre de type `T` peut être n'importe quelle classe qui étend ou est la classe `Number`."
+  },
+  {
+    "id": "q35",
+    "text": "Qu'est-ce que l'autoboxing en Java ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "La création automatique de boîtes de dialogue.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "La conversion automatique entre un type primitif et sa classe wrapper correspondante.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "L'empaquetage automatique d'une application dans un fichier JAR.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "La gestion automatique de la mémoire.",
+        "correct": false
+      }
+    ],
+    "explanation": "La conversion automatique entre un type primitif et sa classe wrapper correspondante."
+  },
+  {
+    "id": "q36",
+    "text": "Comment peut-on appeler une méthode `parle(String mot)` de la superclasse `Animal` depuis une sous-classe `Chien` ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Animal.parle(\"Waf\");",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "super.parle(\"Waf\");",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "this.parle(\"Waf\");",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "parle(\"Waf\");",
+        "correct": false
+      }
+    ],
+    "explanation": "super.parle(\"Waf\");"
+  },
+  {
+    "id": "q37",
+    "text": "Dans le modèle `Vehicule`, `Voiture` et `Moto`, pourquoi `Vehicule` est-elle une bonne candidate pour être une classe abstraite ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Parce qu'elle n'a pas d'attributs.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Parce que le concept de 'Véhicule' est général et on ne veut pas créer d'objet 'Véhicule' générique.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Parce qu'elle a une méthode `demarre()`.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Parce que `Voiture` et `Moto` ont des vitesses différentes.",
+        "correct": false
+      }
+    ],
+    "explanation": "Parce que le concept de 'Véhicule' est général et on ne veut pas créer d'objet 'Véhicule' générique."
+  },
+  {
+    "id": "q38",
+    "text": "Dans l'exercice sur les personnages, quel concept permet à un `Soigneur` de soigner à la fois un `Guerrier` et un `Magicien` ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "L'héritage de `Personnage`.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "L'utilisation de l'interface `Soignable` implémentée par `Guerrier` et `Magicien`.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "L'utilisation de `instanceof`.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "La généricité.",
+        "correct": false
+      }
+    ],
+    "explanation": "L'utilisation de l'interface `Soignable` implémentée par `Guerrier` et `Magicien`."
+  },
+  {
+    "id": "q39",
+    "text": "Qu'est-ce que le polymorphisme d'héritage ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "La capacité d'une classe à avoir plusieurs constructeurs.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "La capacité d'un objet à prendre plusieurs formes, par exemple, un objet `Chat` peut être traité comme un `Animal`.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "La capacité d'une méthode à avoir plusieurs implémentations dans la même classe.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "La capacité de Java à supporter plusieurs types de données.",
+        "correct": false
+      }
+    ],
+    "explanation": "La capacité d'un objet à prendre plusieurs formes, par exemple, un objet `Chat` peut être traité comme un `Animal`."
+  },
+  {
+    "id": "q40",
+    "text": "Si une méthode est déclarée `final`, que cela signifie-t-il ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Elle ne peut pas être appelée.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Elle ne peut pas être redéfinie (overridden) par les sous-classes.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "C'est la dernière méthode exécutée dans la classe.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Elle doit être statique.",
+        "correct": false
+      }
+    ],
+    "explanation": "Elle ne peut pas être redéfinie (overridden) par les sous-classes."
+  },
+  {
+    "id": "q41",
+    "text": "Une interface peut-elle contenir des variables d'instance ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Oui, comme une classe normale.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Non, elle ne peut contenir que des constantes (variables `public static final`).",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Oui, mais elles doivent être `protected`.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Uniquement si l'interface est `sealed`.",
+        "correct": false
+      }
+    ],
+    "explanation": "Non, elle ne peut contenir que des constantes (variables `public static final`)."
+  },
+  {
+    "id": "q42",
+    "text": "Dans l'exemple `public enum Operation`, comment est appelée la méthode `applique` pour l'addition ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "new Operation.PLUS.applique(2, 3);",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Operation.PLUS.applique(2, 3);",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Operation.applique(PLUS, 2, 3);",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "PLUS.applique(2, 3);",
+        "correct": false
+      }
+    ],
+    "explanation": "Operation.PLUS.applique(2, 3);"
+  },
+  {
+    "id": "q43",
+    "text": "Pourquoi le code `if (o instanceof Animal a)` est-il préférable à l'ancienne version avec un cast explicite ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Parce qu'il est plus lent mais plus sûr.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Parce qu'il combine le test de type, le cast et la création d'une variable dans une seule ligne, rendant le code plus concis et sûr.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Parce qu'il ne fonctionne que pour les `sealed class`.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Parce qu'il évite d'appeler un constructeur.",
+        "correct": false
+      }
+    ],
+    "explanation": "Parce qu'il combine le test de type, le cast et la création d'une variable dans une seule ligne, rendant le code plus concis et sûr."
+  },
+  {
+    "id": "q44",
+    "text": "Peut-on mettre une méthode avec une implémentation par défaut dans une interface ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Non, jamais.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Oui, en utilisant le mot-clé `default` (depuis Java 8).",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Seulement si la méthode est `private`.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Seulement dans les interfaces `sealed`.",
+        "correct": false
+      }
+    ],
+    "explanation": "Oui, en utilisant le mot-clé `default` (depuis Java 8)."
+  },
+  {
+    "id": "q45",
+    "text": "Une classe peut-elle hériter d'une énumération (`enum`) ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Oui, si elle est déclarée `final`.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Non, on ne peut pas hériter d'une énumération.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Oui, c'est une pratique courante.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Seulement si l'énumération est vide.",
+        "correct": false
+      }
+    ],
+    "explanation": "Non, on ne peut pas hériter d'une énumération."
+  },
+  {
+    "id": "q46",
+    "text": "Quel est le but principal de l'héritage ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Augmenter la performance du code.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Factoriser le code en partageant des attributs et des méthodes communs.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Cacher l'implémentation des objets.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Rendre le code plus difficile à comprendre.",
+        "correct": false
+      }
+    ],
+    "explanation": "Factoriser le code en partageant des attributs et des méthodes communs."
+  },
+  {
+    "id": "q47",
+    "text": "Qu'est-ce que la redéfinition de méthode (method overriding) ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Avoir plusieurs méthodes avec le même nom mais des paramètres différents dans la même classe.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Fournir une implémentation spécifique d'une méthode dans une sous-classe qui est déjà définie dans sa superclasse.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Cacher une méthode de la superclasse.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Supprimer une méthode de la superclasse.",
+        "correct": false
+      }
+    ],
+    "explanation": "Fournir une implémentation spécifique d'une méthode dans une sous-classe qui est déjà définie dans sa superclasse."
+  },
+  {
+    "id": "q48",
+    "text": "Une méthode statique peut-elle être redéfinie dans une sous-classe ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Oui, de la même manière qu'une méthode d'instance.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Non, les méthodes statiques sont liées à la classe, pas à l'instance, et ne peuvent pas être redéfinies de manière polymorphique.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Oui, mais uniquement si la sous-classe est `final`.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Non, car les méthodes statiques sont implicitement `final`.",
+        "correct": false
+      }
+    ],
+    "explanation": "Non, les méthodes statiques sont liées à la classe, pas à l'instance, et ne peuvent pas être redéfinies de manière polymorphique."
+  },
+  {
+    "id": "q49",
+    "text": "Dans le contexte des classes `Animal`, `Chien`, `Chat`, comment pourrait-on utiliser le polymorphisme pour faire parler tous les animaux d'un tableau ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "En testant le type de chaque animal avec `instanceof` et en appelant `miaou()` ou `waf()`.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "En définissant une méthode `parler()` dans `Animal` (peut-être abstraite) et en la redéfinissant dans `Chien` et `Chat`, puis en bouclant sur un tableau d'`Animal` et en appelant `parler()`.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Ce n'est pas possible, il faut des tableaux séparés pour les chiens et les chats.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "En utilisant la généricité avec `<T extends Animal>`.",
+        "correct": false
+      }
+    ],
+    "explanation": "En définissant une méthode `parler()` dans `Animal` (peut-être abstraite) et en la redéfinissant dans `Chien` et `Chat`, puis en bouclant sur un tableau d'`Animal` et en appelant `parler()`."
+  },
+  {
+    "id": "q50",
+    "text": "Quelle est la visibilité par défaut d'un membre de classe (sans modificateur) ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "public",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "package-private (accessible uniquement dans le même package).",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "private",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "protected",
+        "correct": false
+      }
+    ],
+    "explanation": "package-private (accessible uniquement dans le même package)."
+  },
+  {
+    "id": "q51",
+    "text": "Comment peut-on empêcher une classe d'être étendue ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "En la déclarant `private`.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "En utilisant le mot-clé `final` dans la déclaration de la classe.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "En la déclarant `static`.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "En la rendant abstraite.",
+        "correct": false
+      }
+    ],
+    "explanation": "En utilisant le mot-clé `final` dans la déclaration de la classe."
+  },
+  {
+    "id": "q52",
+    "text": "Une classe abstraite peut-elle avoir un constructeur ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Non, car elle ne peut pas être instanciée.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Oui, il est principalement utilisé par les constructeurs des sous-classes via `super()`.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Seulement si la classe abstraite n'a aucune méthode abstraite.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Seulement si le constructeur est `private`.",
+        "correct": false
+      }
+    ],
+    "explanation": "Oui, il est principalement utilisé par les constructeurs des sous-classes via `super()`."
+  },
+  {
+    "id": "q53",
+    "text": "Toutes les méthodes d'une interface sont implicitement...",
+    "options": [
+      {
+        "id": "a",
+        "label": "private et final",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "public et abstract (sauf si `default` ou `static`).",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "protected",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "static",
+        "correct": false
+      }
+    ],
+    "explanation": "public et abstract (sauf si `default` ou `static`)."
+  },
+  {
+    "id": "q54",
+    "text": "Qu'est-ce que l'unboxing ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "La décompression d'un fichier ZIP.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "La conversion automatique d'une classe wrapper vers son type primitif correspondant.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "L'ouverture d'une nouvelle fenêtre dans une application.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Le processus de suppression d'un objet de la mémoire.",
+        "correct": false
+      }
+    ],
+    "explanation": "La conversion automatique d'une classe wrapper vers son type primitif correspondant."
+  },
+  {
+    "id": "q55",
+    "text": "Que se passe-t-il si une classe implémente une interface mais n'implémente pas toutes ses méthodes ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Le code s'exécute mais lève une exception au runtime.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "La classe doit être déclarée `abstract`.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Rien, c'est autorisé.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Les méthodes non implémentées deviennent `private`.",
+        "correct": false
+      }
+    ],
+    "explanation": "La classe doit être déclarée `abstract`."
+  },
+  {
+    "id": "q56",
+    "text": "Un constructeur peut-il être `abstract` ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Oui, dans une classe abstraite.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Non, un constructeur ne peut jamais être `abstract`.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Oui, mais il ne peut pas avoir d'arguments.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Seulement dans une interface.",
+        "correct": false
+      }
+    ],
+    "explanation": "Non, un constructeur ne peut jamais être `abstract`."
+  },
+  {
+    "id": "q57",
+    "text": "Une interface peut-elle hériter d'une autre interface ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Non, les interfaces ne peuvent qu'être implémentées.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Oui, en utilisant le mot-clé `extends`. Une interface peut étendre plusieurs interfaces.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Oui, en utilisant le mot-clé `implements`.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Non, cela causerait des problèmes d'héritage multiple.",
+        "correct": false
+      }
+    ],
+    "explanation": "Oui, en utilisant le mot-clé `extends`. Une interface peut étendre plusieurs interfaces."
+  },
+  {
+    "id": "q58",
+    "text": "Dans le code `class Cellule<T>`, `T` est appelé...",
+    "options": [
+      {
+        "id": "a",
+        "label": "Un type concret.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Un paramètre de type.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Une classe anonyme.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Une variable de classe.",
+        "correct": false
+      }
+    ],
+    "explanation": "Un paramètre de type."
+  },
+  {
+    "id": "q59",
+    "text": "Lequel de ces appels est valide pour `class Cellule<T extends Number>` ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "new Cellule<String>();",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "new Cellule<Double>();",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "new Cellule<Object>();",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "new Cellule<char>();",
+        "correct": false
+      }
+    ],
+    "explanation": "new Cellule<Double>();"
+  },
+  {
+    "id": "q60",
+    "text": "Le 'diamond operator' (`<>`) en généricité permet de...",
+    "options": [
+      {
+        "id": "a",
+        "label": "Comparer deux types génériques.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Omettre le type générique dans le constructeur, car le compilateur peut l'inférer.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Créer des types génériques anonymes.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Forcer le type à être une interface.",
+        "correct": false
+      }
+    ],
+    "explanation": "Omettre le type générique dans le constructeur, car le compilateur peut l'inférer."
+  },
+  {
+    "id": "q61",
+    "text": "Si `Chien` étend `Animal`, peut-on dire que `List<Chien>` est un sous-type de `List<Animal>` ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Oui, c'est le principe de l'héritage.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Non, les types génériques en Java sont invariants par défaut.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Seulement si `Animal` est une interface.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Seulement si `List` est une classe `sealed`.",
+        "correct": false
+      }
+    ],
+    "explanation": "Non, les types génériques en Java sont invariants par défaut."
+  },
+  {
+    "id": "q62",
+    "text": "À quoi correspond `this` dans une méthode d'instance ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "À la classe elle-même.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "À l'instance courante (l'objet sur lequel la méthode a été appelée).",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "À la superclasse.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Au constructeur de la classe.",
+        "correct": false
+      }
+    ],
+    "explanation": "À l'instance courante (l'objet sur lequel la méthode a été appelée)."
+  },
+  {
+    "id": "q63",
+    "text": "Une classe `final` peut-elle être abstraite ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Oui, c'est une pratique courante.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Non, ces deux concepts sont mutuellement exclusifs (`final` empêche l'héritage, `abstract` l'exige).",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Seulement si elle n'a pas de méthodes.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Seulement si elle implémente une interface.",
+        "correct": false
+      }
+    ],
+    "explanation": "Non, ces deux concepts sont mutuellement exclusifs (`final` empêche l'héritage, `abstract` l'exige)."
+  },
+  {
+    "id": "q64",
+    "text": "Dans l'exemple du `Garage` générique, quel est l'avantage de `Garage<Vehicule>` par rapport à un `Garage` qui stockerait des `Object` ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Il n'y en a aucun, le résultat est le même.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "La sécurité de type à la compilation : on ne peut y ajouter que des `Vehicule` (ou ses sous-types) et on n'a pas besoin de caster en sortant un objet.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "C'est plus performant car il n'y a pas de cast.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Cela permet de stocker plus d'objets.",
+        "correct": false
+      }
+    ],
+    "explanation": "La sécurité de type à la compilation : on ne peut y ajouter que des `Vehicule` (ou ses sous-types) et on n'a pas besoin de caster en sortant un objet."
+  },
+  {
+    "id": "q65",
+    "text": "Quel est le but de la méthode `equals(Object obj)` héritée de la classe `Object` ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Vérifier si deux références pointent vers le même objet en mémoire (`==`).",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Définir une logique pour vérifier si deux objets sont 'égaux' en termes de contenu ou de signification.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Copier un objet.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Convertir l'objet en une chaîne de caractères.",
+        "correct": false
+      }
+    ],
+    "explanation": "Définir une logique pour vérifier si deux objets sont 'égaux' en termes de contenu ou de signification."
+  },
+  {
+    "id": "q66",
+    "text": "L'implémentation par défaut de `equals` dans la classe `Object` est équivalente à :",
+    "options": [
+      {
+        "id": "a",
+        "label": "toujours retourner `true`.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "utiliser l'opérateur `==`.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "comparer les noms de classe.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "toujours retourner `false`.",
+        "correct": false
+      }
+    ],
+    "explanation": "utiliser l'opérateur `==`."
+  },
+  {
+    "id": "q67",
+    "text": "Pourquoi est-il généralement une bonne idée de redéfinir `equals` ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Parce que l'implémentation par défaut est lente.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Parce que la comparaison de références (`==`) n'est souvent pas ce que l'on veut pour comparer la valeur logique de deux objets.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Parce que cela permet de ne pas avoir à redéfinir `hashCode`.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Parce que c'est obligatoire pour toutes les classes.",
+        "correct": false
+      }
+    ],
+    "explanation": "Parce que la comparaison de références (`==`) n'est souvent pas ce que l'on veut pour comparer la valeur logique de deux objets."
+  },
+  {
+    "id": "q68",
+    "text": "Un `switch` peut-il être utilisé sur une chaîne de caractères (`String`) ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Non, uniquement sur les entiers et les `enum`.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Oui, depuis Java 7.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Non, cela cause une erreur de compilation.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Oui, mais c'est très inefficace.",
+        "correct": false
+      }
+    ],
+    "explanation": "Oui, depuis Java 7."
+  },
+  {
+    "id": "q69",
+    "text": "Une classe abstraite peut-elle implémenter une interface ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Non, une classe est soit abstraite, soit elle implémente une interface.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Oui, elle peut implémenter une interface et choisir de ne pas fournir d'implémentation pour les méthodes de l'interface (laissant ce soin à ses sous-classes).",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Oui, mais elle doit implémenter toutes les méthodes de l'interface.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Non, cela violerait le principe de l'héritage unique.",
+        "correct": false
+      }
+    ],
+    "explanation": "Oui, elle peut implémenter une interface et choisir de ne pas fournir d'implémentation pour les méthodes de l'interface (laissant ce soin à ses sous-classes)."
+  },
+  {
+    "id": "q70",
+    "text": "Dans une classe, est-il possible d'appeler un constructeur depuis un autre constructeur ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Non, un seul constructeur peut être appelé par objet.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Oui, en utilisant `this(...)` comme première instruction.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Oui, en utilisant `super(...)`.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Oui, en appelant le nom de la classe comme une méthode.",
+        "correct": false
+      }
+    ],
+    "explanation": "Oui, en utilisant `this(...)` comme première instruction."
+  },
+  {
+    "id": "q71",
+    "text": "Qu'est-ce qui distingue une méthode statique d'une méthode d'instance ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Une méthode statique est plus rapide.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Une méthode statique appartient à la classe et est appelée sur la classe, alors qu'une méthode d'instance appartient à un objet et est appelée sur une instance.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Une méthode statique ne peut pas avoir de paramètres.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Une méthode d'instance ne peut pas accéder aux champs statiques.",
+        "correct": false
+      }
+    ],
+    "explanation": "Une méthode statique appartient à la classe et est appelée sur la classe, alors qu'une méthode d'instance appartient à un objet et est appelée sur une instance."
+  },
+  {
+    "id": "q72",
+    "text": "Une méthode statique peut-elle accéder à des membres d'instance (non statiques) de sa classe ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Oui, sans problème.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Non, car elle n'est pas associée à une instance spécifique de la classe.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Oui, en utilisant le mot-clé `this`.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Seulement si les membres d'instance sont `public`.",
+        "correct": false
+      }
+    ],
+    "explanation": "Non, car elle n'est pas associée à une instance spécifique de la classe."
+  },
+  {
+    "id": "q73",
+    "text": "Les énumérations peuvent-elles avoir des méthodes et des constructeurs ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Non, ce sont juste des listes de constantes.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Oui, elles sont beaucoup plus puissantes que de simples constantes et peuvent avoir des champs, des méthodes et des constructeurs.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Seulement des méthodes, pas de constructeurs.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Seulement des constructeurs, pas de méthodes.",
+        "correct": false
+      }
+    ],
+    "explanation": "Oui, elles sont beaucoup plus puissantes que de simples constantes et peuvent avoir des champs, des méthodes et des constructeurs."
+  },
+  {
+    "id": "q74",
+    "text": "Le constructeur d'une énumération doit toujours être...",
+    "options": [
+      {
+        "id": "a",
+        "label": "public",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "private (ou package-private).",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "static",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "protected",
+        "correct": false
+      }
+    ],
+    "explanation": "private (ou package-private)."
+  },
+  {
+    "id": "q75",
+    "text": "Une classe peut-elle contenir des méthodes statiques et des méthodes d'instance en même temps ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Non, une classe est soit entièrement statique, soit entièrement basée sur des instances.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Oui, c'est tout à fait courant.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Oui, mais seulement si la classe n'a pas d'attributs.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Non, cela provoquerait une ambiguïté à la compilation.",
+        "correct": false
+      }
+    ],
+    "explanation": "Oui, c'est tout à fait courant."
+  },
+  {
+    "id": "q76",
+    "text": "Quel problème principal la structure de 'Liste' cherche-t-elle à résoudre par rapport à un tableau standard en Java ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Un tableau ne peut contenir que des entiers.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "La taille d'un tableau standard est fixe après sa création.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Il est impossible d'accéder aux éléments d'un tableau par un index.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Un tableau ne peut pas être passé en argument d'une fonction.",
+        "correct": false
+      }
+    ],
+    "explanation": "La taille d'un tableau standard est fixe après sa création."
+  },
+  {
+    "id": "q80",
+    "text": "Quelle déclaration Java crée correctement une classe nommée 'Chat' ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "public class Chat {}",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "label": "new class Chat {};",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "label": "public Chat class {}",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "structure Chat {}",
+        "correct": false
+      }
+    ],
+    "explanation": "public class Chat {}"
+  },
+  {
+    "id": "q82",
+    "text": "Comment appelle-t-on les variables définies à l'intérieur d'une classe pour stocker ses propriétés (ex: 'age' pour un 'Chat') ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Des paramètres",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Des arguments",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "label": "Des attributs ou des champs",
+        "correct": true
+      },
+      {
+        "id": "d",
+        "label": "Des variables globales",
+        "correct": false
+      }
+    ],
+    "explanation": "Des attributs ou des champs"
+  },
+  {
+    "id": "q84",
+    "text": "Que représente le mot-clé 'this' en Java ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Il fait référence à la classe parente.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "C'est l'instance courante de la classe.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Il fait référence à une variable statique.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "C'est un mot-clé pour créer une nouvelle instance.",
+        "correct": false
+      }
+    ],
+    "explanation": "C'est l'instance courante de la classe."
+  },
+  {
+    "id": "q85",
+    "text": "Quelle est la fonction principale d'un constructeur ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Détruire un objet et libérer la mémoire.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Copier un objet existant.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "label": "Donner des valeurs initiales aux champs lors de la création d'un objet.",
+        "correct": true
+      },
+      {
+        "id": "d",
+        "label": "Renvoyer une valeur calculée à partir des attributs.",
+        "correct": false
+      }
+    ],
+    "explanation": "Donner des valeurs initiales aux champs lors de la création d'un objet."
+  },
+  {
+    "id": "q86",
+    "text": "Quelle est une caractéristique syntaxique importante d'un constructeur en Java ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Il doit toujours retourner une valeur de type 'int'.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Il doit commencer par le mot-clé 'function'.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "label": "Il ne retourne rien, pas même 'void'.",
+        "correct": true
+      },
+      {
+        "id": "d",
+        "label": "Son nom doit être différent du nom de la classe.",
+        "correct": false
+      }
+    ],
+    "explanation": "Il ne retourne rien, pas même 'void'."
+  },
+  {
+    "id": "q87",
+    "text": "Est-il possible d'avoir plusieurs constructeurs dans une même classe ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Non, une classe ne peut avoir qu'un seul constructeur.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Oui, mais ils doivent tous avoir le même nombre d'arguments.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "label": "Oui, à condition que leurs listes d'arguments soient différentes.",
+        "correct": true
+      },
+      {
+        "id": "d",
+        "label": "Oui, mais seulement si la classe est déclarée 'public'.",
+        "correct": false
+      }
+    ],
+    "explanation": "Oui, à condition que leurs listes d'arguments soient différentes."
+  },
+  {
+    "id": "q88",
+    "text": "Que se passe-t-il si aucun constructeur n'est défini explicitement dans une classe ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Le code ne compilera pas.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Un constructeur par défaut sans argument est automatiquement fourni.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Il faudra utiliser une méthode 'init()' pour initialiser l'objet.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Tous les attributs seront initialisés à 'null'.",
+        "correct": false
+      }
+    ],
+    "explanation": "Un constructeur par défaut sans argument est automatiquement fourni."
+  },
+  {
+    "id": "q89",
+    "text": "Où sont stockés les objets créés avec le mot-clé 'new' en mémoire ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Sur la pile (stack).",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Dans le registre du processeur.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "label": "Sur le tas (heap).",
+        "correct": true
+      },
+      {
+        "id": "d",
+        "label": "Directement dans le code source.",
+        "correct": false
+      }
+    ],
+    "explanation": "Sur le tas (heap)."
+  },
+  {
+    "id": "q90",
+    "text": "Où sont stockées les variables locales et les références vers des objets ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Sur le tas (heap).",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Sur la pile (stack).",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Sur le disque dur.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Dans un fichier de configuration.",
+        "correct": false
+      }
+    ],
+    "explanation": "Sur la pile (stack)."
+  },
+  {
+    "id": "q91",
+    "text": "Quelle est la valeur d'une variable de type objet qui ne pointe vers aucun élément du tas ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "0",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "undefined",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "label": "empty",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "null",
+        "correct": true
+      }
+    ],
+    "explanation": "null"
+  },
+  {
+    "id": "q92",
+    "text": "Quel type d'erreur est généré lorsqu'on essaie d'appeler une méthode sur une référence 'null' ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "ArithmeticException",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "NullPointerException",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "ArrayIndexOutOfBoundsException",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "ClassCastException",
+        "correct": false
+      }
+    ],
+    "explanation": "NullPointerException"
+  },
+  {
+    "id": "q93",
+    "text": "Dans la ligne 'Chat c = new Chat();', que fait le mot-clé 'new' ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Il déclare une nouvelle variable de type Chat.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Il appelle le constructeur pour créer un nouvel objet Chat.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Il définit le type de la variable 'c'.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Il libère la mémoire allouée à un objet Chat.",
+        "correct": false
+      }
+    ],
+    "explanation": "Il appelle le constructeur pour créer un nouvel objet Chat."
+  },
+  {
+    "id": "q94",
+    "text": "Comment accède-t-on à un attribut public 'age' d'un objet 'c' de la classe 'Chat' ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "c->age",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "c.age",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "c['age']",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "age(c)",
+        "correct": false
+      }
+    ],
+    "explanation": "c.age"
+  },
+  {
+    "id": "q95",
+    "text": "Quel mot-clé est utilisé pour empêcher l'accès direct à un champ depuis l'extérieur de la classe ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "public",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "static",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "label": "hidden",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "private",
+        "correct": true
+      }
+    ],
+    "explanation": "private"
+  },
+  {
+    "id": "q96",
+    "text": "Après avoir rendu un champ 'private', quel type de méthode permet d'obtenir sa valeur de l'extérieur ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Un mutateur (setter)",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Un accesseur (getter)",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Un constructeur",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Une méthode statique",
+        "correct": false
+      }
+    ],
+    "explanation": "Un accesseur (getter)"
+  },
+  {
+    "id": "q97",
+    "text": "Quel type de méthode permet de modifier la valeur d'un champ privé ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Un accesseur (getter)",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Un mutateur (setter)",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Un descripteur",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Un finaliseur",
+        "correct": false
+      }
+    ],
+    "explanation": "Un mutateur (setter)"
+  },
+  {
+    "id": "q98",
+    "text": "Selon la convention, comment devrait s'appeler l'accesseur pour un attribut 'nom' de type String ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "nom()",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "getNom()",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "readNom()",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "fetchNom()",
+        "correct": false
+      }
+    ],
+    "explanation": "getNom()"
+  },
+  {
+    "id": "q99",
+    "text": "Selon la convention, comment devrait s'appeler le mutateur pour un attribut 'age' de type int ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "age(int age)",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "changeAge(int age)",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "label": "setAge(int age)",
+        "correct": true
+      },
+      {
+        "id": "d",
+        "label": "modifyAge(int age)",
+        "correct": false
+      }
+    ],
+    "explanation": "setAge(int age)"
+  },
+  {
+    "id": "q103",
+    "text": "Que compare l'opérateur '==' lorsqu'il est utilisé sur des variables objets ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Il compare si les valeurs de tous leurs attributs sont identiques.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Il compare si les variables pointent vers le même emplacement en mémoire (la même référence).",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Il compare si les classes des objets sont les mêmes.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Il compile toujours vers 'true'.",
+        "correct": false
+      }
+    ],
+    "explanation": "Il compare si les variables pointent vers le même emplacement en mémoire (la même référence)."
+  },
+  {
+    "id": "q104",
+    "text": "Que fait la méthode '.equals()' pour la classe String ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Elle compare les références en mémoire, comme '=='.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Elle compare le contenu des chaînes de caractères (les séquences de caractères).",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Elle vérifie si les deux chaînes ont la même longueur.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Elle convertit les deux chaînes en majuscules avant de comparer.",
+        "correct": false
+      }
+    ],
+    "explanation": "Elle compare le contenu des chaînes de caractères (les séquences de caractères)."
+  },
+  {
+    "id": "q105",
+    "text": "Soit 'String a = new String(\"txt\");' et 'String b = new String(\"txt\");'. Que renverra 'a == b' ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "True",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "False",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Cela provoquera une erreur de compilation.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Cela dépend de la version de Java.",
+        "correct": false
+      }
+    ],
+    "explanation": "False"
+  },
+  {
+    "id": "q106",
+    "text": "Soit 'String a = new String(\"txt\");' et 'String b = new String(\"txt\");'. Que renverra 'a.equals(b)' ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "True",
+        "correct": true
+      },
+      {
+        "id": "b",
+        "label": "False",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "label": "Cela provoquera une NullPointerException.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Cela dépend de la casse.",
+        "correct": false
+      }
+    ],
+    "explanation": "True"
+  },
+  {
+    "id": "q107",
+    "text": "Qu'est-ce qu'une méthode statique ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Une méthode qui ne peut pas être modifiée.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Une méthode qui n'est liée à aucune instance d'une classe.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Une méthode qui retourne toujours la même valeur.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Une méthode qui ne peut être appelée que depuis le constructeur.",
+        "correct": false
+      }
+    ],
+    "explanation": "Une méthode qui n'est liée à aucune instance d'une classe."
+  },
+  {
+    "id": "q108",
+    "text": "Quelle est une différence majeure entre une méthode statique et une méthode d'instance ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Une méthode statique ne peut pas avoir d'arguments.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Une méthode statique doit être déclarée 'private'.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "label": "Le mot-clé 'this' n'est pas disponible dans une méthode statique.",
+        "correct": true
+      },
+      {
+        "id": "d",
+        "label": "Une méthode statique ne peut pas retourner de valeur.",
+        "correct": false
+      }
+    ],
+    "explanation": "Le mot-clé 'this' n'est pas disponible dans une méthode statique."
+  },
+  {
+    "id": "q111",
+    "text": "Une méthode statique peut-elle accéder directement aux attributs d'instance (non statiques) d'une classe ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Oui, en utilisant le mot-clé 'this'.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Non, car elle n'est liée à aucune instance spécifique.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Oui, mais seulement si les attributs sont 'public'.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Seulement si la méthode est aussi 'final'.",
+        "correct": false
+      }
+    ],
+    "explanation": "Non, car elle n'est liée à aucune instance spécifique."
+  },
+  {
+    "id": "q112",
+    "text": "Qu'est-ce qu'une variable (ou attribut) statique ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Une variable dont la valeur ne peut jamais changer.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Une variable qui n'est liée à aucune instance de la classe (partagée par toutes les instances).",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Une variable locale à une méthode statique.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Une variable qui est automatiquement initialisée à 0.",
+        "correct": false
+      }
+    ],
+    "explanation": "Une variable qui n'est liée à aucune instance de la classe (partagée par toutes les instances)."
+  },
+  {
+    "id": "q122",
+    "text": "Quel niveau de visibilité permet l'accès à un membre depuis la même classe, le même package, et une sous-classe, mais pas de n'importe où ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "public",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "private",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "label": "protected",
+        "correct": true
+      },
+      {
+        "id": "d",
+        "label": "∅ (par défaut / package)",
+        "correct": false
+      }
+    ],
+    "explanation": "protected"
+  },
+  {
+    "id": "q123",
+    "text": "Quel niveau de visibilité est le plus restrictif en Java ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "public",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "protected",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "label": "∅ (par défaut / package)",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "private",
+        "correct": true
+      }
+    ],
+    "explanation": "private"
+  },
+  {
+    "id": "q124",
+    "text": "Qu'est-ce qu'une fonction récursive ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Une fonction qui utilise une boucle 'for'.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Une fonction qui s'appelle elle-même.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Une fonction qui ne retourne jamais de valeur.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Une fonction qui est déclarée avec le mot-clé 'static'.",
+        "correct": false
+      }
+    ],
+    "explanation": "Une fonction qui s'appelle elle-même."
+  },
+  {
+    "id": "q125",
+    "text": "Dans l'implémentation récursive de la factorielle, quelle est la condition d'arrêt (cas de base) ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Quand n est supérieur à 100.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Quand n est égal à 0 ou 1.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Quand n est un nombre pair.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Il n'y a pas de condition d'arrêt.",
+        "correct": false
+      }
+    ],
+    "explanation": "Quand n est égal à 0 ou 1."
+  },
+  {
+    "id": "q126",
+    "text": "Dans la définition récursive de la suite de Fibonacci, comment est calculé F(n) pour n > 1 ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "F(n-1) * F(n-2)",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "F(n-1) + F(n-2)",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "F(n-1)",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "n + F(n-1)",
+        "correct": false
+      }
+    ],
+    "explanation": "F(n-1) + F(n-2)"
+  },
+  {
+    "id": "q129",
+    "text": "Dans la ligne 'int[] x = new int[5];', que représente le '5' ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "La première valeur du tableau.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Le nombre d'éléments dans le tableau (sa taille/capacité).",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "La valeur maximale qu'un élément peut avoir.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Le nombre de dimensions du tableau.",
+        "correct": false
+      }
+    ],
+    "explanation": "Le nombre d'éléments dans le tableau (sa taille/capacité)."
+  },
+  {
+    "id": "q131",
+    "text": "Si une classe a un constructeur 'public Animal(String nom)', le constructeur par défaut 'Animal()' est-il toujours disponible ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Oui, il est toujours disponible.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Non, dès qu'un constructeur est défini, celui par défaut n'est plus fourni automatiquement.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Seulement si la classe est déclarée 'final'.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Seulement s'il est déclaré 'private'.",
+        "correct": false
+      }
+    ],
+    "explanation": "Non, dès qu'un constructeur est défini, celui par défaut n'est plus fourni automatiquement."
+  },
+  {
+    "id": "q132",
+    "text": "Dans 'public class Chat { public String nom; }', quelle est la visibilité de l'attribut 'nom' ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Privée (private)",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Publique (public)",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Protégée (protected)",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Par défaut (package)",
+        "correct": false
+      }
+    ],
+    "explanation": "Publique (public)"
+  },
+  {
+    "id": "q134",
+    "text": "Est-il obligatoire de fournir un 'setter' pour chaque attribut privé ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Oui, sinon l'attribut ne peut pas être initialisé.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Non, on n'a pas forcément besoin de pouvoir modifier tous les attributs hors de la classe.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Oui, la compilation échouera sans setter.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Non, mais il faut obligatoirement un getter.",
+        "correct": false
+      }
+    ],
+    "explanation": "Non, on n'a pas forcément besoin de pouvoir modifier tous les attributs hors de la classe."
+  },
+  {
+    "id": "q135",
+    "text": "Dans 'String[] valeurs = new String[3];', quelle est la valeur initiale des éléments du tableau ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Des chaînes de caractères vides (\"\").",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "null",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "0",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "undefined",
+        "correct": false
+      }
+    ],
+    "explanation": "null"
+  },
+  {
+    "id": "q136",
+    "text": "Soit 'String a = \"txt\";' et 'String b = \"txt\";'. Pourquoi 'a == b' peut-il retourner 'true' dans ce cas ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Parce que '.equals()' est appelé implicitement.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "À cause d'une optimisation de Java où une seule instance de la chaîne 'txt' est créée.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "C'est un comportement aléatoire.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Parce que 'a' et 'b' sont des types primitifs.",
+        "correct": false
+      }
+    ],
+    "explanation": "À cause d'une optimisation de Java où une seule instance de la chaîne 'txt' est créée."
+  },
+  {
+    "id": "q137",
+    "text": "Une méthode statique peut-elle accéder à une variable statique de la même classe ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Non, jamais.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Oui, car les deux appartiennent à la classe et non à une instance.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Seulement si la variable est de type 'int'.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Seulement en utilisant le mot-clé 'this'.",
+        "correct": false
+      }
+    ],
+    "explanation": "Oui, car les deux appartiennent à la classe et non à une instance."
+  },
+  {
+    "id": "q138",
+    "text": "Une méthode d'instance (non statique) peut-elle accéder à une variable statique de la même classe ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Non, car elle est liée à une instance.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Oui, sans problème.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Seulement si la variable statique est déclarée 'public'.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Seulement si la méthode ne retourne aucune valeur (void).",
+        "correct": false
+      }
+    ],
+    "explanation": "Oui, sans problème."
+  },
+  {
+    "id": "q140",
+    "text": "Quelle est la visibilité par défaut (si aucun mot-clé comme public/private n'est spécifié) ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "public",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "private",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "label": "protected",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Package (accessible uniquement dans le même package)",
+        "correct": true
+      }
+    ],
+    "explanation": "Package (accessible uniquement dans le même package)"
+  },
+  {
+    "id": "q142",
+    "text": "Dans la déclaration 'public void setAge(int age)', que représente 'void' ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "La méthode peut accepter n'importe quel type d'argument.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "La méthode ne retourne aucune valeur.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "La méthode est vide et ne contient aucun code.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "La méthode est privée.",
+        "correct": false
+      }
+    ],
+    "explanation": "La méthode ne retourne aucune valeur."
+  },
+  {
+    "id": "q143",
+    "text": "Dans 'public int getAge() { return this.age; }', que fait l'instruction 'return' ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Elle arrête le programme.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Elle imprime la valeur de 'age' dans la console.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "label": "Elle renvoie la valeur de l'attribut 'age' à l'appelant de la méthode.",
+        "correct": true
+      },
+      {
+        "id": "d",
+        "label": "Elle met à jour la valeur de 'age'.",
+        "correct": false
+      }
+    ],
+    "explanation": "Elle renvoie la valeur de l'attribut 'age' à l'appelant de la méthode."
+  },
+  {
+    "id": "q144",
+    "text": "La modélisation d'un objet est-elle unique ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Oui, il n'y a qu'une seule façon correcte de modéliser un objet.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Non, il y a quasiment toujours plusieurs modélisations possibles selon les besoins.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Oui, elle est définie par le langage Java lui-même.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Non, mais toutes les modélisations ont les mêmes attributs.",
+        "correct": false
+      }
+    ],
+    "explanation": "Non, il y a quasiment toujours plusieurs modélisations possibles selon les besoins."
+  },
+  {
+    "id": "q145",
+    "text": "Quel est le principal avantage d'utiliser une classe pour regrouper un tableau et sa taille, par rapport à les passer comme deux arguments séparés ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Le code est plus difficile à lire.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Cela regroupe les données liées, ce qui rend le code plus compréhensible et réduit le nombre d'arguments à passer.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Il n'y a aucun avantage, c'est juste une autre façon de faire.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Cela utilise plus de mémoire.",
+        "correct": false
+      }
+    ],
+    "explanation": "Cela regroupe les données liées, ce qui rend le code plus compréhensible et réduit le nombre d'arguments à passer."
+  },
+  {
+    "id": "q146",
+    "text": "Dans la boucle 'for (int i = 0; i < valeurs.length; i++)', que représente 'valeurs.length' ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Le dernier élément du tableau.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "L'index du dernier élément du tableau.",
+        "correct": false
+      },
+      {
+        "id": "c",
+        "label": "Le nombre total d'éléments que le tableau peut contenir (sa taille).",
+        "correct": true
+      },
+      {
+        "id": "d",
+        "label": "La somme de toutes les valeurs du tableau.",
+        "correct": false
+      }
+    ],
+    "explanation": "Le nombre total d'éléments que le tableau peut contenir (sa taille)."
+  },
+  {
+    "id": "q147",
+    "text": "Le type de retour d'une méthode fait-il partie de sa signature lorsqu'on la surcharge (création de plusieurs méthodes avec le même nom) ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Oui, on peut avoir deux méthodes avec les mêmes arguments si le type de retour est différent.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Non, seules les listes d'arguments (nombre et/ou type des paramètres) doivent être différentes.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Cela ne s'applique qu'aux constructeurs.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Oui, mais seulement pour les méthodes statiques.",
+        "correct": false
+      }
+    ],
+    "explanation": "Non, seules les listes d'arguments (nombre et/ou type des paramètres) doivent être différentes."
+  },
+  {
+    "id": "q148",
+    "text": "Dans 'this.nom = nom;', à quoi correspond le 'nom' de droite ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "À l'attribut de la classe.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Au paramètre passé au constructeur ou à la méthode.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "À une variable globale.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "À un autre objet.",
+        "correct": false
+      }
+    ],
+    "explanation": "Au paramètre passé au constructeur ou à la méthode."
+  },
+  {
+    "id": "q149",
+    "text": "Dans l'implémentation de la factorielle itérative (avec une boucle), à quelle valeur la variable 'resultat' doit-elle être initialisée ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "0",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "1",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "-1",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "n",
+        "correct": false
+      }
+    ],
+    "explanation": "1"
+  },
+  {
+    "id": "q150",
+    "text": "Une classe peut-elle contenir des méthodes statiques et des méthodes d'instance en même temps ?",
+    "options": [
+      {
+        "id": "a",
+        "label": "Non, une classe est soit entièrement statique, soit entièrement basée sur des instances.",
+        "correct": false
+      },
+      {
+        "id": "b",
+        "label": "Oui, c'est tout à fait courant.",
+        "correct": true
+      },
+      {
+        "id": "c",
+        "label": "Oui, mais seulement si la classe n'a pas d'attributs.",
+        "correct": false
+      },
+      {
+        "id": "d",
+        "label": "Non, cela provoquerait une ambiguïté à la compilation.",
+        "correct": false
+      }
+    ],
+    "explanation": "Oui, c'est tout à fait courant."
+  }
+]
