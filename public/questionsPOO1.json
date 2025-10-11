@@ -820,25 +820,25 @@
       },
       {
         "id": "b",
-        "label": "class Cellule<T> { ... }",
+        "label": "class Cellule&lt;T&gt; { ... }",
         "correct": true
       },
       {
         "id": "c",
-        "label": "class<T> Cellule { ... }",
+        "label": "class&lt;T&gt; Cellule { ... }",
         "correct": false
       },
       {
         "id": "d",
-        "label": "class Cellule { <T> ... }",
+        "label": "class Cellule { &lt;T&gt; ... }",
         "correct": false
       }
     ],
-    "explanation": "class Cellule<T> { ... }"
+    "explanation": "class Cellule&lt;T&gt; { ... }"
   },
   {
     "id": "q32",
-    "text": "Pourquoi `Cellule<int>` est-il incorrect en Java ?",
+    "text": "Pourquoi `Cellule&lt;int&gt;` est-il incorrect en Java ?",
     "options": [
       {
         "id": "a",
@@ -857,7 +857,7 @@
       },
       {
         "id": "d",
-        "label": "Parce qu'il faut écrire `Cellule<Int>`.",
+        "label": "Parce qu'il faut écrire `Cellule&lt;Int&gt;`.",
         "correct": false
       }
     ],
@@ -892,7 +892,7 @@
   },
   {
     "id": "q34",
-    "text": "Que signifie la déclaration `class Cellule<T extends Number>` ?",
+    "text": "Que signifie la déclaration `class Cellule&lt;T extends Number&gt;` ?",
     "options": [
       {
         "id": "a",
@@ -997,33 +997,6 @@
       }
     ],
     "explanation": "Parce que le concept de 'Véhicule' est général et on ne veut pas créer d'objet 'Véhicule' générique."
-  },
-  {
-    "id": "q38",
-    "text": "Dans l'exercice sur les personnages, quel concept permet à un `Soigneur` de soigner à la fois un `Guerrier` et un `Magicien` ?",
-    "options": [
-      {
-        "id": "a",
-        "label": "L'héritage de `Personnage`.",
-        "correct": false
-      },
-      {
-        "id": "b",
-        "label": "L'utilisation de l'interface `Soignable` implémentée par `Guerrier` et `Magicien`.",
-        "correct": true
-      },
-      {
-        "id": "c",
-        "label": "L'utilisation de `instanceof`.",
-        "correct": false
-      },
-      {
-        "id": "d",
-        "label": "La généricité.",
-        "correct": false
-      }
-    ],
-    "explanation": "L'utilisation de l'interface `Soignable` implémentée par `Guerrier` et `Magicien`."
   },
   {
     "id": "q39",
@@ -1316,7 +1289,7 @@
       },
       {
         "id": "d",
-        "label": "En utilisant la généricité avec `<T extends Animal>`.",
+        "label": "En utilisant la généricité avec `&lt;T extends Animal&gt;`.",
         "correct": false
       }
     ],
@@ -1540,7 +1513,7 @@
   },
   {
     "id": "q58",
-    "text": "Dans le code `class Cellule<T>`, `T` est appelé...",
+    "text": "Dans le code `class Cellule&lt;T&gt;`, `T` est appelé...",
     "options": [
       {
         "id": "a",
@@ -1567,34 +1540,34 @@
   },
   {
     "id": "q59",
-    "text": "Lequel de ces appels est valide pour `class Cellule<T extends Number>` ?",
+    "text": "Lequel de ces appels est valide pour `class Cellule&lt;T extends Number&gt;` ?",
     "options": [
       {
         "id": "a",
-        "label": "new Cellule<String>();",
+        "label": "new Cellule&lt;String&gt;();",
         "correct": false
       },
       {
         "id": "b",
-        "label": "new Cellule<Double>();",
+        "label": "new Cellule&lt;Double&gt;();",
         "correct": true
       },
       {
         "id": "c",
-        "label": "new Cellule<Object>();",
+        "label": "new Cellule&lt;Object&gt;();",
         "correct": false
       },
       {
         "id": "d",
-        "label": "new Cellule<char>();",
+        "label": "new Cellule&lt;char&gt;();",
         "correct": false
       }
     ],
-    "explanation": "new Cellule<Double>();"
+    "explanation": "new Cellule&lt;Double&gt;();"
   },
   {
     "id": "q60",
-    "text": "Le 'diamond operator' (`<>`) en généricité permet de...",
+    "text": "Le 'diamond operator' (`&lt;&gt;`) en généricité permet de...",
     "options": [
       {
         "id": "a",
@@ -1621,7 +1594,7 @@
   },
   {
     "id": "q61",
-    "text": "Si `Chien` étend `Animal`, peut-on dire que `List<Chien>` est un sous-type de `List<Animal>` ?",
+    "text": "Si `Chien` étend `Animal`, peut-on dire que `List&lt;Chien&gt;` est un sous-type de `List&lt;Animal&gt;` ?",
     "options": [
       {
         "id": "a",
@@ -1702,7 +1675,7 @@
   },
   {
     "id": "q64",
-    "text": "Dans l'exemple du `Garage` générique, quel est l'avantage de `Garage<Vehicule>` par rapport à un `Garage` qui stockerait des `Object` ?",
+    "text": "Dans l'exemple du `Garage` générique, quel est l'avantage de `Garage&lt;Vehicule&gt;` par rapport à un `Garage` qui stockerait des `Object` ?",
     "options": [
       {
         "id": "a",
