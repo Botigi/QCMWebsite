@@ -1,0 +1,812 @@
+[
+    {
+        "id": "q1",
+        "text": "Quelle est la définition du 'droit' selon le document ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "L'ensemble des décisions concordantes rendues par les cours et tribunaux.",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "Une disposition normative et abstraite posant une règle juridique obligatoire.",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "L'ensemble des règles juridiques qui régissent les relations entre les individus eux-mêmes et les institutions dans une société.",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "label": "L'ensemble des institutions chargées d'appliquer le droit.",
+                "correct": false
+            }
+        ],
+        "explanation": "L'ensemble des règles juridiques qui régissent les relations entre les individus eux-mêmes et les institutions dans une société."
+    },
+    {
+        "id": "q2",
+        "text": "Comment appelle-t-on le type de droit qui oppose deux individus ou personnes morales ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "Droit public",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "Droit privé",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "label": "Droit pénal",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "label": "Droit constitutionnel",
+                "correct": false
+            }
+        ],
+        "explanation": "Droit privé"
+    },
+    {
+        "id": "q3",
+        "text": "Comment appelle-t-on une proposition de loi émanant du gouvernement ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "Un projet de loi",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "label": "Une proposition de loi",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "Une loi référendaire",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "label": "Une loi organique",
+                "correct": false
+            }
+        ],
+        "explanation": "Un projet de loi"
+    },
+    {
+        "id": "q4",
+        "text": "Laquelle de ces caractéristiques n'est PAS une caractéristique de la loi ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "Générale",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "Obligatoire",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "Impersonnelle",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "label": "Particulière",
+                "correct": true
+            }
+        ],
+        "explanation": "Particulière"
+    },
+    {
+        "id": "q5",
+        "text": "Qu'est-ce que la 'jurisprudence' ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "L'ensemble des institutions chargées d'appliquer le droit.",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "Les décisions concordantes rendues par les cours et tribunaux relatives à une même question de droit.",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "label": "Une aptitude à être titulaire de droits et devoirs.",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "label": "Une disposition normative et abstraite votée par le Parlement.",
+                "correct": false
+            }
+        ],
+        "explanation": "Les décisions concordantes rendues par les cours et tribunaux relatives à une même question de droit."
+    },
+    {
+        "id": "q6",
+        "text": "Laquelle de ces cours n'est PAS citée comme une juridiction internationale à l'origine de jurisprudences importantes ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "La Cour de Cassation (c.cass)",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "label": "La Cour Européenne des Droits de l'Homme (CEDH)",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "La Cours de justice de l'UE (CJUE)",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "label": "La Cours pénale internationale (CPI)",
+                "correct": false
+            }
+        ],
+        "explanation": "La Cour de Cassation (c.cass)"
+    },
+    {
+        "id": "q7",
+        "text": "Quelle est la différence entre 'juridique' et 'judiciaire' ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "'Juridique' se rapporte à la justice, 'judiciaire' se rapporte au droit.",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "Il n'y a aucune différence.",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "'Juridique' se rapporte au droit, 'judiciaire' se rapporte à la justice.",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "label": "'Juridique' concerne le droit pénal, 'judiciaire' concerne le droit civil.",
+                "correct": false
+            }
+        ],
+        "explanation": "'Juridique' se rapporte au droit, 'judiciaire' se rapporte à la justice."
+    },
+    {
+        "id": "q8",
+        "text": "Quelles sont les trois conditions de validité d'un contrat ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "Le consentement, la capacité de contracter, et un contenu licite et certain.",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "label": "L'exécution, la preuve, et le consentement.",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "La capacité de contracter, la personnalité juridique, et un contenu certain.",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "label": "Le consentement, l'absence de vice, et la nullité.",
+                "correct": false
+            }
+        ],
+        "explanation": "Le consentement, la capacité de contracter, et un contenu licite et certain."
+    },
+    {
+        "id": "q9",
+        "text": "Que signifie le principe de 'loyauté de la preuve' ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "Que l'on ne peut pas se constituer de preuve à soi-même.",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "Que la preuve n'est recevable que si elle est obtenue de manière loyale.",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "label": "Que la preuve doit être un élément matériel.",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "label": "Que la preuve doit être validée par un juge.",
+                "correct": false
+            }
+        ],
+        "explanation": "Que la preuve n'est recevable que si elle est obtenue de manière loyale."
+    },
+    {
+        "id": "q10",
+        "text": "Quand commence la 'personnalité juridique' ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "À la majorité.",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "Lors de l'obtention de la capacité juridique.",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "À la naissance de l'individu.",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "label": "Lors de l'émancipation.",
+                "correct": false
+            }
+        ],
+        "explanation": "À la naissance de l'individu."
+    },
+    {
+        "id": "q11",
+        "text": "Un mineur émancipé a-t-il la 'capacité juridique' ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "Oui, il a la personnalité et la capacité juridiques.",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "Non, il a la personnalité juridique mais n'a pas la capacité juridique.",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "label": "Non, il n'a ni personnalité ni capacité juridiques.",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "label": "Oui, il a la capacité juridique mais pas la personnalité juridique.",
+                "correct": false
+            }
+        ],
+        "explanation": "Non, il a la personnalité juridique mais n'a pas la capacité juridique."
+    },
+    {
+        "id": "q12",
+        "text": "Quelle est l'infraction la plus grave parmi les trois types listés ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "La contravention",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "Le délit",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "Le crime",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "label": "L'amende",
+                "correct": false
+            }
+        ],
+        "explanation": "Le crime"
+    },
+    {
+        "id": "q13",
+        "text": "Quelle est la peine généralement associée à un 'délit' ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "Des peines d'amendes selon la classe.",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "Entre 1 et 10 ans de prison + amende.",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "label": "Une réclusion criminelle de +10 ans.",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "label": "Uniquement des dommages-intérêts.",
+                "correct": false
+            }
+        ],
+        "explanation": "Entre 1 et 10 ans de prison + amende."
+    },
+    {
+        "id": "q14",
+        "text": "Quels sont les effets de la 'responsabilité juridique' ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "Uniquement une sanction.",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "Indemnisation et sanction.",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "label": "Un partage de responsabilité.",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "label": "Uniquement une indemnisation.",
+                "correct": false
+            }
+        ],
+        "explanation": "Indemnisation et sanction."
+    },
+    {
+        "id": "q15",
+        "text": "Qui détient le 'pouvoir législatif' en France ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "Le Président, le gouvernement et les ministères.",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "Les juridictions judiciaires et administratives.",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "L'Assemblée nationale et le Sénat.",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "label": "Le Conseil Constitutionnel (CC).",
+                "correct": false
+            }
+        ],
+        "explanation": "L'Assemblée nationale et le Sénat."
+    },
+    {
+        "id": "q16",
+        "text": "Quelle est la plus haute juridiction de l'ordre judiciaire ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "La Cour d'appel",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "Le Conseil d'État",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "La Cour de Cassation",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "label": "La Cour d'assises",
+                "correct": false
+            }
+        ],
+        "explanation": "La Cour de Cassation"
+    },
+    {
+        "id": "q17",
+        "text": "Quelle est la plus haute juridiction de l'ordre administratif ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "Le Tribunal administratif",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "Le Conseil d'État",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "label": "La Cour administrative d'appel",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "label": "La Cour de Cassation",
+                "correct": false
+            }
+        ],
+        "explanation": "Le Conseil d'État"
+    },
+    {
+        "id": "q18",
+        "text": "Dans la pyramide des normes (de Kelsen), quel bloc se situe immédiatement au-dessus du 'Bloc de légalité' ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "Le Bloc de constitutionnalité",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "Les Règlements",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "Le Bloc de conventionnalité",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "label": "Les Autres actes administratifs",
+                "correct": false
+            }
+        ],
+        "explanation": "Le Bloc de conventionnalité"
+    },
+    {
+        "id": "q19",
+        "text": "Que contiennent les 'Règlements' (bloc réglementaire) ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "Les lois",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "Les traités internationaux",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "Les arrêtés et décrets",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "label": "La constitution",
+                "correct": false
+            }
+        ],
+        "explanation": "Les arrêtés et décrets"
+    },
+    {
+        "id": "q20",
+        "text": "Laquelle de ces propositions ne fait PAS partie du 'bloc constitutionnel' ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "La charte de l'environnement",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "La DDHC 1789 (document indique 1785)",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "Les directives européennes",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "label": "Les Principes Fondamentaux Reconnus par les Lois de la République (PFRLR)",
+                "correct": false
+            }
+        ],
+        "explanation": "Les directives européennes"
+    },
+    {
+        "id": "q21",
+        "text": "Dans la lecture d'une décision de justice, comment s'appelle la partie décrivant le raisonnement juridique du juge ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "L'exposé des faits",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "Les motifs",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "label": "Le dispositif",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "label": "La question de droit",
+                "correct": false
+            }
+        ],
+        "explanation": "Les motifs"
+    },
+    {
+        "id": "q22",
+        "text": "Quelle est la première étape de l'analyse d'un cas pratique ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "Chercher la règle de droit applicable",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "Proposer une solution juridique argumentée",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "Identifier les faits",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "label": "Repérer les questions juridiques",
+                "correct": false
+            }
+        ],
+        "explanation": "Identifier les faits"
+    },
+    {
+        "id": "q23",
+        "text": "Laquelle de ces propositions n'est PAS une base légale de traitement des données selon le RGPD ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "Le consentement",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "L'intérêt commercial de l'entreprise",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "label": "Le contrat",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "label": "L'obligation légale",
+                "correct": false
+            }
+        ],
+        "explanation": "L'intérêt commercial de l'entreprise"
+    },
+    {
+        "id": "q24",
+        "text": "Comment sont définis les éléments qui font partie de la vie privée ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "Ils sont définis par la loi",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "Ils sont définis par le RGPD",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "Ils sont définis par des jurisprudences",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "label": "Ils sont définis par le Code civil",
+                "correct": false
+            }
+        ],
+        "explanation": "Ils sont définis par des jurisprudences"
+    },
+    {
+        "id": "q25",
+        "text": "Parmi les sphères de la vie, quelle est la plus intime (au centre) ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "Sphère publique",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "Sphère sociale",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "Sphère privée",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "label": "Sphère intime",
+                "correct": true
+            }
+        ],
+        "explanation": "Sphère intime"
+    },
+    {
+        "id": "q26",
+        "text": "Laquelle de ces données n'est PAS considérée comme une 'donnée sensible' au sens du RGPD ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "Les données de santé",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "Les données bancaires",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "label": "Les données biométriques",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "label": "Les données génétiques",
+                "correct": false
+            }
+        ],
+        "explanation": "Les données bancaires"
+    },
+    {
+        "id": "q27",
+        "text": "Selon le document, un traitement médical ou une opération est-il nécessaire pour demander un changement de sexe à l'état civil ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "Oui, une opération est obligatoire.",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "Non, pas besoin d'un traitement/opération.",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "label": "Oui, un traitement hormonal est suffisant.",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "label": "Seul l'acte de naissance fait foi et ne peut être modifié.",
+                "correct": false
+            }
+        ],
+        "explanation": "Non, pas besoin d'un traitement/opération."
+    },
+    {
+        "id": "q28",
+        "text": "La confidentialité des données de santé est garantie par une double protection : la protection des données personnelles et...",
+        "options": [
+            {
+                "id": "a",
+                "label": "Le secret médical.",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "label": "Le Code pénal.",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "La protection du domicile.",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "label": "Le secret des correspondances.",
+                "correct": false
+            }
+        ],
+        "explanation": "Le secret médical."
+    },
+    {
+        "id": "q29",
+        "text": "Laquelle de ces propositions n'est PAS une condition du 'domicile' ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "L'unicité",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "La volonté",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "La nationalité",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "label": "La publicité",
+                "correct": false
+            }
+        ],
+        "explanation": "La nationalité"
+    },
+    {
+        "id": "q30",
+        "text": "Quelle est la sanction pénale maximale pour 'Atteinte à l'intimité de la vie privée' (Article 226-1) ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "Uniquement des dommages-intérêts.",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "10 ans de prison et 100 000€ d'amende.",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "1 an d'emprisonnement et 45000€.",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "label": "La publication d'un encart.",
+                "correct": false
+            }
+        ],
+        "explanation": "1 an d'emprisonnement et 45000€."
+    }
+]
