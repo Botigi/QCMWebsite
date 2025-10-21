@@ -334,7 +334,9 @@
             // Mélange complet + échantillonnage sans remise
             const pool = shuffle([...ALL_QUESTIONS]);
             const size = Math.min(QUIZ_SIZE ?? pool.length, pool.length);
-            QUESTIONS = pool.slice(0, size);
+            // Clone selected questions. Options are already shuffled at load time
+            // (see init), so just clone the options array to avoid shared refs.
+            QUESTIONS = pool.slice(0, size).map(q => ({ ...q, options: [...q.options] }));
 
             // Réinit état + UI
             qTotalEl.textContent = QUESTIONS.length;
@@ -397,10 +399,13 @@
         async function init() {
             questionWrap.innerHTML = '<div class="skeleton h-24 w-full"></div>';
             try {
-                ALL_QUESTIONS = await loadQuestions();
+                const data = await loadQuestions();
+                // Shuffle options for ALL_QUESTIONS once at load time so every question
+                // has its proposals randomized for the whole session.
+                ALL_QUESTIONS = data.map(q => ({ ...q, options: shuffle([...q.options]) }));
                 // ALL_QUESTIONS = Array.from(new Map(ALL_QUESTIONS.map(q => [q.text, q])).values());
 
-                resetQuiz(); // mélange + initialise l'état
+                resetQuiz(); // initialise l'état (questions déjà contiennent options mélangées)
             } catch (err) {
                 questionWrap.innerHTML = `<div class="alert alert-error"><span>${err.message}</span></div>`;
                 prevBtn.disabled = true;
