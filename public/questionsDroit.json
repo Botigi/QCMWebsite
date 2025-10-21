@@ -1,7 +1,7 @@
 [
     {
         "id": "q1",
-        "text": "Quelle est la définition du 'droit' selon le document ?",
+        "text": "Quelle est la définition du 'droit' ?",
         "options": [
             {
                 "id": "a",
@@ -136,7 +136,7 @@
     },
     {
         "id": "q6",
-        "text": "Laquelle de ces cours n'est PAS citée comme une juridiction internationale à l'origine de jurisprudences importantes ?",
+        "text": "Laquelle de ces cours n'est PAS une juridiction internationale ?",
         "options": [
             {
                 "id": "a",
@@ -159,7 +159,7 @@
                 "correct": false
             }
         ],
-        "explanation": "La Cour de Cassation (c.cass)"
+        "explanation": "La Cour de Cassation (c.cass) est la plus haute juridiction nationale de l'ordre judiciaire français."
     },
     {
         "id": "q7",
@@ -271,30 +271,30 @@
     },
     {
         "id": "q11",
-        "text": "Un mineur émancipé a-t-il la 'capacité juridique' ?",
+        "text": "Quelle est la situation d'un mineur (non émancipé) vis-à-vis de la capacité juridique ?",
         "options": [
             {
                 "id": "a",
-                "label": "Oui, il a la personnalité et la capacité juridiques.",
+                "label": "Il a la personnalité et la capacité juridiques.",
                 "correct": false
             },
             {
                 "id": "b",
-                "label": "Non, il a la personnalité juridique mais n'a pas la capacité juridique.",
+                "label": "Il a la personnalité juridique mais n'a pas la capacité juridique.",
                 "correct": true
             },
             {
                 "id": "c",
-                "label": "Non, il n'a ni personnalité ni capacité juridiques.",
+                "label": "Il n'a ni personnalité ni capacité juridiques.",
                 "correct": false
             },
             {
                 "id": "d",
-                "label": "Oui, il a la capacité juridique mais pas la personnalité juridique.",
+                "label": "Il a la capacité juridique mais pas la personnalité juridique.",
                 "correct": false
             }
         ],
-        "explanation": "Non, il a la personnalité juridique mais n'a pas la capacité juridique."
+        "explanation": "Un mineur a la personnalité juridique (des droits et devoirs) mais n'a pas la capacité juridique (il ne peut les exercer seul)."
     },
     {
         "id": "q12",
@@ -334,7 +334,7 @@
             },
             {
                 "id": "b",
-                "label": "Entre 1 et 10 ans de prison + amende.",
+                "label": "Jusqu'à 10 ans de prison + amende.",
                 "correct": true
             },
             {
@@ -348,7 +348,7 @@
                 "correct": false
             }
         ],
-        "explanation": "Entre 1 et 10 ans de prison + amende."
+        "explanation": "Jusqu'à 10 ans de prison + amende. (La contravention donne lieu à une amende, le crime à plus de 10 ans)."
     },
     {
         "id": "q14",
@@ -402,7 +402,7 @@
                 "correct": false
             }
         ],
-        "explanation": "L'Assemblée nationale et le Sénat."
+        "explanation": "L'Assemblée nationale et le Sénat (qui forment le Parlement)."
     },
     {
         "id": "q16",
@@ -483,7 +483,7 @@
                 "correct": false
             }
         ],
-        "explanation": "Le Bloc de conventionnalité"
+        "explanation": "Le Bloc de conventionnalité (traités internationaux, droit de l'UE)."
     },
     {
         "id": "q19",
@@ -523,7 +523,7 @@
             },
             {
                 "id": "b",
-                "label": "La DDHC 1789 (document indique 1785)",
+                "label": "La Déclaration des Droits de l'Homme et du Citoyen (DDHC)",
                 "correct": false
             },
             {
@@ -537,7 +537,7 @@
                 "correct": false
             }
         ],
-        "explanation": "Les directives européennes"
+        "explanation": "Les directives européennes appartiennent au bloc de conventionnalité."
     },
     {
         "id": "q21",
@@ -618,7 +618,7 @@
                 "correct": false
             }
         ],
-        "explanation": "L'intérêt commercial de l'entreprise"
+        "explanation": "L'intérêt commercial n'est pas une base légale. L'intérêt légitime' l'est, mais il est plus encadré que le simple 'intérêt commercial'."
     },
     {
         "id": "q24",
@@ -626,7 +626,7 @@
         "options": [
             {
                 "id": "a",
-                "label": "Ils sont définis par la loi",
+                "label": "Ils sont définis par une loi unique",
                 "correct": false
             },
             {
@@ -641,11 +641,11 @@
             },
             {
                 "id": "d",
-                "label": "Ils sont définis par le Code civil",
+                "label": "Ils sont définis par le Code civil uniquement",
                 "correct": false
             }
         ],
-        "explanation": "Ils sont définis par des jurisprudences"
+        "explanation": "La loi ne définit pas précisément la vie privée ; ce sont les décisions de justice (jurisprudences) qui en ont défini les contours."
     },
     {
         "id": "q25",
@@ -699,11 +699,11 @@
                 "correct": false
             }
         ],
-        "explanation": "Les données bancaires"
+        "explanation": "Les données bancaires sont confidentielles, mais pas 'sensibles' au sens strict du RGPD (qui inclut santé, origine, opinions politiques...)."
     },
     {
         "id": "q27",
-        "text": "Selon le document, un traitement médical ou une opération est-il nécessaire pour demander un changement de sexe à l'état civil ?",
+        "text": "Un traitement médical ou une opération est-il nécessaire pour demander un changement de sexe à l'état civil ?",
         "options": [
             {
                 "id": "a",
@@ -766,7 +766,7 @@
             },
             {
                 "id": "b",
-                "label": "La volonté",
+                "label": "La volonté (de s'y établir)",
                 "correct": false
             },
             {
@@ -776,7 +776,7 @@
             },
             {
                 "id": "d",
-                "label": "La publicité",
+                "label": "La publicité (identification)",
                 "correct": false
             }
         ],
@@ -808,5 +808,544 @@
             }
         ],
         "explanation": "1 an d'emprisonnement et 45000€."
+    },
+    {
+        "id": "q32",
+        "text": "Comment définit-on le 'droit pénal' ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "Il oppose l'Etat ou une constitution à un individu.",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "Il oppose deux individus ou personnes morales.",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "Il oppose la société à la personne soupçonnée de ne pas avoir respecté les règles.",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "label": "Il régit les relations entre les institutions.",
+                "correct": false
+            }
+        ],
+        "explanation": "Il oppose la société à la personne soupçonnée de ne pas avoir respecté les règles."
+    },
+    {
+        "id": "q33",
+        "text": "Lequel de ces éléments n'est PAS un des buts du droit ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "Punir (prononcer une condamnation).",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "Réparer le préjudice (par des dommages-intérêts).",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "Obliger quelqu'un à s'exécuter (par l'exécution forcée).",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "label": "Voter la loi (par le Parlement).",
+                "correct": true
+            }
+        ],
+        "explanation": "Voter la loi est une fonction du pouvoir législatif, pas un but du droit en tant que tel (le droit est la règle, pas l'action de la créer)."
+    },
+    {
+        "id": "q34",
+        "text": "Si un contrat ne respecte pas les conditions de validité (ex: vice du consentement), quelle est la conséquence juridique ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "Il est arrêté à l'instant (résolution).",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "Il peut être annulé et les parties doivent retourner dans l'état d'avant contrat (nullité).",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "label": "Il est renégocié par un juge.",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "label": "Il entraîne une sanction pénale automatique.",
+                "correct": false
+            }
+        ],
+        "explanation": "Il peut être annulé et les parties doivent retourner dans l'état d'avant contrat (nullité)."
+    },
+    {
+        "id": "q35",
+        "text": "Si un contrat valide est 'mal exécuté' (contenu non respecté), quelle est la conséquence ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "Il est arrêté à l'instant (résolution/résiliation).",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "label": "Il est annulé rétroactivement (nullité).",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "Les parties doivent payer une amende à l'Etat.",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "label": "Il devient automatiquement un délit.",
+                "correct": false
+            }
+        ],
+        "explanation": "Il est arrêté à l'instant (résolution/résiliation). La nullité concerne un problème de formation (validité)."
+    },
+    {
+        "id": "q36",
+        "text": "Quel est l'un des principes fondamentaux de la preuve ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "La preuve doit être obtenue de manière loyale.",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "La preuve doit être un élément matériel.",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "Nul ne peut se constituer de preuve à soi-même (il faut un tiers).",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "label": "La preuve doit être validée par la Cour de Cassation.",
+                "correct": false
+            }
+        ],
+        "explanation": "Nul ne peut se constituer de preuve à soi-même (il faut un tiers)."
+    },
+    {
+        "id": "q37",
+        "text": "Lequel de ces éléments est un 'devoir' lié à la personnalité juridique ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "Les libertés individuelles.",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "Participer à la justice (en tant que juré d'assises).",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "label": "Les droits prévus dans les textes.",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "label": "Les droits fondamentaux.",
+                "correct": false
+            }
+        ],
+        "explanation": "Participer à la justice (en tant que juré d'assises). Les autres sont des droits."
+    },
+    {
+        "id": "q38",
+        "text": "Quels sont les trois principaux types de responsabilité juridique ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "Civile, pénale, et administrative.",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "label": "Civile, pénale, et constitutionnelle.",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "Personnelle, professionnelle, et publique.",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "label": "Avec faute, sans faute, et partagée.",
+                "correct": false
+            }
+        ],
+        "explanation": "Civile, pénale, et administrative."
+    },
+    {
+        "id": "q39",
+        "text": "Laquelle de ces propositions est une 'limitation de la responsabilité' ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "La responsabilité du fait d'autrui.",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "L'indemnisation.",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "L'irresponsabilité pénale.",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "label": "La responsabilité civile.",
+                "correct": false
+            }
+        ],
+        "explanation": "L'irresponsabilité pénale (ex: troubles mentaux) est une limitation de la responsabilité."
+    },
+    {
+        "id": "q40",
+        "text": "Qui compose le 'pouvoir exécutif' ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "L'Assemblée nationale et le Sénat.",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "La Cour de Cassation et le Conseil d'État.",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "Le Président, le gouvernement, les ministères, les administrations, les fonctionnaires.",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "label": "Le Conseil Constitutionnel et la Cour d'appel.",
+                "correct": false
+            }
+        ],
+        "explanation": "Le Président, le gouvernement, les ministères, les administrations, les fonctionnaires."
+    },
+    {
+        "id": "q41",
+        "text": "Quelle juridiction pénale de 1er degré juge les 'crimes' ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "Le Tribunal de police",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "Le Tribunal correctionnel",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "La Cour d'assises",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "label": "La Chambre criminelle",
+                "correct": false
+            }
+        ],
+        "explanation": "La Cour d'assises (le Tribunal de police juge les contraventions, le Tribunal correctionnel les délits)."
+    },
+    {
+        "id": "q42",
+        "text": "Quelle juridiction civile de 1er degré s'occupe des litiges entre salariés et employeurs ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "Le Conseil des prud'hommes",
+                "correct": true
+            },
+            {
+                "id": "b",
+                "label": "Le Tribunal judiciaire unique",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "Le Tribunal de commerce",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "label": "La Chambre sociale",
+                "correct": false
+            }
+        ],
+        "explanation": "Le Conseil des prud'hommes (La Chambre sociale est au niveau de la Cour d'appel ou de Cassation)."
+    },
+    {
+        "id": "q43",
+        "text": "Selon la pyramide des normes, que contient le 'bloc de conventionnalité' ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "La constitution et la DDHC.",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "Les lois organiques et ordinaires.",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "Les arrêtés et les décrets.",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "label": "Les directives européennes, règlements européens et traités internationaux.",
+                "correct": true
+            }
+        ],
+        "explanation": "Les directives européennes, règlements européens et traités internationaux."
+    },
+    {
+        "id": "q44",
+        "text": "Que signifie le 'principe de primauté' dans la pyramide des normes ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "Le pouvoir exécutif prime sur le législatif.",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "Chaque bloc au-dessus d'un autre prime dessus (la norme supérieure l'emporte sur l'inférieure).",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "label": "Le droit national prime sur le droit international.",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "label": "Les lois les plus récentes priment sur les plus anciennes.",
+                "correct": false
+            }
+        ],
+        "explanation": "Chaque bloc au-dessus d'un autre prime dessus (la norme supérieure l'emporte sur l'inférieure)."
+    },
+    {
+        "id": "q45",
+        "text": "Dans la lecture d'une décision de justice, comment s'appelle la partie qui contient la 'solution juridique adoptée' (rejet, cassation, condamnation...) ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "Les motifs",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "Le dispositif",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "label": "L'exposé des faits",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "label": "La question de droit",
+                "correct": false
+            }
+        ],
+        "explanation": "Le dispositif"
+    },
+    {
+        "id": "q46",
+        "text": "Lequel de ces éléments est considéré comme une 'donnée à caractère personnel' au sens du RGPD ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "Un profil LinkedIn professionnel.",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "Le domaine public.",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "L'adresse du domicile.",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "label": "Le nom de l'officier d'état civil.",
+                "correct": false
+            }
+        ],
+        "explanation": "L'adresse du domicile (les autres sont publiques ou non relatives à un individu identifié)."
+    },
+    {
+        "id": "q47",
+        "text": "Dans quel cas une 'atteinte à la vie privée' peut-elle être justifiée (une exception) ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "Si l'information est déjà publique.",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "Si l'atteinte est minime.",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "Au nom du droit à l'information du public, dans l'intérêt du public.",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "label": "Si la personne est une personnalité politique (cette seule condition ne suffit pas).",
+                "correct": false
+            }
+        ],
+        "explanation": "Au nom du droit à l'information du public, dans l'intérêt du public."
+    },
+    {
+        "id": "q48",
+        "text": "Quelles sont les deux caractéristiques principales du 'nom de famille' ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "Choisi par les parents et modifiable.",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "Immuable et imprescriptible.",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "label": "Public et obligatoire.",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "label": "Personnel et confidentiel.",
+                "correct": false
+            }
+        ],
+        "explanation": "Immuable (on ne peut pas en changer facilement) et imprescriptible (il ne se perd pas par le non-usage)."
+    },
+    {
+        "id": "q49",
+        "text": "Laquelle de ces propositions n'est PAS une manière d'obtenir la nationalité ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "Par filiation (droit du sang).",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "Par naturalisation (demande à l'Etat).",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "Par achat immobilier.",
+                "correct": true
+            },
+            {
+                "id": "d",
+                "label": "À la naissance (droit du sol).",
+                "correct": false
+            }
+        ],
+        "explanation": "L'achat immobilier ne donne pas automatiquement la nationalité."
+    },
+    {
+        "id": "q50",
+        "text": "Parmi les exemples de 'données numériques' personnelles, on trouve :",
+        "options": [
+            {
+                "id": "a",
+                "label": "Numéro de carte et RIB/IBAN.",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "Adresse IP et Cookies.",
+                "correct": true
+            },
+            {
+                "id": "c",
+                "label": "Données biométriques et génétiques.",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "label": "Nom et prénom.",
+                "correct": false
+            }
+        ],
+        "explanation": "Adresse IP et Cookies. (Nom/prénom = données d'identification ; RIB = données bancaires ; biométriques = données sensibles)."
+    },
+    {
+        "id": "q51",
+        "text": "En cas de violation de la vie privée, laquelle de ces sanctions est une 'sanction civile' ?",
+        "options": [
+            {
+                "id": "a",
+                "label": "1 an d'emprisonnement.",
+                "correct": false
+            },
+            {
+                "id": "b",
+                "label": "45000€ d'amende.",
+                "correct": false
+            },
+            {
+                "id": "c",
+                "label": "L'irresponsabilité pénale.",
+                "correct": false
+            },
+            {
+                "id": "d",
+                "label": "La réparation du préjudice subi (dommages-intérêts).",
+                "correct": true
+            }
+        ]
     }
 ]
