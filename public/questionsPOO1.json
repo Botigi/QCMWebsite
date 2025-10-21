@@ -294,7 +294,7 @@
         "correct": false
       }
     ],
-    "explanation": "Une méthode déclarée dans une classe abstraite, sans implémentation, qui doit être implémentée par les sous-classes."
+    "explanation": "Une méthode déclarée dans une classe abstraite, sans implémentation, qui doit être implémentée par les sous-classes. Elle doit être implémentée par la première classe qui n'est pas abstraite. On peut avoir une chaine de classes abstraites."
   },
   {
     "id": "q12",
@@ -1846,13 +1846,8 @@
       },
       {
         "id": "b",
-        "label": "Oui, en utilisant `this(...)` comme première instruction.",
+        "label": "Oui, en utilisant `this(...)` ou super(...) comme première instruction.",
         "correct": true
-      },
-      {
-        "id": "c",
-        "label": "Oui, en utilisant `super(...)`.",
-        "correct": false
       },
       {
         "id": "d",
@@ -1860,7 +1855,7 @@
         "correct": false
       }
     ],
-    "explanation": "Oui, en utilisant `this(...)` comme première instruction."
+    "explanation": "Oui, en utilisant `this(...)` ou super(...) comme première instruction."
   },
   {
     "id": "q71",
@@ -2211,7 +2206,7 @@
         "correct": false
       }
     ],
-    "explanation": "Un constructeur par défaut sans argument est automatiquement fourni."
+    "explanation": "Un constructeur par défaut sans argument est automatiquement fourni par le compilateur. L'option (d) est incorrecte car ce constructeur initialise les attributs à leur valeur par défaut : 'null' pour les types objets (références), mais leur valeur par défaut (comme 0, 0.0, false, '\\u0000') pour les types primitifs."
   },
   {
     "id": "q89",
@@ -2697,7 +2692,7 @@
         "correct": false
       }
     ],
-    "explanation": "Non, car elle n'est liée à aucune instance spécifique."
+    "explanation": "La réponse (b) est correcte. Une méthode statique est liée à la classe (et non à une instance), elle n'a donc pas de référence 'this'. Elle ne peut pas accéder 'directement' (c'est-à-dire implicitement) à un attribut d'instance. Tenter d'écrire 'int y = x;' ne compilerait pas. L'exemple de l'image ('int y = var.x;') est valide car l'accès n'est pas direct : il se fait via une référence explicite ('var') à un objet qui est passé en paramètre."
   },
   {
     "id": "q112",
@@ -3265,33 +3260,6 @@
       }
     ],
     "explanation": "Non, seules les listes d'arguments (nombre et/ou type des paramètres) doivent être différentes."
-  },
-  {
-    "id": "q148",
-    "text": "Dans 'this.nom = nom;', à quoi correspond le 'nom' de droite ?",
-    "options": [
-      {
-        "id": "a",
-        "label": "À l'attribut de la classe.",
-        "correct": false
-      },
-      {
-        "id": "b",
-        "label": "Au paramètre passé au constructeur ou à la méthode.",
-        "correct": true
-      },
-      {
-        "id": "c",
-        "label": "À une variable globale.",
-        "correct": false
-      },
-      {
-        "id": "d",
-        "label": "À un autre objet.",
-        "correct": false
-      }
-    ],
-    "explanation": "Au paramètre passé au constructeur ou à la méthode."
   },
   {
     "id": "q149",
