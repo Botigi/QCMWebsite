@@ -61,6 +61,7 @@
 
     <!-- Contenu principal -->
     <main class="container mx-auto px-4 py-6 max-w-full sm:max-w-3xl">
+        <canvas id="vanillaConfettiCanvas"></canvas>
         <div class="card bg-gray-800 shadow-lg">
             <div class="card-body">
                 <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
@@ -119,7 +120,33 @@
         </div>
     </main>
 
-    <script>
+    <style>
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 999;
+        }
+    </style>
+
+    <script type="module">
+
+        import { generateConfetti } from "../vanillaConfetti.min.js";
+
+        const confettiConfigObj = {
+            colorsArray: ["rgba(255, 180, 185, 1)", "rgba(255, 220, 185, 1)", "rgba(255, 255, 185, 1)", "rgba(185, 255, 200, 1)", "rgba(185, 225, 255, 1)", "rgba(215, 185, 255, 1)"],
+            velocity: 0.025,
+            quantity: 750,
+            minSize: 4,
+            maxSize: 12,
+            minOpacity: 0.75,
+            maxOpacity: 1,
+            infiniteLoop: false
+        };
+
         // ===============================
         // ====== Config & Helpers ======
         // ===============================
@@ -376,6 +403,7 @@
             endTimer();
             const { correct, total } = computeScore();
             const pct = Math.round((correct / total) * 100);
+            generateConfetti(confettiConfigObj, "vanillaConfettiCanvas");
             statScore.textContent = pct + "%";
             statDetails.textContent = `${correct}/${total} correct`;
             statTime.textContent = timerEl.textContent;

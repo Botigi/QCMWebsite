@@ -61,6 +61,7 @@
 
     <!-- Contenu principal -->
     <main class="container mx-auto px-4 py-6 max-w-full sm:max-w-3xl">
+        <canvas id="vanillaConfettiCanvas"></canvas>
         <div class="card bg-gray-800 shadow-lg">
             <div class="card-body">
                 <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
@@ -119,7 +120,33 @@
         </div>
     </main>
 
-    <script>
+    <style>
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 999;
+        }
+    </style>
+
+    <script type="module">
+
+        import { generateConfetti } from "../vanillaConfetti.min.js";
+
+        const confettiConfigObj = {
+            colorsArray: ["rgba(255, 180, 185, 1)", "rgba(255, 220, 185, 1)", "rgba(255, 255, 185, 1)", "rgba(185, 255, 200, 1)", "rgba(185, 225, 255, 1)", "rgba(215, 185, 255, 1)"],
+            velocity: 0.025,
+            quantity: 750,
+            minSize: 4,
+            maxSize: 12,
+            minOpacity: 0.75,
+            maxOpacity: 1,
+            infiniteLoop: false
+        };
+
         // ===============================
         // ====== Config & Helpers ======
         // ===============================
@@ -176,7 +203,7 @@
         // =============================
         async function loadQuestions() {
             const res = await fetch("./questionsDroit.json", { cache: "no-store" });
-            if (!res.ok) throw new Error(`Impossible de charger questionsOSINT1.json (${res.status})`);
+            if (!res.ok) throw new Error(`Impossible de charger questions1.json (${res.status})`);
             const data = await res.json();
             if (!Array.isArray(data)) throw new Error("Le JSON doit être un tableau de questions.");
             return data;
@@ -280,6 +307,7 @@
                 <div class="form-control mt-3 grid grid-cols-1 md:grid-cols-2 gap-2">${optionsHtml}</div>
             `;
 
+            // Restore feedback for this question if previously answered
             if (state.explanations[state.index] != null) {
                 const wasCorrect = !!state.correctness[state.index];
                 showFeedback(wasCorrect, state.explanations[state.index]);
@@ -295,7 +323,7 @@
                         state.answers[state.index] = value;
                         state.checked[state.index] = true;
 
-                        // Persist explanation and correctness
+                        // Persist explanation and correctness so it survives re-renders
                         const chosen = q.options.find((o) => String(o.id) === String(value));
                         const isCorrect = !!chosen?.correct;
                         state.correctness[state.index] = isCorrect;
@@ -315,6 +343,7 @@
 
             // Si on revient en arrière sur une question déjà répondue
             if (alreadyChecked && selected != null) {
+                // Use persisted correctness/explanation when available
                 const wasCorrect = state.correctness[state.index] !== undefined ? !!state.correctness[state.index] : !!(q.options.find(o => String(o.id) === String(selected))?.correct);
                 const explanation = state.explanations[state.index] ?? q.explanation;
                 showFeedback(wasCorrect, explanation);
@@ -332,8 +361,8 @@
             // Mélange complet + échantillonnage sans remise
             const pool = shuffle([...ALL_QUESTIONS]);
             const size = Math.min(QUIZ_SIZE ?? pool.length, pool.length);
-            // Clone selected questions. Options were shuffled at load time (init),
-            // so just clone the options array to avoid shared refs.
+            // Clone selected questions. Options are already shuffled at load time
+            // (see init), so just clone the options array to avoid shared refs.
             QUESTIONS = pool.slice(0, size).map(q => ({ ...q, options: [...q.options] }));
 
             // Réinit état + UI
@@ -374,6 +403,7 @@
             endTimer();
             const { correct, total } = computeScore();
             const pct = Math.round((correct / total) * 100);
+            generateConfetti(confettiConfigObj, "vanillaConfettiCanvas");
             statScore.textContent = pct + "%";
             statDetails.textContent = `${correct}/${total} correct`;
             statTime.textContent = timerEl.textContent;
