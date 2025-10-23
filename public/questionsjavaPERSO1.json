@@ -712,7 +712,7 @@
             },
             {
                 "id": "b",
-                "label": "Stocker des données de manière générique, comme une 'Cellule<T>'.",
+                "label": "Stocker des données de manière générique, comme une 'Cellule&ltT&gt'.",
                 "correct": false
             },
             {
@@ -757,7 +757,7 @@
     },
     {
         "id": "q29",
-        "text": "À quoi sert la syntaxe '<T>' (généricité) dans la définition 'class Cellule<T>' ?",
+        "text": "À quoi sert la syntaxe '&ltT&gt' (généricité) dans la définition 'class Cellule&ltT&gt' ?",
         "options": [
             {
                 "id": "a",
