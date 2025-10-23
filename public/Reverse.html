@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dim">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>QCM - Cours 1</title>
+
+    <link href="./output.css" rel="stylesheet" />
+
+    <style>
+        .fade-enter {
+            opacity: 0;
+            transform: translateY(6px);
+        }
+
+        .fade-enter-active {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 180ms ease;
+        }
+
+        .fade-leave {
+            opacity: 1;
+        }
+
+        .fade-leave-active {
+            opacity: 0;
+            transform: translateY(-6px);
+            transition: all 160ms ease;
+        }
+
+        /* Small responsive tweaks when utility classes are not enough */
+        @media (max-width: 640px) {
+
+            /* Make action buttons stack and full-width on very small screens */
+            .card-actions.responsive-stack {
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+                align-items: stretch;
+            }
+
+            .card-actions.responsive-stack .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body class="min-h-screen bg-gray-900 text-gray-100">
+    <!-- Barre du haut -->
+    <div class="navbar bg-gray-800 shadow-md sticky top-0 z-10">
+        <div class="flex-1">
+            <a href="../index.html" class="btn btn-ghost normal-case text-xl text-black-200">Menu</a>
+        </div>
+        <div class="flex-none gap-2">
+            <div class="badge badge-neutral" id="scoreBadge">Score: 0/0</div>
+        </div>
+    </div>
+
+    <!-- Contenu principal -->
+    <main class="container mx-auto px-4 py-6 max-w-full sm:max-w-3xl">
+        <canvas id="vanillaConfettiCanvas"></canvas>
+        <div class="card bg-gray-800 shadow-lg">
+            <div class="card-body">
+                <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                    <h1 class="card-title text-gray-100">
+                        Question <span id="qIndex">1</span>/<span id="qTotal">0</span>
+                    </h1>
+                    <div class="text-sm opacity-70" id="timerBox" hidden>
+                        ⏱️ <span id="timer">00:00</span>
+                    </div>
+                </div>
+
+                <!-- progression -->
+                <progress id="progress" class="progress progress-neutral w-full" value="0" max="100"></progress>
+
+                <!-- zone question -->
+                <div id="questionWrap" class="mt-2"></div>
+
+                <!-- feedback -->
+                <div id="feedback" class="mt-2"></div>
+
+                <!-- actions -->
+                <div class="card-actions justify-between mt-4 items-center responsive-stack">
+                    <div class="flex flex-col sm:flex-row sm:space-x-2 space-y-2 sm:space-y-0 w-full sm:w-auto">
+                        <button id="prevBtn" class="btn btn-md btn-neutral w-full sm:w-auto" disabled>Précédent</button>
+                        <button id="nextBtn" class="btn btn-md btn-neutral w-full sm:w-auto" disabled>Suivant</button>
+                    </div>
+                    <div
+                        class="flex flex-col sm:flex-row sm:items-center sm:space-x-3 space-y-2 sm:space-y-0 w-full sm:w-auto">
+                        <button id="submitBtn" class="btn btn-md btn-neutral w-full sm:w-auto"
+                            disabled>Terminer</button>
+                        <button id="restartBtn" class="btn btn-accent btn-md btn-neutral w-full sm:w-auto"
+                            hidden>Recommencer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Résultats -->
+        <div id="resultCard" class="card bg-gray-800 shadow-lg mt-6 hidden">
+            <div class="card-body">
+                <h2 class="card-title text-gray-100">Résultats</h2>
+                <p id="resultText" class="text-lg"></p>
+                <div class="stats stats-vertical lg:stats-horizontal w-full mt-2">
+                    <div class="stat">
+                        <div class="stat-title text-gray-300">Score</div>
+                        <div class="stat-value text-primary" id="statScore">0%</div>
+                        <div class="stat-desc text-gray-400" id="statDetails">0/0 correct</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-title text-gray-300">Temps</div>
+                        <div class="stat-value text-secondary" id="statTime">00:00</div>
+                        <div class="stat-desc text-gray-400">Durée totale</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <style>
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 999;
+        }
+    </style>
+
+    <script type="module">
+
+        import { generateConfetti } from "../vanillaConfetti.min.js";
+
+        const confettiConfigObj = {
+            colorsArray: ["rgba(255, 180, 185, 1)", "rgba(255, 220, 185, 1)", "rgba(255, 255, 185, 1)", "rgba(185, 255, 200, 1)", "rgba(185, 225, 255, 1)", "rgba(215, 185, 255, 1)"],
+            velocity: 0.025,
+            quantity: 750,
+            minSize: 4,
+            maxSize: 12,
+            minOpacity: 0.75,
+            maxOpacity: 1,
+            infiniteLoop: false
+        };
+
+        // ===============================
+        // ====== Config & Helpers ======
+        // ===============================
+
+        const QUIZ_SIZE = null; // null => utilise toutes les questions
+
+        function shuffle(arr) {
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+            return arr;
+        }
+
+        const pad = (n) => n.toString().padStart(2, "0");
+        const fmtTime = (ms) => {
+            const s = Math.floor(ms / 1000);
+            const m = Math.floor(s / 60);
+            const r = s % 60;
+            return `${pad(m)}:${pad(r)}`;
+        };
+
+        // =========================
+        // ====== Données/Etat =====
+        // =========================
+        let ALL_QUESTIONS = [];
+        let QUESTIONS = [];
+        const state = { index: 0, answers: [], checked: [], explanations: [], correctness: [], startedAt: null, finishedAt: null };
+        let timerId = null;
+
+        // ===========================
+        // ====== Sélecteurs DOM =====
+        // ===========================
+        const qIndexEl = document.getElementById("qIndex");
+        const qTotalEl = document.getElementById("qTotal");
+        const progressEl = document.getElementById("progress");
+        const questionWrap = document.getElementById("questionWrap");
+        const feedbackEl = document.getElementById("feedback");
+        const prevBtn = document.getElementById("prevBtn");
+        const nextBtn = document.getElementById("nextBtn");
+        const submitBtn = document.getElementById("submitBtn");
+        const restartBtn = document.getElementById("restartBtn");
+        const scoreBadge = document.getElementById("scoreBadge");
+        const resultCard = document.getElementById("resultCard");
+        const resultText = document.getElementById("resultText");
+        const statScore = document.getElementById("statScore");
+        const statDetails = document.getElementById("statDetails");
+        const statTime = document.getElementById("statTime");
+        const timerBox = document.getElementById("timerBox");
+        const timerEl = document.getElementById("timer");
+
+        // =============================
+        // ====== Chargement JSON ======
+        // =============================
+        async function loadQuestions() {
+            const res = await fetch("./questionReverseThib.json", { cache: "no-store" });
+            if (!res.ok) throw new Error(`Impossible de charger questionReverseThib.json (${res.status})`);
+            const data = await res.json();
+            if (!Array.isArray(data)) throw new Error("Le JSON doit être un tableau de questions.");
+            return data;
+        }
+
+        // =========================
+        // ====== Minuteur =========
+        // =========================
+        function startTimer() {
+            // évite les doublons d'intervalles si relancé
+            if (timerId) { clearInterval(timerId); timerId = null; }
+            state.startedAt = new Date();
+            state.finishedAt = null;
+            timerBox.hidden = false;
+            timerEl.textContent = "00:00";
+            timerId = setInterval(() => {
+                if (state.finishedAt) { clearInterval(timerId); timerId = null; return; }
+                const elapsed = Date.now() - state.startedAt.getTime();
+                timerEl.textContent = fmtTime(elapsed);
+            }, 500);
+        }
+
+        function endTimer() {
+            state.finishedAt = new Date();
+            if (timerId) { clearInterval(timerId); timerId = null; }
+            timerEl.textContent = fmtTime(state.finishedAt - state.startedAt);
+        }
+
+        // =========================
+        // ====== Score & UI =======
+        // =========================
+        function computeScore() {
+            let correct = 0;
+            QUESTIONS.forEach((q, i) => {
+                const answer = state.answers[i];
+                const opt = q.options.find((o) => o.id === answer);
+                if (opt?.correct) correct++;
+            });
+            return { correct, total: QUESTIONS.length };
+        }
+
+        function updateScoreBadge() {
+            const { correct, total } = computeScore();
+            scoreBadge.textContent = `Score: ${correct}/${total}`;
+        }
+
+        function updateProgress() {
+            const answered = state.answers.filter((a) => a !== null && a !== undefined).length;
+            const percent = QUESTIONS.length ? Math.round((answered / QUESTIONS.length) * 100) : 0;
+            progressEl.value = percent;
+        }
+
+        function setButtons() {
+            prevBtn.disabled = state.index === 0;
+
+            const last = state.index === QUESTIONS.length - 1;
+            nextBtn.textContent = last ? "Dernière" : "Suivant";
+
+            const hasAnswer = state.answers[state.index] !== null && state.answers[state.index] !== undefined;
+            nextBtn.disabled = !hasAnswer || last;
+
+            const anyAnswered = state.answers.some(a => a !== null && a !== undefined);
+            submitBtn.disabled = !anyAnswered;
+        }
+
+        function showFeedback(isCorrect, explanation) {
+            feedbackEl.innerHTML = `
+                <div class="alert ${isCorrect ? "alert-success" : "alert-error"} flex flex-col gap-2">
+                    <div class="font-medium">${isCorrect ? "Bonne réponse" : "Mauvaise réponse"}</div>
+                    ${explanation ? `<div class="text-sm opacity-90 break-words">${explanation}</div>` : ""}
+                </div>
+            `;
+        }
+
+        function renderQuestion() {
+            if (!QUESTIONS.length) return;
+            const q = QUESTIONS[state.index];
+            qIndexEl.textContent = state.index + 1;
+
+            const selected = state.answers[state.index];
+            const alreadyChecked = !!state.checked[state.index];
+
+            const optionsHtml = q.options.map(opt => `
+                <label class="flex items-center rounded-lg cursor-pointer px-4 py-3 hover:bg-gray-700 border border-gray-600 bg-gray-800 gap-3 w-full">
+                    <input
+                        type="radio"
+                        name="answer"
+                        class="radio radio-neutral accent-gray-600 flex-shrink-0"
+                        value="${opt.id}"
+                        ${selected === opt.id ? "checked" : ""}
+                        ${alreadyChecked ? "disabled" : ""}
+                    />
+                    <span class="label-text break-words">${opt.label}</span>
+                </label>
+            `).join("");
+
+            questionWrap.innerHTML = `
+                <div class="prose max-w-none text-gray-100">
+                    <p class="text-lg">${q.text}</p>
+                </div>
+                <div class="form-control mt-3 grid grid-cols-1 md:grid-cols-2 gap-2">${optionsHtml}</div>
+            `;
+
+            // Restore feedback for this question if previously answered
+            if (state.explanations[state.index] != null) {
+                const wasCorrect = !!state.correctness[state.index];
+                showFeedback(wasCorrect, state.explanations[state.index]);
+            } else {
+                feedbackEl.innerHTML = "";
+            }
+
+            // Vérif auto + blocage dès sélection
+            if (!alreadyChecked) {
+                questionWrap.querySelectorAll('input[name="answer"]').forEach(inp => {
+                    inp.addEventListener("change", (e) => {
+                        const value = e.target.value;
+                        state.answers[state.index] = value;
+                        state.checked[state.index] = true;
+
+                        // Persist explanation and correctness so it survives re-renders
+                        const chosen = q.options.find((o) => String(o.id) === String(value));
+                        const isCorrect = !!chosen?.correct;
+                        state.correctness[state.index] = isCorrect;
+                        state.explanations[state.index] = q.explanation || "";
+
+                        showFeedback(isCorrect, q.explanation);
+
+                        // Bloquer toutes les réponses après sélection
+                        questionWrap.querySelectorAll('input[name="answer"]').forEach(r => r.disabled = true);
+
+                        updateProgress();
+                        updateScoreBadge();
+                        setButtons();
+                    });
+                });
+            }
+
+            // Si on revient en arrière sur une question déjà répondue
+            if (alreadyChecked && selected != null) {
+                // Use persisted correctness/explanation when available
+                const wasCorrect = state.correctness[state.index] !== undefined ? !!state.correctness[state.index] : !!(q.options.find(o => String(o.id) === String(selected))?.correct);
+                const explanation = state.explanations[state.index] ?? q.explanation;
+                showFeedback(wasCorrect, explanation);
+                questionWrap.querySelectorAll('input[name="answer"]').forEach(r => r.disabled = true);
+            }
+
+            setButtons();
+            updateScoreBadge();
+        }
+
+        // ===================================
+        // ====== Tirage & Réinitialisation ===
+        // ===================================
+        function resetQuiz() {
+            // Mélange complet + échantillonnage sans remise
+            const pool = shuffle([...ALL_QUESTIONS]);
+            const size = Math.min(QUIZ_SIZE ?? pool.length, pool.length);
+            // Clone selected questions. Options are already shuffled at load time
+            // (see init), so just clone the options array to avoid shared refs.
+            QUESTIONS = pool.slice(0, size).map(q => ({ ...q, options: [...q.options] }));
+
+            // Réinit état + UI
+            qTotalEl.textContent = QUESTIONS.length;
+            state.index = 0;
+            state.answers = Array(QUESTIONS.length).fill(null);
+            state.checked = Array(QUESTIONS.length).fill(false);
+            state.explanations = Array(QUESTIONS.length).fill(null);
+            state.correctness = Array(QUESTIONS.length).fill(false);
+            state.startedAt = null;
+            state.finishedAt = null;
+
+            resultCard.classList.add("hidden");
+            restartBtn.hidden = true;
+            timerEl.textContent = "00:00";
+
+            startTimer();
+            renderQuestion();
+            updateProgress();
+            updateScoreBadge();
+            setButtons();
+        }
+
+        // ======================
+        // ====== Events ========
+        // ======================
+        prevBtn.addEventListener("click", () => {
+            if (state.index > 0) { state.index--; renderQuestion(); }
+        });
+
+        nextBtn.addEventListener("click", () => {
+            if (state.index < QUESTIONS.length - 1 && state.answers[state.index] != null) {
+                state.index++; renderQuestion();
+            }
+        });
+
+        submitBtn.addEventListener("click", () => {
+            endTimer();
+            const { correct, total } = computeScore();
+            const pct = Math.round((correct / total) * 100);
+            generateConfetti(confettiConfigObj, "vanillaConfettiCanvas");
+            statScore.textContent = pct + "%";
+            statDetails.textContent = `${correct}/${total} correct`;
+            statTime.textContent = timerEl.textContent;
+            resultText.textContent = pct >= 80 ? "Excellent !" : pct >= 50 ? "Pas mal, continuez !" : "À revoir";
+            resultCard.classList.remove("hidden");
+            restartBtn.hidden = false;
+
+            // Verrouiller la navigation quand le quiz est terminé
+            submitBtn.disabled = true;
+            nextBtn.disabled = true;
+            prevBtn.disabled = true;
+        });
+
+        restartBtn.addEventListener("click", () => {
+            resetQuiz(); // nouveau tirage aléatoire à chaque relance
+        });
+
+        // ======================
+        // ====== Init ==========
+        // ======================
+        async function init() {
+            questionWrap.innerHTML = '<div class="skeleton h-24 w-full"></div>';
+            try {
+                const data = await loadQuestions();
+                // Shuffle options for ALL_QUESTIONS once at load time so every question
+                // has its proposals randomized for the whole session.
+                ALL_QUESTIONS = data.map(q => ({ ...q, options: shuffle([...q.options]) }));
+                // ALL_QUESTIONS = Array.from(new Map(ALL_QUESTIONS.map(q => [q.text, q])).values());
+
+                resetQuiz(); // initialise l'état (questions déjà contiennent options mélangées)
+            } catch (err) {
+                questionWrap.innerHTML = `<div class="alert alert-error"><span>${err.message}</span></div>`;
+                prevBtn.disabled = true;
+                nextBtn.disabled = true;
+                submitBtn.disabled = true;
+            }
+        }
+        init();
+    </script>
+</body>
+
+</html>
