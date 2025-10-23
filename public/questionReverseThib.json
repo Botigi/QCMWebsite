@@ -1,0 +1,552 @@
+[
+  {
+    "id": "q1",
+    "text": "Quel drapeau d'objdump permet de désassembler un binaire ?",
+    "options": [
+      { "id": "a", "label": "-d", "correct": true },
+      { "id": "b", "label": "-s", "correct": false },
+      { "id": "c", "label": "-C", "correct": false },
+      { "id": "d", "label": "-h", "correct": false }
+    ],
+    "explanation": "Le flag -d d'objdump demande le désassemblage des sections exécutable."
+  },
+  {
+    "id": "q2",
+    "text": "Quel drapeau d'objdump passe la syntaxe en Intel pour x86 ?",
+    "options": [
+      { "id": "a", "label": "-M at&t", "correct": false },
+      { "id": "b", "label": "-M intel", "correct": true },
+      { "id": "c", "label": "-intel", "correct": false },
+      { "id": "d", "label": "-s intel", "correct": false }
+    ],
+    "explanation": "Le drapeau -M intel force la sortie en syntaxe Intel."
+  },
+  {
+    "id": "q3",
+    "text": "Quelle commande affiche le contenu binaire en hex et ASCII avec possibilité de skip et length ?",
+    "options": [
+      { "id": "a", "label": "hexdump -C -s <skip> -n <length>", "correct": true },
+      { "id": "b", "label": "objdump -C -s <skip> -n <length>", "correct": false },
+      { "id": "c", "label": "xxd -d -s <skip> -n <length>", "correct": false },
+      { "id": "d", "label": "strings -C -s <skip> -n <length>", "correct": false }
+    ],
+    "explanation": "hexdump -C fournit hex+ASCII; -s fixe l'offset, -n la longueur."
+  },
+  {
+    "id": "q4",
+    "text": "Quel outil est utilisé pour désassembler du bytecode Java (.class) ?",
+    "options": [
+      { "id": "a", "label": "objdump", "correct": false },
+      { "id": "b", "label": "javap -c", "correct": true },
+      { "id": "c", "label": "hexdump -C", "correct": false },
+      { "id": "d", "label": "jwasm", "correct": false }
+    ],
+    "explanation": "javap -c désassemble le bytecode JVM contenu dans .class."
+  },
+  {
+    "id": "q5",
+    "text": "Que signifie que le code est 'managé' ?",
+    "options": [
+      { "id": "a", "label": "Il est exécuté directement par le processeur sans VM", "correct": false },
+      { "id": "b", "label": "Il est exécuté et géré par une machine virtuelle (bytecode)", "correct": true },
+      { "id": "c", "label": "Il est chiffré pour la sécurité", "correct": false },
+      { "id": "d", "label": "Il est interprété ligne par ligne au moment de la compilation", "correct": false }
+    ],
+    "explanation": "Le code managé est du bytecode exécuté par une VM (ex: JVM) qui gère sa traduction en natif."
+  },
+  {
+    "id": "q6",
+    "text": "Quel est l'opcode hexadécimal court affiché pour l'instruction 'jne' dans l'exemple ?",
+    "options": [
+      { "id": "a", "label": "75", "correct": true },
+      { "id": "b", "label": "74", "correct": false },
+      { "id": "c", "label": "eb", "correct": false },
+      { "id": "d", "label": "77", "correct": false }
+    ],
+    "explanation": "Dans l'exemple, jne est encodé par l'octet 0x75."
+  },
+  {
+    "id": "q7",
+    "text": "Quel est l'opcode pour un 'jmp' court affiché dans l'exemple ?",
+    "options": [
+      { "id": "a", "label": "eb", "correct": true },
+      { "id": "b", "label": "75", "correct": false },
+      { "id": "c", "label": "90", "correct": false },
+      { "id": "d", "label": "e9", "correct": false }
+    ],
+    "explanation": "jmp court est encodé par 0xEB suivi du décalage (ex: eb 00)."
+  },
+  {
+    "id": "q8",
+    "text": "Que se passe-t-il si on remplace l'octet d'après 'eb 00' par 'eb fe' (dans un saut court) ?",
+    "options": [
+      { "id": "a", "label": "Le saut est neutralisé et l'exécution continue", "correct": false },
+      { "id": "b", "label": "On saute deux octets en arrière, provoquant souvent une boucle infinie", "correct": true },
+      { "id": "c", "label": "Le binaire devient invalide et ne s'exécute plus", "correct": false },
+      { "id": "d", "label": "On saute à l'entrée du programme", "correct": false }
+    ],
+    "explanation": "eb fe correspond à un saut relatif négatif (recul de 2 octets), pouvant créer une boucle."
+  },
+  {
+    "id": "q9",
+    "text": "Quelle instruction décrémente rsp de 8 et copie RAX sur la pile ?",
+    "options": [
+      { "id": "a", "label": "pop rax", "correct": false },
+      { "id": "b", "label": "push rax", "correct": true },
+      { "id": "c", "label": "mov [rsp], rax", "correct": false },
+      { "id": "d", "label": "sub rsp, 8", "correct": false }
+    ],
+    "explanation": "push rax décrémente rsp de 8 puis écrit RAX à [RSP] sur x86-64."
+  },
+  {
+    "id": "q10",
+    "text": "Quelle instruction récupère la valeur à [rsp+0x10] dans rax ?",
+    "options": [
+      { "id": "a", "label": "mov rax, [rsp+10h]", "correct": true },
+      { "id": "b", "label": "push [rsp+10h]", "correct": false },
+      { "id": "c", "label": "lea rax, [rsp+10h]", "correct": false },
+      { "id": "d", "label": "pop [rsp+10h]", "correct": false }
+    ],
+    "explanation": "mov rax, [rsp+0x10] lit la mémoire à l'adresse rsp+0x10 et place la valeur dans rax."
+  },
+  {
+    "id": "q11",
+    "text": "Quel registre contient généralement le premier argument selon l'ABI System V AMD64 (Linux) ?",
+    "options": [
+      { "id": "a", "label": "rcx", "correct": false },
+      { "id": "b", "label": "rdi", "correct": true },
+      { "id": "c", "label": "rax", "correct": false },
+      { "id": "d", "label": "rbx", "correct": false }
+    ],
+    "explanation": "Sur Linux x86-64, le premier argument est passé dans rdi."
+  },
+  {
+    "id": "q12",
+    "text": "Selon l'ABI Windows x64, quels registres sont utilisés pour passer les premiers arguments ?",
+    "options": [
+      { "id": "a", "label": "rdi, rsi, rdx, rcx", "correct": false },
+      { "id": "b", "label": "rcx, rdx, r8, r9", "correct": true },
+      { "id": "c", "label": "rax, rbx, rcx, rdx", "correct": false },
+      { "id": "d", "label": "r8, r9, r10, r11", "correct": false }
+    ],
+    "explanation": "Sous Windows x64, l'ordre des registres pour les arguments est rcx, rdx, r8, r9."
+  },
+  {
+    "id": "q13",
+    "text": "Que montre la sortie de la commande 'file' appliquée à un exécutable ?",
+    "options": [
+      { "id": "a", "label": "Le désassemblage du binaire", "correct": false },
+      { "id": "b", "label": "Le format du fichier (ELF/PE), architecture, endianness, etc.", "correct": true },
+      { "id": "c", "label": "Les sections internes et leur taille", "correct": false },
+      { "id": "d", "label": "La table des symboles complètes", "correct": false }
+    ],
+    "explanation": "file identifie le type de fichier, l'architecture, le format (ELF, PE), etc."
+  },
+  {
+    "id": "q14",
+    "text": "Que faut-il faire pour désassembler un binaire ARM sur une machine x86-64 ?",
+    "options": [
+      { "id": "a", "label": "Rien, objdump détecte automatiquement", "correct": false },
+      { "id": "b", "label": "Utiliser une chaîne de compilation croisée / outils multi-arch (ex: aarch64-objdump)", "correct": true },
+      { "id": "c", "label": "Renommer le fichier en .arm", "correct": false },
+      { "id": "d", "label": "Exécuter le binaire avant de le désassembler", "correct": false }
+    ],
+    "explanation": "Pour d'autres architectures, on utilise des outils croisés adaptés (aarch64-objdump...)."
+  },
+  {
+    "id": "q15",
+    "text": "Dans l'exemple, quelle instruction compare deux registres et met à jour les flags ?",
+    "options": [
+      { "id": "a", "label": "cmp rax, rbx", "correct": true },
+      { "id": "b", "label": "test rax, rbx", "correct": false },
+      { "id": "c", "label": "mov rax, rbx", "correct": false },
+      { "id": "d", "label": "and rax, rbx", "correct": false }
+    ],
+    "explanation": "cmp effectue la soustraction logique sans stocker le résultat mais met à jour les flags."
+  },
+  {
+    "id": "q16",
+    "text": "Quelle condition est testée par l'instruction 'ja' ?",
+    "options": [
+      { "id": "a", "label": "Jump if above (unsigned)", "correct": true },
+      { "id": "b", "label": "Jump if above (signed)", "correct": false },
+      { "id": "c", "label": "Jump if equal", "correct": false },
+      { "id": "d", "label": "Jump if overflow", "correct": false }
+    ],
+    "explanation": "ja est utilisée pour comparer valeurs non signées (above)."
+  },
+  {
+    "id": "q17",
+    "text": "Quelle condition correspond à 'jg' ?",
+    "options": [
+      { "id": "a", "label": "Jump if greater (signed)", "correct": true },
+      { "id": "b", "label": "Jump if greater (unsigned)", "correct": false },
+      { "id": "c", "label": "Jump if zero", "correct": false },
+      { "id": "d", "label": "Jump if carry", "correct": false }
+    ],
+    "explanation": "jg est utilisé pour sauts conditionnels sur comparaisons signées."
+  },
+  {
+    "id": "q18",
+    "text": "Quel octet correspond typiquement à l'instruction 'je' (jump if equal) ?",
+    "options": [
+      { "id": "a", "label": "74", "correct": true },
+      { "id": "b", "label": "75", "correct": false },
+      { "id": "c", "label": "77", "correct": false },
+      { "id": "d", "label": "eb", "correct": false }
+    ],
+    "explanation": "je est encodé par 0x74 pour un saut court."
+  },
+  {
+    "id": "q19",
+    "text": "Dans l'exemple, comment est obtenue l'adresse de la chaîne littérale 'MonPasswordSecret' ?",
+    "options": [
+      { "id": "a", "label": "avec mov rax, [rip+offset]", "correct": false },
+      { "id": "b", "label": "avec lea rax, [rip+offset]", "correct": true },
+      { "id": "c", "label": "avec push imm", "correct": false },
+      { "id": "d", "label": "avec call printf", "correct": false }
+    ],
+    "explanation": "Une instruction LEA relative au RIP (lea rax, [rip+offset]) donne l'adresse de la chaîne dans le binaire."
+  },
+  {
+    "id": "q20",
+    "text": "En assembleur x86-64, qu'indique 'endbr64' en début de fonction ?",
+    "options": [
+      { "id": "a", "label": "Une instruction de prologue standard", "correct": false },
+      { "id": "b", "label": "Une instruction d'empreinte liée à CET (Control-flow Enforcement Technology)", "correct": true },
+      { "id": "c", "label": "Le retour de fonction", "correct": false },
+      { "id": "d", "label": "Rien, c'est un padding", "correct": false }
+    ],
+    "explanation": "endbr64 est liée aux protections de contrôle de flux (CET/IBT) sur x86-64."
+  },
+  {
+    "id": "q21",
+    "text": "Quel outil permet d'assembler le fichier ex3.asm et produire un objet ELF64 dans l'exemple ?",
+    "options": [
+      { "id": "a", "label": "jwasm -elf64", "correct": true },
+      { "id": "b", "label": "nasm -elf32", "correct": false },
+      { "id": "c", "label": "gcc -c ex3.asm", "correct": false },
+      { "id": "d", "label": "javac ex3.asm", "correct": false }
+    ],
+    "explanation": "Dans l'exercice, jwasm -elf64 est utilisé pour assembler ex3.asm en objet ELF64."
+  },
+  {
+    "id": "q22",
+    "text": "Quelle est la taille typique d'un 'long' sur Linux x86-64 (LP64) d'après l'exemple ?",
+    "options": [
+      { "id": "a", "label": "4 octets", "correct": false },
+      { "id": "b", "label": "8 octets", "correct": true },
+      { "id": "c", "label": "2 octets", "correct": false },
+      { "id": "d", "label": "16 octets", "correct": false }
+    ],
+    "explanation": "Sur Linux x86-64 (LP64), long vaut 8 octets comme montré par sizeof tests."
+  },
+  {
+    "id": "q23",
+    "text": "Quelle est la taille d'un 'long' sur Windows x86-64 (LLP64) montrée dans l'exemple ?",
+    "options": [
+      { "id": "a", "label": "8 octets", "correct": false },
+      { "id": "b", "label": "4 octets", "correct": true },
+      { "id": "c", "label": "2 octets", "correct": false },
+      { "id": "d", "label": "16 octets", "correct": false }
+    ],
+    "explanation": "Sous Windows x64 (LLP64), long reste 4 octets, contrairement à Linux."
+  },
+  {
+    "id": "q24",
+    "text": "Dans un binaire ELF, que peut indiquer la présence de 'pie executable' dans la sortie de file ?",
+    "options": [
+      { "id": "a", "label": "Le binaire est statique", "correct": false },
+      { "id": "b", "label": "Le binaire est position-independent executable (ASLR-friendly)", "correct": true },
+      { "id": "c", "label": "Le binaire est corrompu", "correct": false },
+      { "id": "d", "label": "Le binaire est un script", "correct": false }
+    ],
+    "explanation": "PIE signifie position-independent executable, utile pour ASLR."
+  },
+  {
+    "id": "q25",
+    "text": "Que montre 'objdump -h <binaire>' ?",
+    "options": [
+      { "id": "a", "label": "La table des sections et leurs tailles/offsets", "correct": true },
+      { "id": "b", "label": "Le désassemblage de toutes les fonctions", "correct": false },
+      { "id": "c", "label": "Les symboles de debug uniquement", "correct": false },
+      { "id": "d", "label": "Le listing des imports réseau", "correct": false }
+    ],
+    "explanation": "objdump -h affiche l'en-tête des sections (sections headers) du binaire."
+  },
+  {
+    "id": "q26",
+    "text": "Comment identifier l'offset de la première instruction de la fonction main avec objdump ?",
+    "options": [
+      { "id": "a", "label": "grep '<main>:' sur la sortie d'objdump -d", "correct": true },
+      { "id": "b", "label": "grep 'main()' sur le binaire", "correct": false },
+      { "id": "c", "label": "lire l'entête ELF à la main", "correct": false },
+      { "id": "d", "label": "utiliser hexdump -C sans objdump", "correct": false }
+    ],
+    "explanation": "On peut chercher la ligne '<main>:' dans la sortie d'objdump -d pour obtenir l'offset."
+  },
+  {
+    "id": "q27",
+    "text": "Dans l'exemple, pourquoi objdump ne peut pas désassembler bin3 (ARM) avec objdump local ?",
+    "options": [
+      { "id": "a", "label": "Le binaire est corrompu", "correct": false },
+      { "id": "b", "label": "L'objdump local n'a pas le support de l'architecture ARM, il faut la chaîne croisée", "correct": true },
+      { "id": "c", "label": "Parce que c'est un .class Java", "correct": false },
+      { "id": "d", "label": "Parce que le fichier n'a pas les permissions d'exécution", "correct": false }
+    ],
+    "explanation": "objdump local peut ne pas connaître l'architecture ARM; on utilise aarch64-objdump pour ARM."
+  },
+  {
+    "id": "q28",
+    "text": "Que fait l'instruction 'strncmp' dans l'exemple \"crackme\" ?",
+    "options": [
+      { "id": "a", "label": "Elle copie une chaîne", "correct": false },
+      { "id": "b", "label": "Elle compare deux blocs de mémoire sur n octets", "correct": true },
+      { "id": "c", "label": "Elle calcule la longueur d'une chaîne", "correct": false },
+      { "id": "d", "label": "Elle convertit une chaîne en entier", "correct": false }
+    ],
+    "explanation": "strncmp compare deux chaînes jusqu'à n octets et renvoie 0 si égales."
+  },
+  {
+    "id": "q29",
+    "text": "Dans le crackme montré, argv[1] est retrouvé par quel accès mémoire ?",
+    "options": [
+      { "id": "a", "label": "mov rax, QWORD PTR [rbp-0x20]; add rax, 8; mov rax, [rax]", "correct": true },
+      { "id": "b", "label": "mov rax, [rbp-0x8]; mov rax, [rax]", "correct": false },
+      { "id": "c", "label": "lea rax, [rbp-0x20]", "correct": false },
+      { "id": "d", "label": "call argv[1]", "correct": false }
+    ],
+    "explanation": "L'exemple montre rbp-0x20 contenant argv, puis +8 et déréférencement donne argv[1]."
+  },
+  {
+    "id": "q30",
+    "text": "Quel registre contient argc dans l'exemple de main ?",
+    "options": [
+      { "id": "a", "label": "rdi", "correct": true },
+      { "id": "b", "label": "rsi", "correct": false },
+      { "id": "c", "label": "rdx", "correct": false },
+      { "id": "d", "label": "rax", "correct": false }
+    ],
+    "explanation": "Selon l'ABI Linux x86-64, argc est passé dans rdi."
+  },
+  {
+    "id": "q31",
+    "text": "Quelle commande a été utilisée pour compiler HelloWorld.java en bytecode ?",
+    "options": [
+      { "id": "a", "label": "javap -c HelloWorld.java", "correct": false },
+      { "id": "b", "label": "java HelloWorld.java", "correct": false },
+      { "id": "c", "label": "javac HelloWorld.java", "correct": true },
+      { "id": "d", "label": "jar cf HelloWorld.jar", "correct": false }
+    ],
+    "explanation": "javac compile le .java en .class (bytecode Java)."
+  },
+  {
+    "id": "q32",
+    "text": "Que montre 'javap -c HelloWorld.class' ?",
+    "options": [
+      { "id": "a", "label": "Le code source Java original", "correct": false },
+      { "id": "b", "label": "Le désassemblage du bytecode JVM", "correct": true },
+      { "id": "c", "label": "Le listing des fonctions natives", "correct": false },
+      { "id": "d", "label": "La table des symboles ELF", "correct": false }
+    ],
+    "explanation": "javap -c affiche les instructions bytecode contenues dans le .class."
+  },
+  {
+    "id": "q33",
+    "text": "Quelle est la séquence de registres pour les 6 premiers paramètres d'une fonction selon l'ABI System V AMD64 ?",
+    "options": [
+      { "id": "a", "label": "rdi, rsi, rdx, rcx, r8, r9", "correct": true },
+      { "id": "b", "label": "rcx, rdx, r8, r9, r10, r11", "correct": false },
+      { "id": "c", "label": "rax, rbx, rcx, rdx, rsi, rdi", "correct": false },
+      { "id": "d", "label": "r8, r9, r10, r11, r12, r13", "correct": false }
+    ],
+    "explanation": "System V AMD64 utilise rdi, rsi, rdx, rcx, r8, r9 pour les six premiers arguments."
+  },
+  {
+    "id": "q34",
+    "text": "Pourquoi le compilateur supprime-t-il le test 'if (k < 0)' quand k est unsigned ?",
+    "options": [
+      { "id": "a", "label": "Parce que le compilateur est buggé", "correct": false },
+      { "id": "b", "label": "Parce qu'une variable unsigned ne peut jamais être < 0, test toujours faux, donc optimisation", "correct": true },
+      { "id": "c", "label": "Parce que le test est illégal en C", "correct": false },
+      { "id": "d", "label": "Parce que sizeof(k) est 0", "correct": false }
+    ],
+    "explanation": "Le test est redondant pour unsigned; le compilateur l'optimise et enlève le code inatteignable."
+  },
+  {
+    "id": "q35",
+    "text": "Que signifie 'not stripped' dans la sortie de file d'un exécutable ?",
+    "options": [
+      { "id": "a", "label": "Le binaire contient encore les symboles de debug", "correct": true },
+      { "id": "b", "label": "Le binaire est compressé", "correct": false },
+      { "id": "c", "label": "Le binaire est chiffré", "correct": false },
+      { "id": "d", "label": "Le binaire est en mode lecture seule", "correct": false }
+    ],
+    "explanation": "Not stripped indique que les symboles n'ont pas été supprimés (table des symboles présente)."
+  },
+  {
+    "id": "q36",
+    "text": "Dans l'exemple, quel outil est montré pour modifier un binaire (éditeur hex) ?",
+    "options": [
+      { "id": "a", "label": "gdb", "correct": false },
+      { "id": "b", "label": "bvi", "correct": true },
+      { "id": "c", "label": "objcopy", "correct": false },
+      { "id": "d", "label": "hexedit", "correct": false }
+    ],
+    "explanation": "bvi est cité comme outil pour éditer le binaire (hex editor basé sur vi)."
+  },
+  {
+    "id": "q37",
+    "text": "Quel est le rôle de 'strlen' dans l'exemple de crackme ?",
+    "options": [
+      { "id": "a", "label": "Calculer la longueur d'une chaîne passée en rdi", "correct": true },
+      { "id": "b", "label": "Comparer deux chaînes", "correct": false },
+      { "id": "c", "label": "Allouer de la mémoire", "correct": false },
+      { "id": "d", "label": "Imprimer la chaîne", "correct": false }
+    ],
+    "explanation": "strlen prend l'adresse de la chaîne (rdi) et renvoie sa longueur (eax)."
+  },
+  {
+    "id": "q38",
+    "text": "Comment identifier qu'une fonction exit(2) est appelée juste après un saut conditionnel ?",
+    "options": [
+      { "id": "a", "label": "On verra un call à exit@plt immédiatement après le saut", "correct": true },
+      { "id": "b", "label": "On verra printf juste après le saut", "correct": false },
+      { "id": "c", "label": "On verra mov eax, 2 uniquement", "correct": false },
+      { "id": "d", "label": "On verra un ret avant le call", "correct": false }
+    ],
+    "explanation": "L'exemple montre un call à exit@plt après des tests, indiquant un abort si la condition est vraie."
+  },
+  {
+    "id": "q39",
+    "text": "Quelle information peut-on déduire d'un BuildID présent dans la sortie 'file' ?",
+    "options": [
+      { "id": "a", "label": "L'empreinte SHA-1 unique de construction (utile pour debug symboles)", "correct": true },
+      { "id": "b", "label": "La version du noyau nécessaire", "correct": false },
+      { "id": "c", "label": "Le type d'OS utilisé pour compiler", "correct": false },
+      { "id": "d", "label": "La clé de signature numérique", "correct": false }
+    ],
+    "explanation": "BuildID est un identifiant lié au build (souvent SHA-1) pour retrouver symboles/versions."
+  },
+  {
+    "id": "q40",
+    "text": "Dans l'exemple, pourquoi utilise-t-on 'add rax, 0x8' avant de déréférencer pour obtenir argv[1] ?",
+    "options": [
+      { "id": "a", "label": "Pour déplacer le pointeur vers argv[1] qui est l'élément suivant argv[0]", "correct": true },
+      { "id": "b", "label": "Pour aligner la pile", "correct": false },
+      { "id": "c", "label": "Parce que argv est encodé en little-endian", "correct": false },
+      { "id": "d", "label": "Pour convertir un char* en int", "correct": false }
+    ],
+    "explanation": "argv est un tableau de pointeurs; argv+8 (sur x86-64) pointe vers argv[1]."
+  },
+  {
+    "id": "q41",
+    "text": "Quelle est la bonne façon d'observer les opcodes bruts d'une instruction spécifique dans le binaire ?",
+    "options": [
+      { "id": "a", "label": "Regarder l'offset dans objdump -d puis hexdump -C -s <offset> -n <len>", "correct": true },
+      { "id": "b", "label": "Exécuter le programme et observer stdout", "correct": false },
+      { "id": "c", "label": "Utiliser javap -c", "correct": false },
+      { "id": "d", "label": "Utiliser gcc -S", "correct": false }
+    ],
+    "explanation": "Combiner objdump pour trouver l'offset et hexdump pour voir les octets bruts permet d'inspecter les opcodes."
+  },
+  {
+    "id": "q42",
+    "text": "Quel est le rôle de la compilation croisée (cross-compilation) ?",
+    "options": [
+      { "id": "a", "label": "Compiler pour une architecture différente de celle de la machine hôte", "correct": true },
+      { "id": "b", "label": "Compiler plus rapidement", "correct": false },
+      { "id": "c", "label": "Compiler uniquement du Java", "correct": false },
+      { "id": "d", "label": "Convertir un binaire en script", "correct": false }
+    ],
+    "explanation": "La cross-compilation produit des binaires pour une autre architecture (ex: ARM sur x86)."
+  },
+  {
+    "id": "q43",
+    "text": "Quel format de fichier correspond à 'PE32+' dans la sortie de file ?",
+    "options": [
+      { "id": "a", "label": "Un exécutable Windows 64-bit (PE)", "correct": true },
+      { "id": "b", "label": "Un exécutable Linux 32-bit", "correct": false },
+      { "id": "c", "label": "Un fichier de ressources MacOS", "correct": false },
+      { "id": "d", "label": "Un bytecode JVM", "correct": false }
+    ],
+    "explanation": "PE32+ est le format Portable Executable pour Windows 64-bit."
+  },
+  {
+    "id": "q44",
+    "text": "Dans l'exemple, quelle instruction est utilisée pour préparer l'appel à strlen en mettant l'adresse en rdi ?",
+    "options": [
+      { "id": "a", "label": "mov rdi, rax", "correct": true },
+      { "id": "b", "label": "mov rax, rdi", "correct": false },
+      { "id": "c", "label": "push rdi", "correct": false },
+      { "id": "d", "label": "lea rdi, [rip+offset]", "correct": false }
+    ],
+    "explanation": "L'exemple montre mov rdi, rax avant l'appel à strlen pour passer l'argument."
+  },
+  {
+    "id": "q45",
+    "text": "Quel est l'intérêt d'observer les appels à des fonctions plt (ex: strlen@plt) dans le désassemblage ?",
+    "options": [
+      { "id": "a", "label": "Ils indiquent des appels vers des fonctions externes résolues dynamiquement", "correct": true },
+      { "id": "b", "label": "Ils indiquent des fonctions inline", "correct": false },
+      { "id": "c", "label": "Ils sont toujours des fonctions statiques locales", "correct": false },
+      { "id": "d", "label": "Ils indiquent des appels système uniquement", "correct": false }
+    ],
+    "explanation": "Les entrées en PLT sont des wrappers pour appels de fonctions externes résolues dynamiquement."
+  },
+  {
+    "id": "q46",
+    "text": "Comment retrouver la chaîne littérale contenue dans le binaire à partir d'une adresse calculée (rip+offset) ?",
+    "options": [
+      { "id": "a", "label": "Utiliser hexdump -C -s <adresse> -n <len>", "correct": true },
+      { "id": "b", "label": "Faire gcc -S", "correct": false },
+      { "id": "c", "label": "Faire javap -c", "correct": false },
+      { "id": "d", "label": "Utiliser objdump -h uniquement", "correct": false }
+    ],
+    "explanation": "Une fois l'adresse absolue calculée, hexdump permet d'afficher la zone mémoire dans le binaire."
+  },
+  {
+    "id": "q47",
+    "text": "Quelle est la méthode la plus directe pour valider un crackme en modifiant le binaire sans exécuter le code original ?",
+    "options": [
+      { "id": "a", "label": "Modifier les sauts conditionnels (patcher les bytes du saut) pour forcer le bon chemin", "correct": true },
+      { "id": "b", "label": "Renommer le fichier", "correct": false },
+      { "id": "c", "label": "Recompiler le code source (impossible s'il n'est pas fourni)", "correct": false },
+      { "id": "d", "label": "Exécuter le binaire dans gdb pour lancer exit", "correct": false }
+    ],
+    "explanation": "Patcher les opcodes de saut (par ex. transformer je en jmp) permet de contourner les checks sans exécuter original."
+  },
+  {
+    "id": "q48",
+    "text": "Quel est l'effet d'une instruction 'pop rax' sur la pile ?",
+    "options": [
+      { "id": "a", "label": "Décrémente rsp de 8 et copie [rsp] dans rax", "correct": false },
+      { "id": "b", "label": "Copie [rsp] dans rax puis incrémente rsp de 8", "correct": true },
+      { "id": "c", "label": "Incrémente rsp de 16 et écrase rax", "correct": false },
+      { "id": "d", "label": "Ne touche pas à rsp, seulement à rax", "correct": false }
+    ],
+    "explanation": "pop rax lit la valeur pointée par rsp dans rax puis augmente rsp de 8 sur x86-64."
+  },
+  {
+    "id": "q49",
+    "text": "Dans le désassemblage, que signifie 'mov edi, 0x2' juste avant 'call exit@plt' ?",
+    "options": [
+      { "id": "a", "label": "Préparation du premier argument de exit (status = 2) dans edi", "correct": true },
+      { "id": "b", "label": "Affectation inutile qui sera optimisée", "correct": false },
+      { "id": "c", "label": "Ceci met le code en mode debug", "correct": false },
+      { "id": "d", "label": "Prépare la 2e variable locale", "correct": false }
+    ],
+    "explanation": "Sur Linux x86-64, exit(int) reçoit son argument dans edi (32 bits bas de rdi); mov edi,0x2 prépare le code de sortie."
+  },
+  {
+    "id": "q50",
+    "text": "Quel est le bon workflow pour l'analyse statique d'un petit crackme sans exécuter le binaire ?",
+    "options": [
+      { "id": "a", "label": "Utiliser objdump pour repérer fonctions et sauts, hexdump pour lire littéraux, puis patcher si besoin", "correct": true },
+      { "id": "b", "label": "Exécuter le binaire plusieurs fois avec différentes entrées", "correct": false },
+      { "id": "c", "label": "Renommer en .txt et l'ouvrir dans un éditeur", "correct": false },
+      { "id": "d", "label": "Lancer javap -c sur le binaire", "correct": false }
+    ],
+    "explanation": "L'analyse statique combine objdump pour le code, hexdump pour littéraux, et éditeurs hex (bvi) pour patcher sans exécution."
+  }
+]
